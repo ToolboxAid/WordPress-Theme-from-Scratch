@@ -63,6 +63,7 @@ header .header-image{
 	background-image: url("http://q-bytes-world-wordpress.local/wp-content/uploads/2023/03/head-back.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
+	background-color: red;
 	height: 150px;	
 	border-top: 9px solid red;
 	border-bottom: 9px solid red;
@@ -93,7 +94,6 @@ header .site-tagline {
 	text-align: center;
 	text-shadow: 2px 2px #000;
 }
-
 
 /* Navigation */
 header nav {
@@ -214,7 +214,7 @@ main p{
 }
 
 
-/* Footer styles */
+/* Footer styles 
 footer {
 	background-color: #333;
 	color: #fff;
@@ -225,4 +225,92 @@ footer {
 
 	border-top: 9px solid red;
 
-}
+}*/
+
+/*
+footer {
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+  }
+  
+  .footer-row1 {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+  }
+  
+  .footer-col {
+	flex-basis: 25%;
+  }
+  
+  .footer-col a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	padding: 5px 0;
+  }
+  
+  .footer-col a:hover {
+	color: #ddd;
+  }
+  
+  .footer-row2 img {
+	max-width: 100%;
+  }
+  
+  .footer-row3 {
+	text-align: center;
+	padding: 10px 0;
+  }
+  */
+
+  footer {
+	border-top: 9px solid red;
+	background-color: #333;
+	color: #fff;
+	padding: 30px;
+  }
+  
+  .footer-row {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+  }
+  
+  .footer-col {
+	flex: 1;
+	text-align: center;
+  }
+  
+  .footer-col ul {
+	list-style: none;
+	padding: 0;
+  }
+  
+  .footer-col ul li {
+	margin-bottom: 10px;
+  }
+  
+  .footer-col ul li a {
+	color: #acacac;
+	text-decoration: none;
+  }
+  
+  .footer-col ul li a:hover {
+	color: yellow;
+  }
+  
+  .footer-col img {
+	max-width: 100%;
+	height: auto;
+  }
+  
+  .footer-col p {
+	font-size: 24px;
+	color: #aa0000;
+	margin: 0;
+  }
+  
+  
