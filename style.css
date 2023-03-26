@@ -7,96 +7,134 @@ Version: 1.0
 
 
 /* Global styles */
-*
-{
-	margin: 0; 
+* {
+	margin: 0;
 	padding: 0;
 }
 
+div {
+	width: 100%;
+}
+
 body {
-    font-family: Arial, sans-serif;
+	font-family: Arial, sans-serif;
 }
 
 /* Header styles */
 header {
 	background-color: #333;
 	color: #fff;
-	padding: 20px;
-	display: flex;
+	display: block;
 	justify-content: space-between;
 	align-items: center;
+	width: 100%;
 }
-  
-  header h1 {
-	margin: 0;
+
+/* Social icons styles */
+header .social-icons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-  header.social-icons a {
+
+header .social-icons a {
 	color: #fff;
-	font-size: 1.5rem;
+	text-decoration: none;
+	font-size: 30px;
 	margin-left: 10px;
+	margin-right: 10px;
+	padding-top:10px;
+	padding-bottom: 10px;
+
 }
-  
-  header.social-icons a:first-child {
+header .social-icons a:hover {
+	color: #ccc;
+	text-decoration: none;
+}
+
+header .social-icons a:first-child {
 	margin-left: 0;
 }
-  
-  header.social-icons a:hover {
-	color: #ccc;
-}
-  
-  header nav {
-	margin-top: 10px;
-}
-  
-  header ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: flex;
-}
-  
-  header li {
-	margin-right: 20px;
-}
-  
-  header li:last-child {
-	margin-right: 0;
-}
-  
-  header a {
-	color: #fff;
-	text-decoration: none;
-}
-  
-  header a:hover {
-	text-decoration: underline;
-}
-  
-  /* Social icons styles */
-.social-icons {
-	display: flex;
-}
-  
-.social-icons a {
-	color: #fff;
-	text-decoration: none;
-	margin-right: 10px;
-	font-size: 20px;
-}
-  
-.social-icons a:last-child {
+header .social-icons a:last-child {
 	margin-right: 0;
 }
 
-  /* Main content styles */
-main {
-	padding: 20px;
+/* Header image and title*/
+header .header-image{
+	background-image: url("http://q-bytes-world-wordpress.local/wp-content/uploads/2023/03/head-back.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 150px;	
+	border-top: 9px solid red;
+	border-bottom: 9px solid red;
 }
-  
-  /* Footer styles */
+
+header .site-title {
+	transform: translate(-35%, 25%);
+	font-size: 48px;
+	text-align: center;
+	text-shadow: 2px 2px #000;
+}
+
+/* Navigation */
+header nav {
+	background-color: #222;
+	padding: 10px 150px;
+	border-bottom: 9px solid red;
+}
+
+header nav ul {
+	display: flex;
+	justify-content: center;
+	list-style: none;
+	margin: 0;
+	padding: 0;	
+}
+
+header li {
+	margin-right: 20px;
+}
+
+header li:last-child {
+	margin-right: 0;
+}
+
+header nav a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 30px;
+	margin: 0px 150px;
+}
+
+header nav a:hover {
+	text-decoration: underline;
+}
+
+
+/* Main content styles */
+main {
+	background-color: #fff;
+	display: block;
+	width: 100%;
+	padding: 20px;
+
+	height: 72%;
+}
+
+main p{
+	margin:20px;
+}
+
+
+/* Footer styles */
 footer {
 	background-color: #333;
 	color: #fff;
+	display: block;
+	width: 100%;
 	padding: 20px;
 	text-align: center;
+
+	border-top: 9px solid red;
+
 }

@@ -6,13 +6,21 @@
 </head>
 <body>
 	<header>
-      <h1>Welcome to my page!</h1>
+
+
+	
       <div class="social-icons">
         <a href="#" target="_blank"><i class="fa fa-facebook-f"></i></a>
         <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
         <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
         <a href="#" target="_blank"><i class="fa fa-linkedin-in"></i></a>
       </div>
+
+
+
+      <div class="header-image">
+        <h1 class="site-title">Site-title name -- My Page</h1>
+      </div>	  
       <nav>
         <ul>
           <li><a href="#">Home</a></li>
