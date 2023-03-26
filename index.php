@@ -6,28 +6,33 @@
 </head>
 <body>
 	<header>
+		<div class="header-content">		
+			<div class="social-icons">
+				<a href="#" target="_blank"><i class="fa fa-facebook-f"></i></a>
+				<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+				<a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+				<a href="#" target="_blank"><i class="fa fa-linkedin-in"></i></a>
+			</div> <!-- social-icons -->
+			<div class="header-image">
+				<h1 class="site-title">Site-title name -- My Page</h1>
+				<h2 class="site-tagline">Site-tagline</h2>
+			</div>	<!-- header-image -->
 
-
-	
-      <div class="social-icons">
-        <a href="#" target="_blank"><i class="fa fa-facebook-f"></i></a>
-        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-        <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
-        <a href="#" target="_blank"><i class="fa fa-linkedin-in"></i></a>
-      </div>
-
-
-
-      <div class="header-image">
-        <h1 class="site-title">Site-title name -- My Page</h1>
-      </div>	  
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-      </nav>
+			<nav class="main-menu">
+				<ul>
+					<li><a href="#" class="active">Home</a></li>
+					<li><a href="#">About Us</a></li>
+					<li>
+					<a href="#">Contact Us</a>
+					<ul class="sub-menu">
+						<li><a href="#">General Inquiries</a></li>
+						<li><a href="#">Support</a></li>
+						<li><a href="#">Sales</a></li>
+					</ul>
+					</li>
+				</ul>
+			</nav>
+		</div> <!-- header-content -->
     </header>
     <main>
         <section>
