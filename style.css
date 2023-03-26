@@ -19,7 +19,6 @@ div {
 body {
 	font-family: Arial, sans-serif;
 }
-
 /* Header styles */
 header {
 	background-color: #333;
@@ -95,6 +94,7 @@ header .site-tagline {
 	text-shadow: 2px 2px #000;
 }
 
+
 /* Navigation */
 header nav {
 	background-color: #222;
@@ -138,12 +138,7 @@ header nav a.active {
 	color: #ff0;
   }
 
-
-/*
-Sub Menu
-*/
-
-/* Sub-menu */
+/* Sub menu */
 .sub-menu {
 	transform: translate(-25%, 0%);
 	display: none;
@@ -161,6 +156,7 @@ Sub Menu
 	font-size: 20px;
   }
 
+  
 /* Show sub-menu on hover */
 .main-menu li:hover .sub-menu {
 	display: flex;
@@ -173,17 +169,45 @@ Sub Menu
 	margin-right: 20px;
   }
 
-
-
 /* Main content styles */
 main {
-	background-color: #fff;
-	display: block;
-	width: 100%;
-	padding: 20px;
-
-	height: 70%;
+	background-color: #dcb6b6;
+	padding:35px;
+	min-height: 70%;
 }
+
+main section {
+	display: flex;
+	justify-content: center;
+	align-items:flex-start;
+}
+/* Content column */
+.content-column {
+	width: 50%;
+	background-color: #bebebe;
+}
+
+
+/* Sidebar column */
+.sidebar-column {
+	width: 15%;
+	padding: 20px;
+	margin-bottom: 20px;
+  }
+  
+  /* Widgets */
+  .widget {
+	margin-bottom: 20px;
+	padding: 20px;
+	background-color: #bebebe;
+}
+  
+.widget h3 {
+	margin: 0 0 10px 0;
+  }
+  .widget h4 {
+	margin: 0 0 10px 0;
+  }  
 
 main p{
 	margin:20px;
@@ -196,7 +220,7 @@ footer {
 	color: #fff;
 	display: block;
 	width: 100%;
-	padding: 20px;
+	padding: 25px 0px;
 	text-align: center;
 
 	border-top: 9px solid red;
