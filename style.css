@@ -5,6 +5,8 @@ Author URI: http://toolboxaid.com
 Version: 1.0
 */
 
+
+/* Global styles */
 *
 {
 	margin: 0; 
@@ -12,54 +14,89 @@ Version: 1.0
 }
 
 body {
-	/*
-    margin: 0;
-    padding: 0;
-	*/
     font-family: Arial, sans-serif;
 }
 
+/* Header styles */
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+  
+  header h1 {
+	margin: 0;
+}
+  header.social-icons a {
+	color: #fff;
+	font-size: 1.5rem;
+	margin-left: 10px;
+}
+  
+  header.social-icons a:first-child {
+	margin-left: 0;
+}
+  
+  header.social-icons a:hover {
+	color: #ccc;
+}
+  
+  header nav {
+	margin-top: 10px;
+}
+  
+  header ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+}
+  
+  header li {
+	margin-right: 20px;
+}
+  
+  header li:last-child {
+	margin-right: 0;
+}
+  
+  header a {
+	color: #fff;
+	text-decoration: none;
+}
+  
+  header a:hover {
+	text-decoration: underline;
+}
+  
+  /* Social icons styles */
+.social-icons {
+	display: flex;
+}
+  
+.social-icons a {
+	color: #fff;
+	text-decoration: none;
+	margin-right: 10px;
+	font-size: 20px;
+}
+  
+.social-icons a:last-child {
+	margin-right: 0;
 }
 
-header h1 {
-    margin: 0;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav li {
-    display: inline-block;
-    margin-right: 10px;
-}
-
-nav li:last-child {
-    margin-right: 0;
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-}
-
+  /* Main content styles */
 main {
-    padding: 20px;
+	padding: 20px;
 }
-
-section {
-    margin-bottom: 20px;
-}
-
+  
+  /* Footer styles */
 footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
+	background-color: #333;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
 }

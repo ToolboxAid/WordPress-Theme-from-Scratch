@@ -2,17 +2,24 @@
     <meta charset="UTF-8">
     <title>My Website</title>
     <link rel="stylesheet" href="/wp-content/themes/WordPress-Theme-from-Scritch/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header>
-        <h1>My Website</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+	<header>
+      <h1>Welcome to my page!</h1>
+      <div class="social-icons">
+        <a href="#" target="_blank"><i class="fa fa-facebook-f"></i></a>
+        <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
+        <a href="#" target="_blank"><i class="fa fa-linkedin-in"></i></a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav>
     </header>
     <main>
         <section>
@@ -23,6 +30,6 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 My Website</p>
+        <p>&copy; 2023 My Page. All rights reserved.</p>
     </footer>
 	
