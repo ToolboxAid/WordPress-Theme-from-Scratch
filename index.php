@@ -1,5 +1,6 @@
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
     <title>My Website</title>
     <link rel="stylesheet" href="/wp-content/themes/WordPress-Theme-from-Scritch/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -45,29 +46,30 @@
 		</div>
 		<div class="sidebar-column">
 			<div class="widget">
-			<h3>Sidebar Column</h3>
-			<h4>Widget 1</h4>
+				<h3>Sidebar Widget(s)</h3>
+			</div>
+
+			<div class="widget">
+			<h3>Widget 1</h3>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, diam eget interdum malesuada, mauris est rutrum velit, vel pulvinar augue eros eu justo. Aenean blandit arcu sit amet erat bibendum tempus.</p>
 			</div>
 
 			<div class="widget">
-			<h3>Sidebar Column</h3>
-			<h4>Widget 2</h4>
-			<p>Nulla id lorem ac erat hendrerit finibus. Sed sit amet nulla lectus. Fusce hendrerit dui ut lorem lobortis lobortis. Donec ac ex euismod, faucibus leo vel, ultrices sapien. Donec tincidunt enim at dolor maximus imperdiet.</p>
-			</div>
-	
-			<div class="widget">
-			<h3>Sidebar Column</h3>
-			<h4>Widget 3</h4>
+			<h3>Widget 2</h3>
 			<p>Nulla id lorem ac erat hendrerit finibus. Sed sit amet nulla lectus. Fusce hendrerit dui ut lorem lobortis lobortis. Donec ac ex euismod, faucibus leo vel, ultrices sapien. Donec tincidunt enim at dolor maximus imperdiet.</p>
 			</div>
 
-			<!--	
 			<div class="widget">
-			<h3>Sidebar Column</h3>
-			<h4>Widget 4</h4>
+			<h3>Widget 3</h3>
 			<p>Nulla id lorem ac erat hendrerit finibus. Sed sit amet nulla lectus. Fusce hendrerit dui ut lorem lobortis lobortis. Donec ac ex euismod, faucibus leo vel, ultrices sapien. Donec tincidunt enim at dolor maximus imperdiet.</p>
 			</div>
+
+
+			<div class="widget">
+			<h3>Widget 4</h3>
+			<p>Nulla id lorem ac erat hendrerit finibus. Sed sit amet nulla lectus. Fusce hendrerit dui ut lorem lobortis lobortis. Donec ac ex euismod, faucibus leo vel, ultrices sapien. Donec tincidunt enim at dolor maximus imperdiet.</p>
+
+			<!--		
 			-->
 
 		</section>
@@ -76,41 +78,45 @@
 	<footer>
 		<div class="footer-row">
 			<div class="footer-col">
-			<h4>Site Pages</h4>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">About</a></li>
-				<li><a href="#">Contact</a></li>
-				<li><a href="#">Blog</a></li>
-			</ul>
+				<h4>Site Pages</h4>
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+					<li><a href="#">Blog</a></li>
+				</ul>
 			</div>
+
 			<div class="footer-col">
-			<h4>Products</h4>
-			<ul>
-				<li><a href="#">Product A</a></li>
-				<li><a href="#">Product B</a></li>
-				<li><a href="#">Product C</a></li>
-				<li><a href="#">Product D</a></li>
-			</ul>
+				<h4>Products</h4>
+				<ul>
+					<li><a href="#">Product A</a></li>
+					<li><a href="#">Product B</a></li>
+					<li><a href="#">Product C</a></li>
+					<li><a href="#">Product D</a></li>
+				</ul>
 			</div>
+			
 			<div class="footer-col">
-			<h4>Company</h4>
-			<ul>
-				<li><a href="#">About Us</a></li>
-				<li><a href="#">Jobs</a></li>
-				<li><a href="#">Press</a></li>
-				<li><a href="#">Blog</a></li>
-			</ul>
+				<h4>Company</h4>
+				<ul>
+					<li><a href="#">About Us</a></li>
+					<li><a href="#">Jobs</a></li>
+					<li><a href="#">Press</a></li>
+					<li><a href="#">Blog</a></li>
+				</ul>
 			</div>
+			
 			<div class="footer-col">
-			<h4>Legal</h4>
-			<ul>
-				<li><a href="#">Privacy Policy</a></li>
-				<li><a href="#">Terms and Conditions</a></li>
-				<li><a href="#">Cookie Policy</a></li>
-				<li><a href="#">Disclaimer</a></li>
-			</ul>
+				<h4>Legal</h4>
+				<ul>
+					<li><a href="#">Privacy Policy</a></li>
+					<li><a href="#">Terms and Conditions</a></li>
+					<li><a href="#">Cookie Policy</a></li>
+					<li><a href="#">Disclaimer</a></li>
+				</ul>
 			</div>
+
 		</div>
 		<div class="footer-row">
 			<div class="footer-col">

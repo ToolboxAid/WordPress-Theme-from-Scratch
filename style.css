@@ -3,6 +3,13 @@ Theme Name: WordPress Theme From Scratch
 Author: Mr. Q
 Author URI: http://toolboxaid.com
 Version: 1.0
+
+colors:
+#333333;
+#aa0000;
+#dddddd;
+#eeeeee;
+
 */
 
 
@@ -10,6 +17,7 @@ Version: 1.0
 * {
 	margin: 0;
 	padding: 0;
+	font-size: 100%;
 }
 
 div {
@@ -19,10 +27,12 @@ div {
 body {
 	font-family: Arial, sans-serif;
 }
-/* Header styles */
+
+/* ===================== */
+/* Header section styles */
 header {
-	background-color: #333;
-	color: #fff;
+	background-color: #333333;
+	color: #eeeeee;
 	display: block;
 	justify-content: space-between;
 	align-items: center;
@@ -37,69 +47,72 @@ header .social-icons {
 }
 
 header .social-icons a {
-	color: #fff;
+	color: #eeeeee;
 	text-decoration: none;
 	font-size: 30px;
 	margin-left: 10px;
 	margin-right: 10px;
-	padding-top:10px;
+	padding-top: 10px;
 	padding-bottom: 10px;
-
 }
+
 header .social-icons a:hover {
-	color: #ccc;
+	color: #aa0000;
 	text-decoration: none;
 }
 
 header .social-icons a:first-child {
 	margin-left: 0;
 }
+
 header .social-icons a:last-child {
 	margin-right: 0;
 }
 
 /* Header image and title*/
-header .header-image{
+header .header-image {
 	background-image: url("http://q-bytes-world-wordpress.local/wp-content/uploads/2023/03/head-back.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-color: red;
-	height: 150px;	
-	border-top: 9px solid red;
-	border-bottom: 9px solid red;
+	height: 150px;
+	background-color: #aa0000;
+	border-top: 9px solid #aa0000;
+	border-bottom: 9px solid #aa0000;
 }
 
 /* Header content */
 .header-content {
-	/*
-	padding: 20px;
-	display: flex;
-	*/
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 
-  }
-  
+}
+
 header .site-title {
-	transform: translate(-35%, 25%);
-	font-size: 48px;
-	text-align: center;
-	text-shadow: 2px 2px #000;
+	/*	font-size: 500%;
+	font: 1.125em arial;  18px :  16px = 1.2em*/
+	text-align: left;
+	text-shadow: 3px 3px #33333388;
+	white-space: nowrap;
+	font-size: clamp(10px, 4vw, 48px);
+	margin: 1vw;
 }
 
 header .site-tagline {
-	transform: translate(-35%, 25%);
 	font-size: 28px;
-	text-align: center;
-	text-shadow: 2px 2px #000;
+	text-align: left;
+	text-shadow: 3px 3px #33333388;
+	white-space: nowrap;
+
+	font-size: clamp(8px, 3vw, 36px);
+	margin: 1vw;
 }
 
 /* Navigation */
 header nav {
-	background-color: #222;
+	background-color: #333333;
 	padding: 0px 150px;
-	border-bottom: 9px solid red;
+	border-bottom: 9px solid #aa0000;
 }
 
 header nav ul {
@@ -107,7 +120,7 @@ header nav ul {
 	justify-content: center;
 	list-style: none;
 	margin: 0;
-	padding: 0;	
+	padding: 0;
 }
 
 header li {
@@ -122,195 +135,265 @@ header nav a {
 	display: block;
 	padding: 10px;
 	text-decoration: none;
-	color: #fff;
+	color: #eeeeee;
 	font-size: 25px;
 	margin: 0px 15px;
+
+	white-space: nowrap;
 }
 
 header nav a:hover {
 	text-decoration: none;
-	background-color: #696969;
+	color: #aa0000;
+	background-color: #eeeeee;
 }
 
 /* Active page */
 header nav a.active {
-	background-color: #696969;
-	color: #ff0;
-  }
+	color: #eeeeee;
+	background-color: #aa0000;
+}
 
 /* Sub menu */
 .sub-menu {
 	transform: translate(-25%, 0%);
 	display: none;
 	position: absolute;
-	background-color: #222;
-	border: 9px solid #ff0000;
+	background-color: #333333;
+	border: 9px solid #aa0000;
 	border-top: 0px;
-	box-shadow: 0 2px 2px rgba(0,0,0,0.1);
-  }
-  .sub-menu a {
+	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+
+}
+
+.sub-menu a {
 	display: block;
 	padding: 10px;
 	text-decoration: none;
-	color: #bebebe;
-	font-size: 20px;
-  }
+	color: #eeeeee;
+	font-size: 25;
+	white-space: nowrap;
+}
 
-  
+
 /* Show sub-menu on hover */
 .main-menu li:hover .sub-menu {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  }
+}
 
 /* Horizontal spacing */
-.main-menu > ul > li {
+.main-menu>ul>li {
 	margin-right: 20px;
-  }
+}
 
+/* =================== */
+/* Main section styles */
 /* Main content styles */
 main {
-	background-color: #dcb6b6;
-	padding:35px;
+	background-color: #eeeeee;
+	padding: 35px 0px;
+	width: 100%;
 	min-height: 70%;
 }
 
 main section {
 	display: flex;
 	justify-content: center;
-	align-items:flex-start;
+	align-items: flex-start;
 }
-/* Content column */
+
+main p {
+	padding: 15px;
+	padding-bottom: 0px;
+}
+
+main p:last-child {
+	padding-bottom: 20px;
+}
+
+main h3,
+h4,
+h5,
+h6 {
+	padding-top: 15px;
+	padding-left: 15px;
+	Color:#aa0000;
+}
+
+
+/* Main Content column */
 .content-column {
-	width: 50%;
-	background-color: #bebebe;
+	width: 60%;
+	background-color: #dddddd;
 }
 
 
-/* Sidebar column */
+/* Main Sidebar column */
 .sidebar-column {
-	width: 15%;
-	padding: 20px;
-	margin-bottom: 20px;
-  }
-  
-  /* Widgets */
-  .widget {
-	margin-bottom: 20px;
-	padding: 20px;
-	background-color: #bebebe;
-}
-  
-.widget h3 {
-	margin: 0 0 10px 0;
-  }
-  .widget h4 {
-	margin: 0 0 10px 0;
-  }  
-
-main p{
-	margin:20px;
+	width: 250px;
+	padding: 0px;
+	margin-left: 40px;
 }
 
+/* Widgets */
+.widget {
+	margin-bottom: 20px;
+	background-color: #dddddd;
+}
 
-/* Footer styles 
+/* Widgets */
+.widget:last-child {
+	margin-bottom: 0px;
+}
+
+/* ===================== */
+/* Footer section styles */
 footer {
-	background-color: #333;
-	color: #fff;
-	display: block;
-	width: 100%;
-	padding: 25px 0px;
-	text-align: center;
+	border-top: 9px solid #aa0000;
+	background-color: #333333;
+	color: #eeeeee;
+	padding: 10px;
+}
 
-	border-top: 9px solid red;
-
-}*/
-
-/*
-footer {
-	background-color: #333;
-	color: #fff;
-	padding: 20px;
-  }
-  
-  .footer-row1 {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-  }
-  
-  .footer-col {
-	flex-basis: 25%;
-  }
-  
-  .footer-col a {
-	color: #fff;
-	text-decoration: none;
-	display: block;
-	padding: 5px 0;
-  }
-  
-  .footer-col a:hover {
-	color: #ddd;
-  }
-  
-  .footer-row2 img {
-	max-width: 100%;
-  }
-  
-  .footer-row3 {
-	text-align: center;
-	padding: 10px 0;
-  }
-  */
-
-  footer {
-	border-top: 9px solid red;
-	background-color: #333;
-	color: #fff;
-	padding: 30px;
-  }
-  
-  .footer-row {
+.footer-row {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 20px;
-  }
-  
-  .footer-col {
+}
+
+.footer-col {
 	flex: 1;
-	text-align: center;
-  }
-  
-  .footer-col ul {
+	text-align: left;
+	padding-left: 20px;
+	
+	white-space: nowrap;
+}
+
+div.footer-col:first-child {
+	margin-left: 15%;
+}
+
+div.footer-col:last-child {
+	margin-right: 15%;
+}
+
+.footer-col h4 {
+	text-align: left;
+	padding: 10px;
+	padding-left: 25px;
+}
+
+.footer-col ul {
 	list-style: none;
-	padding: 0;
-  }
-  
-  .footer-col ul li {
+	padding-left: 15px;
+}
+
+.footer-col ul li {
 	margin-bottom: 10px;
-  }
-  
-  .footer-col ul li a {
-	color: #acacac;
+}
+
+.footer-col ul li a {
+	color: #dddddd;
 	text-decoration: none;
-  }
-  
-  .footer-col ul li a:hover {
-	color: yellow;
-  }
-  
-  .footer-col img {
+}
+
+.footer-col ul li a:hover {
+	color: #aa0000;
+}
+
+.footer-col img {
 	max-width: 100%;
 	height: auto;
-  }
-  
-  .footer-col p {
+}
+
+.footer-col p {
 	font-size: 24px;
-	color: #aa0000;
-	margin: 0;
-  }
-  
-  
+	text-align: center;
+}
+
+
+
+
+/* responsive, form small screens, use 13px font size */
+/* tablet */
+@media only screen and (max-width: 1024px) {
+
+	/* CSS that should be displayed if width is equal to or 
+	less than 1024px and larger than 768px goes here */
+	body {
+		color: blue;
+	}
+
+	main {
+		min-height: 0%;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+	}
+
+	main section {
+		align-self: center;
+		display: inline;
+		width: 100%;
+	}
+
+	/* Main Content column */
+	.content-column {
+		width: 90%;
+		margin-left: 50px;
+		margin-right: 50px;
+		align-self: center;
+	}
+
+	/* Main Sidebar column */
+	.sidebar-column {
+		margin-top: 20px;
+		margin-left: auto;
+		margin-right: auto;
+		align-self: center;
+		width: 100%;
+		padding: 0px;
+		width: 250px;
+	}
+
+	/* Widgets */
+	.widget {
+		align-self: center;
+	}
+
+}
+
+/* mobile */
+@media only screen and (max-width: 769px) {
+
+	/* CSS that should be displayed if width is equal to or 
+	less than 991px and larger than 768px goes here */
+	body {
+		color: green;
+	}
+
+	/* footer menu items */
+	.footer-col {
+		flex: 1;
+		text-align: center;
+		padding-left: 0px;
+	}
+
+	.footer-col h4 {
+		text-align: center;
+	}
+
+	.footer-row {
+		display: inline;
+	}
+
+	div.footer-col:last-child,
+	div.footer-col:first-child {
+		margin-left: 0%;
+		margin-right: 0%;
+	}
+
+}
