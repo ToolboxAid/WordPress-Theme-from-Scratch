@@ -329,7 +329,6 @@ div.footer-col:last-child {
 
 	main {
 		min-height: 0%;
-		width: 100%;
 		justify-content: center;
 		align-items: center;
 	}
@@ -354,8 +353,6 @@ div.footer-col:last-child {
 		margin-left: auto;
 		margin-right: auto;
 		align-self: center;
-		width: 100%;
-		padding: 0px;
 		width: 250px;
 	}
 
