@@ -88,10 +88,11 @@ header .header-image {
 
 }
 
-header .site-title {
+header .site-name a {
 	/*	font-size: 500%;
 	font: 1.125em arial;  18px :  16px = 1.2em*/
 	text-align: left;
+	color:#dddddd !important;
 	text-shadow: 3px 3px #33333388;
 	white-space: nowrap;
 	font-size: clamp(10px, 4vw, 48px);
@@ -131,7 +132,41 @@ header li:last-child {
 	margin-right: 0;
 }
 
-header nav a {
+
+/*   */
+/*   */
+/*   */
+/*   */
+/*   */
+
+
+.menu-item a{
+		color: white !important;
+}
+.parent-menu {
+	display: flex;
+	justify-content: space-between;
+
+  }
+  
+  .parent-menu .menu-item {
+	padding: 10px;
+  }
+  
+  .child-menu {
+	display: flex;
+	flex-wrap: wrap;
+  }
+  
+  .child-menu .menu-item {
+	width: 25%;
+	padding: 10px;
+	box-sizing: border-box;
+  }
+
+
+
+  header nav a {
 	display: block;
 	padding: 10px;
 	text-decoration: none;
@@ -149,12 +184,13 @@ header nav a:hover {
 }
 
 /* Active page */
-header nav a.active {
+header nav li.current_page_item{
 	color: #eeeeee;
 	background-color: #aa0000;
 }
 
 /* Sub menu */
+.children,
 .sub-menu {
 	transform: translate(-25%, 0%);
 	display: none;
@@ -166,6 +202,7 @@ header nav a.active {
 
 }
 
+.children a,
 .sub-menu a {
 	display: block;
 	padding: 10px;
@@ -177,6 +214,7 @@ header nav a.active {
 
 
 /* Show sub-menu on hover */
+.main-menu li:hover .children,
 .main-menu li:hover .sub-menu {
 	display: flex;
 	justify-content: center;
@@ -187,6 +225,15 @@ header nav a.active {
 .main-menu>ul>li {
 	margin-right: 20px;
 }
+
+/*   */
+/*   */
+/*   */
+/*   */
+/*   */
+
+
+
 
 /* =================== */
 /* Main section styles */

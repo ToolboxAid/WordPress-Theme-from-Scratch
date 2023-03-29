@@ -1,42 +1,5 @@
-<head>
-    <meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">	
-    <title>My Website</title>
-    <link rel="stylesheet" href="/wp-content/themes/WordPress-Theme-from-Scritch/style.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-	<header>
-		<div class="header-content">		
-			<div class="social-icons">
-				<a href="#" target="_blank"><i class="fa fa-facebook-f"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
-				<a href="#" target="_blank"><i class="fa fa-linkedin-in"></i></a>
-			</div> <!-- social-icons -->
-			<div class="header-image">
-				<h1 class="site-title">Site-title name -- My Page</h1>
-				<h2 class="site-tagline">Site-tagline</h2>
-			</div>	<!-- header-image -->
-
-			<nav class="main-menu">
-				<ul>
-					<li><a href="#" class="active">Home</a></li>
-					<li><a href="#">About Us</a></li>
-					<li>
-					<a href="#">Contact Us</a>
-					<ul class="sub-menu">
-						<li><a href="#">General Inquiries</a></li>
-						<li><a href="#">Support</a></li>
-						<li><a href="#">Sales</a></li>
-					</ul>
-					</li>
-				</ul>
-			</nav>
-		</div> <!-- header-content -->
-    </header>
-    <main>
-        <section>
+		<?php get_header(); ?>
+<!-- container start -->
 
 		<div class="content-column">
     		<h3>Content Column - Title</h3>
@@ -69,67 +32,5 @@
 			<h3>Widget 4</h3>
 			<p>Nulla id lorem ac erat hendrerit finibus. Sed sit amet nulla lectus. Fusce hendrerit dui ut lorem lobortis lobortis. Donec ac ex euismod, faucibus leo vel, ultrices sapien. Donec tincidunt enim at dolor maximus imperdiet.</p>
 
-			<!--		
-			-->
-
-		</section>
-    </main>
-
-	<footer>
-		<div class="footer-row">
-			<div class="footer-col">
-				<h4>Site Pages</h4>
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">About</a></li>
-					<li><a href="#">Contact</a></li>
-					<li><a href="#">Blog</a></li>
-				</ul>
-			</div>
-
-			<div class="footer-col">
-				<h4>Products</h4>
-				<ul>
-					<li><a href="#">Product A</a></li>
-					<li><a href="#">Product B</a></li>
-					<li><a href="#">Product C</a></li>
-					<li><a href="#">Product D</a></li>
-				</ul>
-			</div>
-			
-			<div class="footer-col">
-				<h4>Company</h4>
-				<ul>
-					<li><a href="#">About Us</a></li>
-					<li><a href="#">Jobs</a></li>
-					<li><a href="#">Press</a></li>
-					<li><a href="#">Blog</a></li>
-				</ul>
-			</div>
-			
-			<div class="footer-col">
-				<h4>Legal</h4>
-				<ul>
-					<li><a href="#">Privacy Policy</a></li>
-					<li><a href="#">Terms and Conditions</a></li>
-					<li><a href="#">Cookie Policy</a></li>
-					<li><a href="#">Disclaimer</a></li>
-				</ul>
-			</div>
-
-		</div>
-		<div class="footer-row">
-			<div class="footer-col">
-			<!--<img src="footer-image.jpg" alt="Footer Image">-->
-			<hr/>
-			</div>
-		</div>
-		<div class="footer-row">
-			<div class="footer-col">
-			<p>&copy; 2023 Company Name. All rights reserved.</p>
-			</div>
-		</div>
-	</footer>
-
-</body>
-	
+<!-- container end -->
+			<?php get_footer(); ?>
