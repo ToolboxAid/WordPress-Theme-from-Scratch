@@ -16,10 +16,35 @@
             <div class="header-content">
                 	
                 <div class="social-icons">
-                    <a href="#" target="_blank"><i class="fa fa-facebook-f"></i></a>
-                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                    <a href="#" target="_blank"><i class="fa fa-instagram"></i></a>
-                    <a href="#" target="_blank"><i class="fa fa-linkedin-in"></i></a>
+                    <?php 
+                    $url = get_theme_mod('header_social_icons_facebook_url');
+                    if (!empty($url) ){ ?>
+                    <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-facebook-f"></i></a>
+                    <?php } ?>
+
+                    <?php 
+                    $url = get_theme_mod('header_social_icons_instagram_url');
+                    if (!empty($url) ){ ?>
+                    <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+                    <?php } ?>
+
+                    <?php 
+                    $url = get_theme_mod('header_social_icons_linkedin_url');
+                    if (!empty($url) ){ ?>
+                    <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+                    <?php } ?>
+
+                    <?php 
+                    $url = get_theme_mod('header_social_icons_twitter_url');
+                    if (!empty($url) ){ ?>
+                    <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+                    <?php } ?>
+
+                    <?php 
+                    $url = get_theme_mod('header_social_icons_youtube_url');
+                    if (!empty($url) ){ ?>
+                    <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-youtube"></i></a>
+                    <?php } ?>
                 </div> <!-- social-icons end -->
 
                 <div class="header-image">

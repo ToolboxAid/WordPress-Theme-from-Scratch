@@ -20,6 +20,11 @@ colors:
 	font-size: 100%;
 }
 
+html {
+	margin:0;
+}
+
+
 div {
 	width: 100%;
 }
@@ -31,7 +36,6 @@ body {
 /* ===================== */
 /* Header section styles */
 header {
-	background-color: #333333;
 	color: #eeeeee;
 	display: block;
 	justify-content: space-between;
@@ -47,7 +51,6 @@ header .social-icons {
 }
 
 header .social-icons a {
-	color: #eeeeee;
 	text-decoration: none;
 	font-size: 30px;
 	margin-left: 10px;
@@ -57,7 +60,6 @@ header .social-icons a {
 }
 
 header .social-icons a:hover {
-	color: #aa0000;
 	text-decoration: none;
 }
 
@@ -93,7 +95,7 @@ header .site-name a {
 	font: 1.125em arial;  18px :  16px = 1.2em*/
 	text-align: left;
 	color:#dddddd !important;
-	text-shadow: 3px 3px #33333388;
+	text-shadow: 3px 3px #333333;
 	white-space: nowrap;
 	font-size: clamp(10px, 4vw, 48px);
 	margin: 1vw;
@@ -368,10 +370,12 @@ div.footer-col:last-child {
 /* tablet */
 @media only screen and (max-width: 1024px) {
 
+
 	/* CSS that should be displayed if width is equal to or 
 	less than 1024px and larger than 768px goes here */
 	body {
 		color: blue;
+		margin:0;
 	}
 
 	main {
@@ -407,6 +411,10 @@ div.footer-col:last-child {
 	.widget {
 		align-self: center;
 	}
+
+	html { margin-top: 0px !important; }
+	
+
 
 }
 

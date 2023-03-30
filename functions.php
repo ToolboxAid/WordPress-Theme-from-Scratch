@@ -4,7 +4,16 @@
 require_once('controls-for-header.php');
 require_once('controls-for-test.php');
 
+require_once('ctl-header-social.php');
+
 require get_template_directory() . '/customizer.php';
+$typography_header_title = new PersonalTypography('typography_hdr_title', 'Typography Header Title', 0);
+$customizer_settings1 = new PersonalTypography('personal_typography1', 'Personal Typography 1', 191);
+$customizer_settings2 = new PersonalTypography('personal_typography2', 'Personal Typography 2', 292);
+$customizer_settings3 = new PersonalTypography('personal_typography3', 'Personal Typography 3', 393);
+$customizer_settings4 = new PersonalTypography('personal_typography4', 'Personal Typography 4', 494);
+/**/
+
 
 
 /* Resource */
