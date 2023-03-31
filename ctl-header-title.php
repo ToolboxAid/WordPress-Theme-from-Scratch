@@ -70,7 +70,8 @@ function header_title( $wp_customize ) {
     // Drop Shadow Color
 	$wp_customize->add_setting('header_title_drop_shadow_color', array(
 		'default' => '#aa0000',
-		'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
 	));
 	$wp_customize->add_control( 'header_title_drop_shadow_color', array(
 		'section' => 'header_title',
@@ -118,7 +119,8 @@ function header_title( $wp_customize ) {
     // Color
 	$wp_customize->add_setting('header_title_color', array(
 		'default' => '#eeeeee',
-		'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
 	));
 	$wp_customize->add_control( 'header_title_color', array(
 		'section' => 'header_title',
@@ -146,7 +148,8 @@ function header_title( $wp_customize ) {
     // Background
 	$wp_customize->add_setting('header_title_background', array(
 		'default' => '#aa0000',
-		'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
 	));
 	$wp_customize->add_control( 'header_title_background', array(
 		'section' => 'header_title',
@@ -160,7 +163,8 @@ function header_title( $wp_customize ) {
     // Border color
 	$wp_customize->add_setting('header_title_border_color', array(
 		'default' => '#aa0000',
-		'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
 	));
 	$wp_customize->add_control( 'header_title_border_color', array(
 		'section' => 'header_title',

@@ -7,7 +7,7 @@ function header_menu_sub( $wp_customize ) {
 
 	/* Create section */
 	$wp_customize->add_section('header_menu_sub', array(
-		'title' => __('Header - Sub-Menu', 'qbytesworld_WordPress'),
+		'title' => __('Header - Sub-Menu (incomplete)', 'qbytesworld_WordPress'),
 		'priority' => 163,
 	));
 
@@ -31,6 +31,7 @@ function header_menu_sub( $wp_customize ) {
     /* Button color */
 	$wp_customize->add_setting('header_menu_sub_color', array(
 		'default' => '#004C87',
+		'sanitize_callback' => 'sanitize_hex_color',
 		'transport' => 'refresh',
 	));
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_menu_sub_color_control', array(
@@ -43,6 +44,7 @@ function header_menu_sub( $wp_customize ) {
     /* Button hover color */
 	$wp_customize->add_setting('header_menu_sub_color_hover', array(
 		'default' => '#004C87',
+		'sanitize_callback' => 'sanitize_hex_color',
 		'transport' => 'refresh',
 	));
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_menu_sub_color_hover_control', array(
@@ -55,6 +57,7 @@ function header_menu_sub( $wp_customize ) {
     /* Button hover color */
 	$wp_customize->add_setting('header_menu_sub_color_active', array(
 		'default' => '#004C87',
+		'sanitize_callback' => 'sanitize_hex_color',
 		'transport' => 'refresh',
 	));
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_menu_sub_color_active_control', array(

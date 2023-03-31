@@ -58,6 +58,7 @@ function header_menu( $wp_customize ) {
     /* Button color */
 	$wp_customize->add_setting('header_menu_color', array(
 		'default' => '#dddddd',
+		'sanitize_callback' => 'sanitize_hex_color',
 		'transport' => 'refresh',
 	));
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_menu_color_control', array(
@@ -70,6 +71,7 @@ function header_menu( $wp_customize ) {
     /* Button hover color */
 	$wp_customize->add_setting('header_menu_color_hover', array(
 		'default' => '#ffffff',
+		'sanitize_callback' => 'sanitize_hex_color',
 		'transport' => 'refresh',
 	));
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_menu_color_hover_control', array(
@@ -82,6 +84,7 @@ function header_menu( $wp_customize ) {
     /* Button hover color */
 	$wp_customize->add_setting('header_menu_color_active', array(
 		'default' => '#dddddd',
+		'sanitize_callback' => 'sanitize_hex_color',
 		'transport' => 'refresh',
 	));
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_menu_color_active_control', array(
@@ -93,6 +96,7 @@ function header_menu( $wp_customize ) {
     /* Button hover color */
 	$wp_customize->add_setting('header_menu_background_active', array(
 		'default' => '#aa0000',
+		'sanitize_callback' => 'sanitize_hex_color',
 		'transport' => 'refresh',
 	));
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_menu_background_active_control', array(

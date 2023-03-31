@@ -56,7 +56,8 @@ function header_social_icons( $wp_customize ) {
     // Color
 	$wp_customize->add_setting('header_social_icons_color', array(
 		'default' => '#eeeeee',
-		'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
 	));
 	$wp_customize->add_control( 'header_social_icons_color', array(
 		'section' => 'header_social_icons',
@@ -70,7 +71,8 @@ function header_social_icons( $wp_customize ) {
     // Hover
 	$wp_customize->add_setting('header_social_icons_hover', array(
 		'default' => '#aa0000',
-		'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
 	));
 	$wp_customize->add_control( 'header_social_icons_hover', array(
 		'section' => 'header_social_icons',
@@ -84,7 +86,8 @@ function header_social_icons( $wp_customize ) {
     // Background
 	$wp_customize->add_setting('header_social_icons_background', array(
 		'default' => '#333333',
-		'transport' => 'refresh',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
 	));
 	$wp_customize->add_control( 'header_social_icons_background', array(
 		'section' => 'header_social_icons',

@@ -1,19 +1,31 @@
 <?php
 
-/* Seperate control files for Header, Body, Footer */
+////////////////////////////////////////////////////////////////
+/* Seperate control files for Header, Body, & Footer sections */
+////////////////////////////////////////////////////////////////
 require_once('ctl-header-social.php');
 require_once('ctl-header-title.php');
 require_once('ctl-header-menu.php');
 require_once('ctl-header-menu-sub.php');
 require_once('ctl-header-breadcrumbs.php');
+require_once('ctl-main-content.php');
+require_once('ctl-main-sidebar.php');
+require_once('ctl-footer-nav.php');
+require_once('ctl-footer-line.php');
+require_once('ctl-footer-copyright.php');
 
+
+//////////////
 /* Resource */
+//////////////
 function script_resources() {	
 	wp_enqueue_style('style', get_stylesheet_uri());
 }
 add_action('wp_enqueue_scripts', 'script_resources');
 
+/////////////////
 /* Theme setup */
+/////////////////
 function my_theme_setup()
 {
 	// Navigation Menus
