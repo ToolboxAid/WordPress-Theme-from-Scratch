@@ -20,7 +20,7 @@ function header_social_icons( $wp_customize ) {
      $wp_customize->add_control( 'header_social_icons_size', array(
         'section'    => 'header_social_icons',
         'settings'   => 'header_social_icons_size',
-        'label'      => __( 'Icon Spacing', 'qbytesworld_WordPress' ),
+        'label'      => __( 'Icon Font Size', 'qbytesworld_WordPress' ),
         'description' => __( 'Adjust the size between the social icons.', 'qbytesworld_WordPress' ),        
         'type'       => 'range',
         'priority'   => 10,

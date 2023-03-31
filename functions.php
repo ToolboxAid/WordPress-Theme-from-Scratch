@@ -1,22 +1,11 @@
 <?php
 
 /* Seperate control files for Header, Body, Footer */
-require_once('ctl-header.php');
 require_once('ctl-header-social.php');
 require_once('ctl-header-title.php');
-
-
-
-require_once('controls-for-test.php');
-require get_template_directory() . '/customizer.php';
-$typography_header_title = new PersonalTypography('typography_hdr_title', 'Typography Header Title', 0);
-$customizer_settings1 = new PersonalTypography('personal_typography1', 'Personal Typography 1', 191);
-$customizer_settings2 = new PersonalTypography('personal_typography2', 'Personal Typography 2', 292);
-$customizer_settings3 = new PersonalTypography('personal_typography3', 'Personal Typography 3', 393);
-$customizer_settings4 = new PersonalTypography('personal_typography4', 'Personal Typography 4', 494);
-/**/
-
-
+require_once('ctl-header-menu.php');
+require_once('ctl-header-menu-sub.php');
+require_once('ctl-header-breadcrumbs.php');
 
 /* Resource */
 function script_resources() {	
@@ -44,5 +33,28 @@ function my_theme_setup()
 	add_theme_support('post-formats', array('aside', 'gallery', 'link'));
 }
 add_action('after_setup_theme', 'my_theme_setup');
+
+
+///////////////////////////////////////////
+/* Menu items setup for parent / child ? */
+///////////////////////////////////////////
+
+/* Get top ancestor ID */
+function get_top_ancestor_id() {
+	
+	global $post;	
+	if ($post->post_parent) {
+		$ancestors = array_reverse(get_post_ancestors($post->ID));
+		return $ancestors[0];		
+	}	
+	return $post->ID;	
+}
+
+/* Does page have children? */
+function has_children() {	
+	global $post;	
+	$pages = get_pages('child_of=' . $post->ID);
+	return count($pages);	
+}
 
 ?>

@@ -134,27 +134,21 @@ header li:last-child {
 }
 
 
-/*   */
-/*   */
-/*   */
-/*   */
-/*   */
 
-
-.menu-item a {
-	color: white !important;
-}
+/*   */
+/*   */
 
 .parent-menu {
 	display: flex;
 	justify-content: space-between;
-
 }
 
 .parent-menu .menu-item {
-	padding: 10px;
+	padding: 5px;
 }
 
+/*   */
+/*   */
 .child-menu {
 	display: flex;
 	flex-wrap: wrap;
@@ -166,29 +160,17 @@ header li:last-child {
 	box-sizing: border-box;
 }
 
-
-
 header nav a {
 	display: block;
 	padding: 10px;
 	text-decoration: none;
-	color: #eeeeee;
 	font-size: 25px;
 	margin: 0px 15px;
-
 	white-space: nowrap;
 }
 
 header nav a:hover {
 	text-decoration: none;
-	color: #aa0000;
-	background-color: #eeeeee;
-}
-
-/* Active page */
-header nav li.current_page_item {
-	color: #eeeeee;
-	background-color: #aa0000;
 }
 
 /* Sub menu */

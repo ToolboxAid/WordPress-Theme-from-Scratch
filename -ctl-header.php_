@@ -5,8 +5,6 @@
 /////////////////////////////////////////
 function header_options_body( $wp_customize ) {
 
-    
-
 	/* Create section */
 	$wp_customize->add_section('options_header', array(
 		'title' => __('Options - Header', 'qbytesworld_WordPress'),
@@ -278,7 +276,7 @@ $wp_customize->add_control( 'my_select_control', array(
 		'settings' => 'qbw_btn_hover_color',
 	) ) );
 }
-add_action('customize_register', 'header_options_body');
+//add_action('customize_register', 'header_options_body');
 
 
 ///////////////////////////////////////////////
@@ -329,29 +327,7 @@ function header_options_css() { ?>
 	</style>
 
 <?php }
-add_action('wp_head', 'header_options_css');
+//add_action('wp_head', 'header_options_css');
 
-
-///////////////////////////////////////////
-/* Menu items setup for parent / child ? */
-///////////////////////////////////////////
-
-/* Get top ancestor ID */
-function get_top_ancestor_id() {
-	
-	global $post;	
-	if ($post->post_parent) {
-		$ancestors = array_reverse(get_post_ancestors($post->ID));
-		return $ancestors[0];		
-	}	
-	return $post->ID;	
-}
-
-/* Does page have children? */
-function has_children() {	
-	global $post;	
-	$pages = get_pages('child_of=' . $post->ID);
-	return count($pages);	
-}
 
 ?>
