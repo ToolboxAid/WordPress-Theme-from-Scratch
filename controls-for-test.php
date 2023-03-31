@@ -1,13 +1,5 @@
 <?php
 
-
-
-
-
-
-
-
-
 /*
 $wp_customize->add_setting('header_typography', array(
     'default' => '',

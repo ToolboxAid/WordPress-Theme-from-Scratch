@@ -73,13 +73,9 @@ header .social-icons a:last-child {
 
 /* Header image and title*/
 header .header-image {
-	background-image: url("http://q-bytes-world-wordpress.local/wp-content/uploads/2023/03/head-back.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
-	height: 150px;
-	background-color: #aa0000;
-	border-top: 9px solid #aa0000;
-	border-bottom: 9px solid #aa0000;
+
 }
 
 /* Header content */
@@ -87,27 +83,21 @@ header .header-image {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-
 }
 
 header .site-name a {
 	/*	font-size: 500%;
 	font: 1.125em arial;  18px :  16px = 1.2em*/
 	text-align: left;
-	color:#dddddd !important;
-	text-shadow: 3px 3px #333333;
 	white-space: nowrap;
-	font-size: clamp(10px, 4vw, 48px);
 	margin: 1vw;
 }
 
 header .site-tagline {
 	font-size: 28px;
 	text-align: left;
-	text-shadow: 3px 3px #33333388;
 	white-space: nowrap;
-
-	font-size: clamp(8px, 3vw, 36px);
+	font-size: clamp(4px, 3vw, 24px);
 	margin: 1vw;
 }
 

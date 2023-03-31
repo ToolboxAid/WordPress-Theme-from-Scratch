@@ -21,12 +21,12 @@ function header_social_icons( $wp_customize ) {
         'section'    => 'header_social_icons',
         'settings'   => 'header_social_icons_size',
         'label'      => __( 'Icon Spacing', 'qbytesworld_WordPress' ),
-        'description' => __( 'Adjust the spacing between the social icons.', 'qbytesworld_WordPress' ),        
+        'description' => __( 'Adjust the size between the social icons.', 'qbytesworld_WordPress' ),        
         'type'       => 'range',
         'priority'   => 10,
         'input_attrs' => array(
         'min'    => '20',
-        'max'    => '150',
+        'max'    => '50',
         'step'   => '1',
         ),
      ) );
@@ -42,12 +42,12 @@ function header_social_icons( $wp_customize ) {
         'section'    => 'header_social_icons',
         'settings'   => 'header_social_icons_spacing',
         'label'      => __( 'Icon Spacing', 'qbytesworld_WordPress' ),
-        'description'=> __( 'Adjust the font size of the social icons', 'qbytesworld_WordPress' ),        
+        'description'=> __( 'Adjust the font spacing of the social icons', 'qbytesworld_WordPress' ),        
         'type'       => 'range',
         'priority'   => 10,
         'input_attrs' => array(
         'min'    => '0',
-        'max'    => '50',
+        'max'    => '150',
         'step'   => '1',
         ),
      ) );
@@ -153,7 +153,7 @@ function header_social_icons( $wp_customize ) {
     /* ************************************************************ */
     // Add YouTube url
     $wp_customize->add_setting( 'header_social_icons_youtube_url', array(
-        'default'           => 'https://youtube.com',
+        'default'           => 'https://youtube.com/#',
         'sanitize_callback' => 'sanitize_textarea_field',
     ) );
     $wp_customize->add_control( 'header_social_icons_youtube_url', array(
