@@ -174,7 +174,7 @@ function header_title( $wp_customize ) {
     /* Add control for Header image */
     /*  Add control for Background Image */
     $wp_customize->add_setting('header_title_image', array(
-        'default' => get_template_directory_uri() . '/assets/images/banner-920x210.png',
+        'default' => get_template_directory_uri() . '/assets/images/banner-image.jpg',
         'sanitize_callback' => 'esc_url_raw'
     ));    
     $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'header_title_image', array(
