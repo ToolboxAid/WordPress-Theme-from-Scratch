@@ -78,37 +78,7 @@
                 </div>	<!-- site-nav end -->
 
             </div> <!-- header-content end -->
-<div>
 
-
-<?php
-
-/*
-////////////////////////////////////////////////////////////////////////////////////
-$header_image_url = get_header_image();
-if ($header_image_url) {
-    // Display the header image.
-    echo '<img src="' . esc_url($header_image_url) . '" alt="Header Image">';
-} else {
-    // Display a default header image or alternative content.
-}
-///////////////////////////////////////////////////////////////////////////////////
-$background_image = get_background_image();
-if($background_image) {
-    // The background image exists, so you can use it
-    echo '<img src="' . esc_url($background_image) . '" alt="Background Image">';
-} else {
-    // The background image does not exist
-}
-///////////////////////////////////////////////////////////////////////////////////
-*/
-
-?> <br/> <?php
-echo '*header_title_image*: ';
-echo $image_url = get_theme_mod('header_title_image');
-?> <br/>
-
-</div>
         </header>
         <main>
             <section>

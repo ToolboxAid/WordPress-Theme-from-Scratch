@@ -188,6 +188,26 @@ function header_title( $wp_customize ) {
         'description'=> __( 'Image to display behind the title', 'qbytesworld_WordPress' ),
     )));
     
+    /*
+    ////////////////////////////////////////////////////////////////////////////////////
+    $header_image_url = get_header_image();
+    if ($header_image_url) {
+        // Display the header image.
+        echo '<img src="' . esc_url($header_image_url) . '" alt="Header Image">';
+    } else {
+        // Display a default header image or alternative content.
+    }
+    ///////////////////////////////////////////////////////////////////////////////////
+    $background_image = get_background_image();
+    if($background_image) {
+        // The background image exists, so you can use it
+        echo '<img src="' . esc_url($background_image) . '" alt="Background Image">';
+    } else {
+        // The background image does not exist
+    }
+    ///////////////////////////////////////////////////////////////////////////////////
+    */
+
     /* ************************************************************ */
     // Border size
     $wp_customize->add_setting( 'header_title_border_size', array(
