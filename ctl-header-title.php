@@ -11,6 +11,21 @@ function header_title( $wp_customize ) {
 		'priority' => 161,
 	));
 
+
+    /* ************************************************************ */
+    // Add checkbox to hide title & tagline 
+    $wp_customize->add_setting( 'header_title_hide', array(
+        'default'   => false,
+        'transport' => 'refresh',
+    ) );
+    $wp_customize->add_control( 'header_title_hide', array(
+        'label'    => __( 'Hide Title & Tagline', 'qbytesworld_WordPress' ),
+        'section'  => 'header_title',
+        'settings' => 'header_title_hide',
+        'description' => __( 'Hides the Title and Tagline on header', 'qbytesworld_WordPress' ),        
+        'type'     => 'checkbox',
+    ) );
+    
     /* ************************************************************ */
     // Add font size setting and control
     $wp_customize->add_setting( 'header_title_size', array(
@@ -31,7 +46,6 @@ function header_title( $wp_customize ) {
         ),
      ) );
 
-
     /* ************************************************************ */
     // Add spacing control
     $wp_customize->add_setting( 'header_title_spacing', array(
@@ -51,6 +65,54 @@ function header_title( $wp_customize ) {
         'step'   => '1',
         ),
      ) );
+
+    /* ************************************************************ */
+    // Drop Shadow Color
+	$wp_customize->add_setting('header_title_drop_shadow_color', array(
+		'default' => '#aa0000',
+		'transport' => 'refresh',
+	));
+	$wp_customize->add_control( 'header_title_drop_shadow_color', array(
+		'section' => 'header_title',
+		'settings' => 'header_title_drop_shadow_color',
+		'label' => __('Drop Shadow Color', 'qbytesworld_WordPress'),
+        'description'=> __( 'Set the drop shadow color of the title', 'qbytesworld_WordPress' ),        
+        'type'       => 'color',
+	) );
+
+    /* ************************************************************ */
+    // Add font size setting and control
+    $wp_customize->add_setting( 'header_title_drop_shadow_spacing', array(
+        'default'    => '3',
+        'transport'  => 'refresh',
+     ) );
+     $wp_customize->add_control( 'header_title_drop_shadow_spacing', array(
+        'section'    => 'header_title',
+        'settings'   => 'header_title_drop_shadow_spacing',
+        'label'      => __( 'Drop Shadow spacing', 'qbytesworld_WordPress' ),
+        'description' => __( 'Adjust the drop shadow spacing.', 'qbytesworld_WordPress' ),        
+        'type'       => 'range',
+        'priority'   => 10,
+        'input_attrs' => array(
+        'min'    => '0',
+        'max'    => '15',
+        'step'   => '1',
+        ),
+     ) );
+
+    /* ************************************************************ */
+    // Add checkbox to show tagline in DIV
+    $wp_customize->add_setting( 'header_tagline_location', array(
+        'default'   => false,
+        'transport' => 'refresh',
+    ) );
+    $wp_customize->add_control( 'header_tagline_location', array(
+        'label'    => __( 'Display Tagline in seperate location', 'qbytesworld_WordPress' ),
+        'section'  => 'header_title',
+        'settings' => 'header_tagline_location',
+        'description' => __( 'Shows Tagline below header', 'qbytesworld_WordPress' ),
+        'type'     => 'checkbox',
+    ) );
 
     /* ************************************************************ */
     // Color
@@ -94,7 +156,7 @@ function header_title( $wp_customize ) {
         'type'       => 'color',
 	) );
 
-        /* ************************************************************ */
+    /* ************************************************************ */
     // Border color
 	$wp_customize->add_setting('header_title_border_color', array(
 		'default' => '#aa0000',
@@ -103,11 +165,25 @@ function header_title( $wp_customize ) {
 	$wp_customize->add_control( 'header_title_border_color', array(
 		'section' => 'header_title',
 		'settings' => 'header_title_border_color',
-		'label' => __('Background Color', 'qbytesworld_WordPress'),
-        'description'=> __( 'Set the background color of the title', 'qbytesworld_WordPress' ),
+		'label' => __('Border Color', 'qbytesworld_WordPress'),
+        'description'=> __( 'Set the dorder color of the title', 'qbytesworld_WordPress' ),
         'type'       => 'color',
 	) );
 
+    /* ************************************************************ */
+    /* Add control for Header image */
+    /*  Add control for Background Image */
+    $wp_customize->add_setting('header_title_image', array(
+        'default' => get_template_directory_uri() . '/assets/images/banner-920x210.png',
+        'sanitize_callback' => 'esc_url_raw'
+    ));    
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'header_title_image', array(
+        'section' => 'header_title',
+        'settings' => 'header_title_image',
+        'label' => __('Header Image', 'qbytesworld_WordPress'),
+        'description'=> __( 'Image to display behind the title', 'qbytesworld_WordPress' ),
+    )));
+    
     /* ************************************************************ */
     // Border size
     $wp_customize->add_setting( 'header_title_border_size', array(
@@ -136,46 +212,34 @@ add_action('customize_register', 'header_title');
 ///////////////////////////////////////////////
 function header_title_css() { ?>
 
-
-<?php
-// header .header-image {
-// 	height: 150px;
-// 	background-color: #aa0000;
-// 	border-top: 9px solid #aa0000;
-// 	border-bottom: 9px solid #aa0000;
-// }
-//                   header_title_size
-//
-?>
-
-
 	<style type="text/css">
+
         header .header-image {
 	        background-color: <?php echo get_theme_mod('header_title_background'); ?>;
-            background-image: url('<?php echo get_template_directory_uri();?>/assets/images/banner-920x210.png');
+            background-image: url('<?php echo get_theme_mod('header_title_image'); ?>');
             border-top: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>;
             border-bottom: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>  ;          
-height: 150px;
         }
-
-
         header h1.site-name a {
             color: <?php echo get_theme_mod('header_title_color'); ?>;
-            
             font-size: clamp(5px, 7vw, <?php echo get_theme_mod('header_title_size') ?>px);
             letter-spacing: <?php echo get_theme_mod('header_title_spacing'); ?>px;
 
-/*	text-shadow: 3px 3px #333333;*/
-
-        }
+            color: <?php echo get_theme_mod('header_title_color'); ?>;
+            text-shadow: <?php echo get_theme_mod('header_title_drop_shadow_spacing'); ?>px <?php echo get_theme_mod('header_title_drop_shadow_spacing'); ?>px  <?php echo get_theme_mod('header_title_drop_shadow_color'); ?>;                   
+        }        
         header h1.site-name a:hover {
             color: <?php echo get_theme_mod('header_title_hover'); ?>;
         }        
+        header .site-tagline,
+        header .site-tagline-2{/* tag */
+            color: <?php echo get_theme_mod('header_title_color'); ?>;
+            text-shadow: <?php echo get_theme_mod('header_title_drop_shadow_spacing'); ?>px <?php echo get_theme_mod('header_title_drop_shadow_spacing'); ?>px  <?php echo get_theme_mod('header_title_drop_shadow_color'); ?>;                   
+        }
 
-header {/* tag */
-color: <?php echo get_theme_mod('header_title_color'); ?>;
-/* 	text-shadow: 3px 3px #33333388; */
-}
+        header .site-tagline-2{
+            background-color: <?php echo get_theme_mod('header_title_background'); ?>;
+        }
 
         header .header-image a i {
             font-size:  <?php echo get_theme_mod('header_title_size'); ?>px;
@@ -183,6 +247,20 @@ color: <?php echo get_theme_mod('header_title_color'); ?>;
         header .header-image a:hover {
 	        color: <?php echo get_theme_mod('header_title_hover'); ?>;
         }
+
+        <?php if ( get_theme_mod( 'header_title_hide', false ) ) {?>
+                header h1.site-name a,
+                header h2.site-tagline,
+                header h1.site-name a:hover {
+                    font-size: 0px;
+                    color:  #00000000;
+                }
+        <?php } ?>
+
+        header .site-tagline-2 {
+            border-bottom: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>  ;          
+        }
+
 	</style>
 
 <?php }

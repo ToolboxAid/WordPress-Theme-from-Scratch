@@ -21,7 +21,7 @@ colors:
 }
 
 html {
-	margin:0;
+	margin: 0;
 }
 
 
@@ -75,7 +75,9 @@ header .social-icons a:last-child {
 header .header-image {
 	background-size: cover;
 	background-repeat: no-repeat;
-
+	width: 100%;
+	height: 100%;
+	min-height: 135px;
 }
 
 /* Header content */
@@ -85,23 +87,30 @@ header .header-image {
 	justify-content: center;
 }
 
-header .site-name a {
-	/*	font-size: 500%;
-	font: 1.125em arial;  18px :  16px = 1.2em*/
-	text-align: left;
+header h1.site-name a, 
+header h2.site-tagline,
+header .site-tagline-2,
+header h2.site-tagline-2  {
 	white-space: nowrap;
 	margin: 1vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	margin:0px;
+	padding:10px;
 }
 
-header .site-tagline {
-	font-size: 28px;
-	text-align: left;
-	white-space: nowrap;
-	font-size: clamp(4px, 3vw, 24px);
-	margin: 1vw;
+header h2.site-tagline  {
+	font-size: clamp(4px, 3vw, 20px);
 }
 
+header .site-tagline-2 h2{
+	padding: 10px;
+}
+
+/* ========== */
 /* Navigation */
+/* ========== */
 header nav {
 	background-color: #333333;
 	padding: 0px 150px;
@@ -132,33 +141,34 @@ header li:last-child {
 /*   */
 
 
-.menu-item a{
-		color: white !important;
+.menu-item a {
+	color: white !important;
 }
+
 .parent-menu {
 	display: flex;
 	justify-content: space-between;
 
-  }
-  
-  .parent-menu .menu-item {
+}
+
+.parent-menu .menu-item {
 	padding: 10px;
-  }
-  
-  .child-menu {
+}
+
+.child-menu {
 	display: flex;
 	flex-wrap: wrap;
-  }
-  
-  .child-menu .menu-item {
+}
+
+.child-menu .menu-item {
 	width: 25%;
 	padding: 10px;
 	box-sizing: border-box;
-  }
+}
 
 
 
-  header nav a {
+header nav a {
 	display: block;
 	padding: 10px;
 	text-decoration: none;
@@ -176,7 +186,7 @@ header nav a:hover {
 }
 
 /* Active page */
-header nav li.current_page_item{
+header nav li.current_page_item {
 	color: #eeeeee;
 	background-color: #aa0000;
 }
@@ -258,7 +268,7 @@ h5,
 h6 {
 	padding-top: 15px;
 	padding-left: 15px;
-	Color:#aa0000;
+	Color: #aa0000;
 }
 
 
@@ -307,7 +317,7 @@ footer {
 	flex: 1;
 	text-align: left;
 	padding-left: 20px;
-	
+
 	white-space: nowrap;
 }
 
@@ -365,7 +375,7 @@ div.footer-col:last-child {
 	less than 1024px and larger than 768px goes here */
 	body {
 		color: blue;
-		margin:0;
+		margin: 0;
 	}
 
 	main {
@@ -402,8 +412,10 @@ div.footer-col:last-child {
 		align-self: center;
 	}
 
-	html { margin-top: 0px !important; }
-	
+	html {
+		margin-top: 0px !important;
+	}
+
 
 
 }
