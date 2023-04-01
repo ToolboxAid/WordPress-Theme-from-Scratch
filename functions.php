@@ -5,8 +5,8 @@
 ////////////////////////////////////////////////////////////////
 require_once('ctl-header-social.php');
 require_once('ctl-header-title.php');
-require_once('ctl-header-menu.php');
-require_once('ctl-header-menu-sub.php');
+require_once('ctl-header-nav.php');
+require_once('ctl-header-nav-sub.php');
 require_once('ctl-header-breadcrumbs.php');
 require_once('ctl-main-content.php');
 require_once('ctl-main-sidebar.php');

@@ -2,14 +2,7 @@
 Theme Name: WordPress Theme From Scratch
 Author: Mr. Q
 Author URI: http://toolboxaid.com
-Version: 1.0
-
-colors:
-#333333;
-#aa0000;
-#dddddd;
-#eeeeee;
-
+Version: 1.0.15
 */
 
 /* Global styles */
@@ -21,8 +14,11 @@ colors:
 }
 
 html, body {
-	background-color: pink;	
+
 	font-family: Arial, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;	
 }
 
 div {
@@ -32,7 +28,7 @@ div {
 /* ===================== */
 /* Header section styles */
 header {
-	color: #eeeeee;
+
 	display: block;
 	justify-content: space-between;
 	align-items: center;
@@ -59,16 +55,6 @@ header .social-icons i.fa {
   header .social-icons a:hover {
 	text-decoration: none;
   }
-
-
-
-
-
-
-
-
-
-
 
 /* Header image and title*/
 header .header-image {
@@ -109,12 +95,6 @@ header .site-tagline-2 h2{
 /* ========== */
 /* Navigation */
 /* ========== */
-header nav {
-	background-color: #333333;
-
-	border-bottom: 9px solid #aa0000;
-}
-
 header nav ul {
 	display: flex;
 	justify-content: center;
@@ -129,11 +109,8 @@ header li:last-child {
 	margin-right: 0px;
 }
 
-
-
 /*   */
 /*   */
-
 .parent-menu {
 	display: flex;
 	justify-content: space-between;
@@ -211,29 +188,63 @@ header nav a:hover {
 /* =================== */
 /* Main content styles */
 main {
-	background-color: red;
 	width: 100%;
 	min-height: 57vh;
+background-color: yellow;	 
+	padding-top:35px;
+	padding-bottom:35px;
 }
-/*
 main section {
 	display: flex;
-	justify-content: center;
+	flex-direction: row;
 	align-items: flex-start;
-}
-*/
-section {
-	padding-left:10%;
-	padding-right: 10%;
-	background-color: yellow;
+	margin-left:10%;		
+	margin-right:10%;		
 }
 
-article{
-	margin-top: 35px;;
-	background-color: #cccccc;
-	width: calc(100% - 20%);
-	/* The 20% here is the sum of the left and right padding on the section element */
+/* Main Content column */
+main section .content-column {
+background-color: green;	
 }
+
+/* Main Sidebar column */
+main section .sidebar-column {
+	width: 255px;
+	min-width: 250p5;
+	margin-left:30px;
+}
+
+/* =================== */
+/* =================== */
+main h1, 
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+	padding-top: 15px;
+	padding-left: 15px;
+Color: #880088;
+}
+
+
+
+
+
+/* =================== */
+/* =================== */
+/* =================== */
+/* Widgets */
+.widget {
+	margin-bottom: 30px;
+	background-color: #dddddd;
+}
+
+/* Widgets */
+.widget:last-child {
+	margin-bottom: 0px;
+}
+
 main p {
 	padding: 15px;
 	padding-bottom: 0px;
@@ -243,41 +254,6 @@ main p:last-child {
 	padding-bottom: 20px;
 }
 
-main h1, 
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
-	padding-top: 15px;
-	padding-left: 15px;
-	Color: #aa0000;
-}
-
-
-/* Main Content column */
-.content-column {
-	width: 60%;
-	background-color: #dddddd;
-}
-
-
-/* Main Sidebar column */
-.sidebar-column {
-	width: 250px;
-	margin-left: 40px;
-}
-
-/* Widgets */
-.widget {
-	margin-bottom: 20px;
-	background-color: #dddddd;
-}
-
-/* Widgets */
-.widget:last-child {
-	margin-bottom: 0px;
-}
 
 /* ===================== */
 /* Footer section styles */
@@ -345,47 +321,41 @@ div.footer-col:last-child {
 	text-align: center;
 }
 
-
-
-
-/* responsive, form small screens, use 13px font size */
+/* responsive, form small screens, use 13px font size? */
 /* tablet */
 @media only screen and (max-width: 1024px) {
 
-
-	/* CSS that should be displayed if width is equal to or 
-	less than 1024px and larger than 768px goes here */
+	/* CSS that should be displayed if width 
+	is equal to or less than 1024px and 
+	larger than 720px goes here */
 	body {
-		color: blue;
+		font-size: 85%;
 	}
-
 	main {
 		min-height: 0%;
-		justify-content: center;
-		align-items: center;
 	}
 
-	main section {
-		align-self: center;
+	main section {	
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
 		display: inline;
-		width: 100%;
+		margin:auto;
 	}
 
 	/* Main Content column */
-	.content-column {
+	main section .content-column {
 		width: 90%;
-		margin-left: 50px;
-		margin-right: 50px;
+		margin: auto;
 		align-self: center;
 	}
 
 	/* Main Sidebar column */
-	.sidebar-column {
-		margin-top: 20px;
-		margin-left: auto;
-		margin-right: auto;
+	main section .sidebar-column {
 		align-self: center;
-		width: 250px;
+		margin: auto;	
+		margin-top: 20px;
 	}
 
 	/* Widgets */
@@ -393,22 +363,13 @@ div.footer-col:last-child {
 		align-self: center;
 	}
 
-	html {
-		margin-top: 0px !important;
-	}
-
-
-
 }
 
 /* mobile */
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 720px) {
 
-	/* CSS that should be displayed if width is equal to or 
-	less than 991px and larger than 768px goes here */
-	body {
-		color: green;
-	}
+	/* CSS that should be displayed if width
+	is equal to or less than 720px goes here */
 
 	/* footer menu items */
 	.footer-col {

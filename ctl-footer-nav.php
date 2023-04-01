@@ -37,7 +37,7 @@ function footer_nav( $wp_customize ) {
 		'label' => __('Button Color', 'qbytesworld_WordPress'),
 		'section' => 'footer_nav',
 		'settings' => 'footer_nav_color',
-        'description'=> __( 'Color for Menu Item', 'qbytesworld_WordPress' ),        
+        'description'=> __( 'Color for Nav Item', 'qbytesworld_WordPress' ),        
 	) ) );
 
     /* Button hover color */
@@ -49,7 +49,7 @@ function footer_nav( $wp_customize ) {
 		'label' => __('Button Hover Color', 'qbytesworld_WordPress'),
 		'section' => 'footer_nav',
 		'settings' => 'footer_nav_color_hover',
-        'description'=> __( 'Mouse Menu Item Hover color', 'qbytesworld_WordPress' ),        
+        'description'=> __( 'Mouse Nav Item Hover color', 'qbytesworld_WordPress' ),        
 	) ) );
 
     /* Button hover color */
@@ -61,7 +61,7 @@ function footer_nav( $wp_customize ) {
 		'label' => __('Button Active Color', 'qbytesworld_WordPress'),
 		'section' => 'footer_nav',
 		'settings' => 'footer_nav_color_active',
-        'description'=> __( 'Active Menu Item color', 'qbytesworld_WordPress' ),        
+        'description'=> __( 'Active Nav Item color', 'qbytesworld_WordPress' ),        
 	) ) );
 
 }
