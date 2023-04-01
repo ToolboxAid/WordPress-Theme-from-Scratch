@@ -29,7 +29,7 @@ function header_title( $wp_customize ) {
     /* ************************************************************ */
     // Add font size setting and control
     $wp_customize->add_setting( 'header_title_size', array(
-        'default'    => '36',
+        'default'    => '20',
         'transport'  => 'refresh',
      ) );
      $wp_customize->add_control( 'header_title_size', array(
@@ -38,10 +38,10 @@ function header_title( $wp_customize ) {
         'label'      => __( 'Title Font Size', 'qbytesworld_WordPress' ),
         'description' => __( 'Adjust the font size for title.', 'qbytesworld_WordPress' ),        
         'type'       => 'range',
-        'priority'   => 10,
+        'priority'   => 20,
         'input_attrs' => array(
         'min'    => '5',
-        'max'    => '60',
+        'max'    => '40',
         'step'   => '1',
         ),
      ) );
@@ -61,7 +61,7 @@ function header_title( $wp_customize ) {
         'priority'   => 10,
         'input_attrs' => array(
         'min'    => '0',
-        'max'    => '150',
+        'max'    => '050',
         'step'   => '1',
         ),
      ) );
@@ -96,7 +96,7 @@ function header_title( $wp_customize ) {
         'priority'   => 10,
         'input_attrs' => array(
         'min'    => '0',
-        'max'    => '15',
+        'max'    => '10',
         'step'   => '1',
         ),
      ) );

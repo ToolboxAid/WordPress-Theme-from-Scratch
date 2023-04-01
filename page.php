@@ -29,8 +29,6 @@ if (have_posts()) :
 	else :
 		echo '<p>Sorry, we are too lazy to load any Pages!)</p>';		
 	endif; 
-?>
-<p>'page.php'</p>
-<?php
+
 get_footer();
 ?>

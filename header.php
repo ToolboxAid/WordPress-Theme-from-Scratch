@@ -14,7 +14,7 @@
     <body <?php body_class(); ?>>
         <header>
             <div class="header-content">
-                	
+
                 <div class="social-icons">
                     <?php 
                     $url = get_theme_mod('header_social_icons_facebook_url');

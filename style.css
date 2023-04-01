@@ -12,25 +12,21 @@ colors:
 
 */
 
-
 /* Global styles */
 * {
-	margin: 0;
-	padding: 0;
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
 	font-size: 100%;
 }
 
-html {
-	margin: 0;
+html, body {
+	background-color: pink;	
+	font-family: Arial, sans-serif;
 }
-
 
 div {
 	width: 100%;
-}
-
-body {
-	font-family: Arial, sans-serif;
 }
 
 /* ===================== */
@@ -44,32 +40,35 @@ header {
 }
 
 /* Social icons styles */
-header .social-icons {
+header .social-icons{
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	align-self: center;
+	align-content: center;
+	
 }
-
-header .social-icons a {
+header .social-icons a,
+header .social-icons a i,
+header .social-icons i.fa {
+	width:36px;
+	margin: 4px;
+	text-decoration: none;	
+  }
+  
+  header .social-icons a:hover {
 	text-decoration: none;
-	font-size: 30px;
-	margin-left: 10px;
-	margin-right: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
+  }
 
-header .social-icons a:hover {
-	text-decoration: none;
-}
 
-header .social-icons a:first-child {
-	margin-left: 0;
-}
 
-header .social-icons a:last-child {
-	margin-right: 0;
-}
+
+
+
+
+
+
+
 
 /* Header image and title*/
 header .header-image {
@@ -94,8 +93,7 @@ header h2.site-tagline-2  {
 	white-space: nowrap;
 	display: flex;
 	justify-content: center;
-	align-items: center;	
-	margin:0px;
+	align-items: center;
 	padding:10px;
 }
 
@@ -113,7 +111,7 @@ header .site-tagline-2 h2{
 /* ========== */
 header nav {
 	background-color: #333333;
-	padding: 0px 150px;
+
 	border-bottom: 9px solid #aa0000;
 }
 
@@ -121,8 +119,6 @@ header nav ul {
 	display: flex;
 	justify-content: center;
 	list-style: none;
-	margin: 0;
-	padding: 0;
 }
 
 header li {
@@ -130,7 +126,7 @@ header li {
 }
 
 header li:last-child {
-	margin-right: 0;
+	margin-right: 0px;
 }
 
 
@@ -210,31 +206,34 @@ header nav a:hover {
 	margin-right: 20px;
 }
 
-/*   */
-/*   */
-/*   */
-/*   */
-/*   */
-
-
-
-
 /* =================== */
 /* Main section styles */
+/* =================== */
 /* Main content styles */
 main {
-	background-color: #eeeeee;
-	padding: 35px 0px;
+	background-color: red;
 	width: 100%;
-	min-height: 70%;
+	min-height: 57vh;
 }
-
+/*
 main section {
 	display: flex;
 	justify-content: center;
 	align-items: flex-start;
 }
+*/
+section {
+	padding-left:10%;
+	padding-right: 10%;
+	background-color: yellow;
+}
 
+article{
+	margin-top: 35px;;
+	background-color: #cccccc;
+	width: calc(100% - 20%);
+	/* The 20% here is the sum of the left and right padding on the section element */
+}
 main p {
 	padding: 15px;
 	padding-bottom: 0px;
@@ -244,10 +243,12 @@ main p:last-child {
 	padding-bottom: 20px;
 }
 
+main h1, 
+main h2,
 main h3,
-h4,
-h5,
-h6 {
+main h4,
+main h5,
+main h6 {
 	padding-top: 15px;
 	padding-left: 15px;
 	Color: #aa0000;
@@ -264,7 +265,6 @@ h6 {
 /* Main Sidebar column */
 .sidebar-column {
 	width: 250px;
-	padding: 0px;
 	margin-left: 40px;
 }
 
@@ -357,7 +357,6 @@ div.footer-col:last-child {
 	less than 1024px and larger than 768px goes here */
 	body {
 		color: blue;
-		margin: 0;
 	}
 
 	main {
