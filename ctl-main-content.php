@@ -64,18 +64,6 @@ function main_content( $wp_customize ) {
         'description'=> __( 'Mouse Hover for Link & button color', 'qbytesworld_WordPress' ),        
 	) ) );
 
-    /* Main background color */
-	$wp_customize->add_setting('main_content_background', array(
-		'default' => '#eeeeee',
-		'transport' => 'refresh',
-	));
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_content_background_control', array(
-		'label' => __('Main section Background Color', 'qbytesworld_WordPress'),
-		'section' => 'main_content',
-		'settings' => 'main_content_background',
-        'description'=> __( 'Set the Main Content area background color', 'qbytesworld_WordPress' ),        
-	) ) );
-
     /* Button hover color */
 	$wp_customize->add_setting('main_article_background', array(
 		'default' => '#cccccc',
@@ -87,6 +75,31 @@ function main_content( $wp_customize ) {
 		'settings' => 'main_article_background',
         'description'=> __( 'Set the Article & Widget background color', 'qbytesworld_WordPress' ),        
 	) ) );
+
+	/* Main background color */
+	$wp_customize->add_setting('main_content_background_top', array(
+		'default' => '#888888',
+		'transport' => 'refresh',
+	));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_content_background_top_control', array(
+		'label' => __('Main section Background Color Top', 'qbytesworld_WordPress'),
+		'section' => 'main_content',
+		'settings' => 'main_content_background_top',
+		'description'=> __( 'Set the Main Content area background color - top', 'qbytesworld_WordPress' ),        
+	) ) );
+
+	/* Main background color2 */
+	$wp_customize->add_setting('main_content_background_bottom', array(
+		'default' => '#eeeeee',
+		'transport' => 'refresh',
+	));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_content_background_bottom_control', array(
+		'label' => __('Main section Background Color Bottom', 'qbytesworld_WordPress'),
+		'section' => 'main_content',
+		'settings' => 'main_content_background_bottom',
+        'description'=> __( 'Set the Main Content area background color-bottom', 'qbytesworld_WordPress' ),        
+	) ) );
+
 
 }
 add_action('customize_register', 'main_content');
@@ -116,7 +129,7 @@ function main_content_css() { ?>
 			color: <?php echo get_theme_mod('main_content_link_color_hover'); ?>;
 		}
 		main {
-			background-color: <?php echo get_theme_mod('main_content_background'); ?>; 
+			background: linear-gradient(to bottom, <?php echo get_theme_mod('main_content_background_top'); ?>, <?php echo get_theme_mod('main_content_background_bottom'); ?>); height: 100%;"			
 		}
 		main article,
 		div.sidebar-column .widget{

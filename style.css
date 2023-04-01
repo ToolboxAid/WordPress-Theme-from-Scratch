@@ -10,7 +10,6 @@ Version: 1.0.15
 	margin: 0px;
 	padding: 0px;
 	border: 0px;
-	font-size: 100%;
 }
 
 html, body {
@@ -63,8 +62,7 @@ header .social-icons i.fa {
 header .header-image {
 	background-size: cover;
 	background-repeat: no-repeat;
-	width: 100%;
-	height: 100%;
+
 	min-height: 135px;
 }
 
@@ -83,7 +81,7 @@ header h2.site-tagline-2  {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	padding:10px;
+	padding-top:10px;
 }
 
 header h2.site-tagline  {
@@ -104,15 +102,7 @@ header nav ul {
 	list-style: none;
 }
 
-header li {
-	margin-right: 0 20px;
-}
 
-header li:last-child {
-	margin-right: 0px;
-}
-
-/*   */
 /*   */
 .parent-menu {
 	display: flex;
@@ -209,7 +199,6 @@ main section .sidebar-column {
 	max-width: 220px;
 	margin-left: 30px;
 }
-
 
 /* =================== */
 /* =================== */
