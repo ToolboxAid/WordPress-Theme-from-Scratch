@@ -47,21 +47,21 @@
 			</div>
 			<div class="footer-row">
 				<div class="footer-col">
-					<div style="display: flex; align-items: center;">
-						<hr style="height: 3px; width: 50%; background-color: yellow;">
-						<i class="fa fa-star" style="margin: 0 10px; font-size:55px; color: yellow;"></i>
-						<hr style="height: 3px; width: 50%; background-color: yellow;">
+					<div  class="star">
+						<hr/>
+						<i class="fa fa-star"></i>
+						<hr/>
 					</div>
 				</div>
 			</div>
 			<div class="footer-row">
 				<div class="footer-col">
-				<p>&copy;  
-				<?php
-				echo get_theme_mod('footer_copyright_established');
-				$year = date('Y');
-				echo " - $year ";
-				bloginfo('name'); ?>. All rights reserved.</p>
+					<p>&copy;  
+					<?php
+					echo get_theme_mod('footer_copyright_established');
+					$year = date('Y');
+					echo " - $year ";
+					bloginfo('name'); ?>. All rights reserved.</p>
 				</div>
 			</div>
 		</footer>
