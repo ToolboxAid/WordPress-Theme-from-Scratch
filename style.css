@@ -25,6 +25,11 @@ div {
 	width: 100%;
 }
 
+a,
+a:hover{
+	text-decoration: none;
+}
+
 /* ===================== */
 /* Header section styles */
 header {
@@ -35,6 +40,7 @@ header {
 	width: 100%;
 }
 
+
 /* Social icons styles */
 header .social-icons{
 	display: flex;
@@ -44,18 +50,15 @@ header .social-icons{
 	align-content: center;
 	
 }
+
+
 header .social-icons a,
 header .social-icons a i,
 header .social-icons i.fa {
 	width:36px;
 	margin: 4px;
-	text-decoration: none;	
   }
   
-  header .social-icons a:hover {
-	text-decoration: none;
-  }
-
 /* Header image and title*/
 header .header-image {
 	background-size: cover;
@@ -84,7 +87,7 @@ header h2.site-tagline-2  {
 }
 
 header h2.site-tagline  {
-	font-size: clamp(4px, 3vw, 20px);
+	font-size: clamp(4px, 3vw, 26px);
 }
 
 header .site-tagline-2 h2{
@@ -136,14 +139,8 @@ header li:last-child {
 header nav a {
 	display: block;
 	padding: 10px;
-	text-decoration: none;
-	font-size: 25px;
 	margin: 0px 15px;
 	white-space: nowrap;
-}
-
-header nav a:hover {
-	text-decoration: none;
 }
 
 /* Sub menu */
@@ -163,7 +160,6 @@ header nav a:hover {
 .sub-menu a {
 	display: block;
 	padding: 10px;
-	text-decoration: none;
 	color: #eeeeee;
 	font-size: 25;
 	white-space: nowrap;
@@ -190,7 +186,6 @@ header nav a:hover {
 main {
 	width: 100%;
 	min-height: 57vh;
-background-color: yellow;	 
 	padding-top:35px;
 	padding-bottom:35px;
 }
@@ -204,31 +199,16 @@ main section {
 
 /* Main Content column */
 main section .content-column {
-background-color: green;	
+	padding: 20px;
 }
 
 /* Main Sidebar column */
 main section .sidebar-column {
-	width: 255px;
-	min-width: 250p5;
-	margin-left:30px;
+	width: 220px;
+	min-width: 220px;
+	max-width: 220px;
+	margin-left: 30px;
 }
-
-/* =================== */
-/* =================== */
-main h1, 
-main h2,
-main h3,
-main h4,
-main h5,
-main h6 {
-	padding-top: 15px;
-	padding-left: 15px;
-Color: #880088;
-}
-
-
-
 
 
 /* =================== */
@@ -236,8 +216,8 @@ Color: #880088;
 /* =================== */
 /* Widgets */
 .widget {
-	margin-bottom: 30px;
-	background-color: #dddddd;
+	margin-bottom: 20px;
+	padding:25px;
 }
 
 /* Widgets */
@@ -258,7 +238,6 @@ main p:last-child {
 /* ===================== */
 /* Footer section styles */
 footer {
-	border-top: 9px solid #aa0000;
 	background-color: #333333;
 	color: #eeeeee;
 	padding: 10px;
@@ -275,7 +254,6 @@ footer {
 	flex: 1;
 	text-align: left;
 	padding-left: 20px;
-
 	white-space: nowrap;
 }
 
@@ -304,7 +282,6 @@ div.footer-col:last-child {
 
 .footer-col ul li a {
 	color: #dddddd;
-	text-decoration: none;
 }
 
 .footer-col ul li a:hover {

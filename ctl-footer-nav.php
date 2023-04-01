@@ -74,6 +74,10 @@ add_action('customize_register', 'footer_nav');
 function footer_nav_css() { ?>
 
 	<style type="text/css">
+		footer {
+			background-color: <?php echo get_theme_mod('header_nav_background'); ?>;
+            border-top: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>  ;   
+		}
 
 	</style>
 

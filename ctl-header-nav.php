@@ -149,9 +149,8 @@ function header_nav_css() { ?>
 			background-color: <?php echo get_theme_mod('header_nav_background_active'); ?>;
 		}
 		header nav li.current_page_item a {		
-			color: <?php echo get_theme_mod('header_nav_color_active'); ?> !important;
+			color: <?php echo get_theme_mod('header_nav_color_active'); ?>;
 		}
-
 		header nav {
 			background-color: <?php echo get_theme_mod('header_nav_background'); ?>;
             border-bottom: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>  ;   
