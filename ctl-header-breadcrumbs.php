@@ -4,8 +4,10 @@ function get_header_breadcrumbs() {
 	if ( get_theme_mod( 'mytheme_breadcrumbs_toggle', false ) )
 	{
 		if ( !is_home() && !is_front_page() ) {
+			echo '<div class="center-breadcrumb clear-formatting">';	
 			echo '<nav aria-label="breadcrumb"><ol class="breadcrumb">';
 			echo '<li class="breadcrumb-item"><a href="'.home_url('/').'">'.__('Home').'</a></li>';
+			echo '<li class="breadcrumb-item"> > </li>';
 			if ( is_category() || is_single() ) {
 				echo '<li class="breadcrumb-item">';
 				the_category(' </li><li class="breadcrumb-item"> ');
@@ -21,9 +23,10 @@ function get_header_breadcrumbs() {
 			}
 			echo '</ol></nav>';
 		}
+echo '</div>';		
 	}
 }
-add_action( 'wp_head', 'get_header_breadcrumbs' );
+//add_action( 'wp_head', 'get_header_breadcrumbs' );
 
 
 /////////////////////////////////////////
@@ -117,7 +120,28 @@ add_action('customize_register', 'header_breadcrumbs');
 function header_breadcrumbs_css() { ?>
 
 	<style type="text/css">
+		/* breadcrumbs */
+		header div.clear-formatting * {
+		all: unset;
+		margin: 0;
+		padding: 0;
+		font-size: inherit;
+		font-family: inherit;		
+		}
 
+		header div.center-breadcrumb{
+		background-color: #444444;	
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 5px 0;
+		}
+
+		header div.center-breadcrumb nav ol li{
+		color: #ffffff;	
+		padding: 5px;
+		font-size:18px;
+		}
 	</style>
 
 <?php }
