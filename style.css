@@ -210,13 +210,13 @@ main section .sidebar-column {
 /* =================== */
 /* =================== */
 /* Widgets */
-.widget {
+main .widget {
 	margin-bottom: 20px;
 	padding: 25px;
 }
 
 /* Widgets */
-.widget:last-child {
+main .widget:last-child {
 	margin-bottom: 0px;
 }
 
@@ -283,6 +283,7 @@ footer .footer-col p {
 	text-align: center;
 }
 
+/* Star */
 footer .star {
 	margin: 0px;
 	display: flex;
