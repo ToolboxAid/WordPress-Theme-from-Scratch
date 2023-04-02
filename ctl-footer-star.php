@@ -88,7 +88,6 @@ function footer_star( $wp_customize ) {
         ),
      ) );
 
-
 }
 add_action('customize_register', 'footer_star');
 
@@ -102,20 +101,14 @@ function footer_star_css() { ?>
 		footer .star{
 			font-size: <?php echo get_theme_mod('footer_star_font_size'); ?>px;
 			color: <?php echo get_theme_mod('footer_star_color'); ?>;
-
-			margin: 0px;
-			display: flex; 
-			align-items: center;	
 		}
 		footer .star i{
 			padding-left: <?php echo get_theme_mod('footer_star_offset'); ?>px;
-			padding-right: <?php echo get_theme_mod('footer_star_offset'); ?>px;		
+			padding-right: <?php echo get_theme_mod('footer_star_offset'); ?>px;
 		}		
 		footer .star hr{
 			height: <?php echo get_theme_mod('footer_star_hr_size'); ?>px;
-			background-color: <?php echo get_theme_mod('footer_star_color'); ?>;;
-
-			width: 50%; 
+			background-color: <?php echo get_theme_mod('footer_star_color'); ?>;
 		}
 	</style>
 

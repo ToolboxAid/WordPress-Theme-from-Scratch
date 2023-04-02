@@ -100,6 +100,56 @@ function main_content( $wp_customize ) {
         'description'=> __( 'Set the Main Content area background color-bottom', 'qbytesworld_WordPress' ),        
 	) ) );
 
+    /* Button hover color */
+	$wp_customize->add_setting('main_article_dropshadow', array(
+		'default' => '#aa0001',
+		'transport' => 'refresh',
+	));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_article_dropshadow_control', array(
+		'label' => __('Article & Widget Drop Shadow Color', 'qbytesworld_WordPress'),
+		'section' => 'main_content',
+		'settings' => 'main_article_dropshadow',
+        'description'=> __( 'Set the Article & Widget background color', 'qbytesworld_WordPress' ),        
+	) ) );
+
+	// Add dropshadow size
+	$wp_customize->add_setting( 'main_article_dropshadow_size', array(
+		'default'    => '3',
+		'transport'  => 'refresh',
+		) );
+	$wp_customize->add_control( 'main_article_dropshadow_size_control', array(
+		'section'    => 'main_content',
+		'settings'   => 'main_article_dropshadow_size',
+		'label'      => __( 'Drop Shadow size', 'qbytesworld_WordPress' ),
+		'description'=> __( 'Adjust the dropshadow size', 'qbytesworld_WordPress' ),        
+		'type'       => 'range',
+		'priority'   => 10,
+		'input_attrs' => array(
+		'min'    => '0',
+		'max'    => '40',
+		'step'   => '1',
+		),
+		) );
+
+	// Add dropshadow offset
+	$wp_customize->add_setting( 'main_content_dropshadow_offset', array(
+		'default'    => '10',
+		'transport'  => 'refresh',
+		) );
+	$wp_customize->add_control( 'main_content_dropshadow_offset_control', array(
+		'section'    => 'main_content',
+		'settings'   => 'main_content_dropshadow_offset',
+		'label'      => __( 'Drop Shadow offset', 'qbytesworld_WordPress' ),
+		'description'=> __( 'Adjust the dropshadow offset', 'qbytesworld_WordPress' ),        
+		'type'       => 'range',
+		'priority'   => 10,
+		'input_attrs' => array(
+		'min'    => '0',
+		'max'    => '20',
+		'step'   => '1',
+		),
+		) );
+
 
 }
 add_action('customize_register', 'main_content');
@@ -136,9 +186,11 @@ function main_content_css() { ?>
 			background-color: <?php echo get_theme_mod('main_article_background'); ?>; 
 		}
 
-/* Main Content column */
-main section .content-column {
-}		
+		/* Main Content column */
+		main .sidebar-column .widget,
+		main section .content-column {
+			box-shadow: <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_article_dropshadow_size'); ?>px  <?php echo get_theme_mod('main_article_dropshadow');?>;
+		}	
 
 	</style>
 

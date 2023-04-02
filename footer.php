@@ -4,7 +4,7 @@
 
 		<footer>
 			<div class="footer-row">
-				<div class="footer-col">
+				<div class="footer-col menu">
 					<h4>Site Pages</h4>
 					<ul>
 						<li><a href="#">Home</a></li>
