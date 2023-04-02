@@ -1,5 +1,31 @@
 <?php
 
+function get_header_breadcrumbs() {
+	if ( get_theme_mod( 'mytheme_breadcrumbs_toggle', false ) )
+	{
+		if ( !is_home() && !is_front_page() ) {
+			echo '<nav aria-label="breadcrumb"><ol class="breadcrumb">';
+			echo '<li class="breadcrumb-item"><a href="'.home_url('/').'">'.__('Home').'</a></li>';
+			if ( is_category() || is_single() ) {
+				echo '<li class="breadcrumb-item">';
+				the_category(' </li><li class="breadcrumb-item"> ');
+				if ( is_single() ) {
+					echo '</li><li class="breadcrumb-item">';
+					the_title();
+					echo '</li>';
+				}
+			} elseif ( is_page() ) {
+				echo '<li class="breadcrumb-item">';
+				echo the_title();
+				echo '</li>';
+			}
+			echo '</ol></nav>';
+		}
+	}
+}
+add_action( 'wp_head', 'get_header_breadcrumbs' );
+
+
 /////////////////////////////////////////
 /* Customize Appearance Options header */
 /////////////////////////////////////////
@@ -13,6 +39,23 @@ function header_breadcrumbs( $wp_customize ) {
 
     /* ************************************************************ */
     /* ************************************************************ */
+    /* ************************************************************ */
+
+    // Add setting for breadcrumbs
+    $wp_customize->add_setting( 'mytheme_breadcrumbs_toggle', array(
+        'default'    => true,
+        'transport'  => 'refresh',
+     ) );
+     
+    // Add control for breadcrumbs
+    $wp_customize->add_control( 'mytheme_breadcrumbs_toggle', array(
+        'section'    => 'header_breadcrumbs',
+        'settings'   => 'mytheme_breadcrumbs_toggle',
+        'label'      => __( 'Display Breadcrumbs', 'mytheme' ),
+        'description' => __( 'Toggle breadcrumbs on or off.', 'mytheme' ),
+        'type'       => 'checkbox',
+     ) );
+
     /* ************************************************************ */
 
     // Add checkbox to hide title & tagline 

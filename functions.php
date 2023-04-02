@@ -14,7 +14,6 @@ require_once('ctl-footer-nav.php');
 require_once('ctl-footer-star.php');
 require_once('ctl-footer-copyright.php');
 
-
 //////////////
 /* Resource */
 //////////////
@@ -46,27 +45,9 @@ function my_theme_setup()
 }
 add_action('after_setup_theme', 'my_theme_setup');
 
+/* ******************************************************************************************* */
+/* ******************************************************************************************* */
+/* ******************************************************************************************* */
 
-///////////////////////////////////////////
-/* Menu items setup for parent / child ? */
-///////////////////////////////////////////
-
-/* Get top ancestor ID */
-function get_top_ancestor_id() {
-	
-	global $post;	
-	if ($post->post_parent) {
-		$ancestors = array_reverse(get_post_ancestors($post->ID));
-		return $ancestors[0];		
-	}	
-	return $post->ID;	
-}
-
-/* Does page have children? */
-function has_children() {	
-	global $post;	
-	$pages = get_pages('child_of=' . $post->ID);
-	return count($pages);	
-}
 
 ?>

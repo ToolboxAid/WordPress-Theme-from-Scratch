@@ -77,6 +77,10 @@
                     </nav>
                 </div>	<!-- site-nav end -->
 
+                <?php if (function_exists('get_header_breadcrumbs')) {
+                        get_header_breadcrumbs();
+                    } ?>
+
             </div> <!-- header-content end -->
 
         </header>
