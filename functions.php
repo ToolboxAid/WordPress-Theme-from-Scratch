@@ -8,7 +8,7 @@ function debug_location($location) {
     global $debug_page; // Use the global variable inside the function
 
     if ($debug_page) { // Only display the location if debug_page is true
-		echo '<div style="position: absolute; left: 50px; top: 260px; color: Yellow; font-weight: bold; font-style: italic; font-size: 26px;">' . $location . '</div>';
+		echo '<div style="position: absolute; left: 0px; top: 280px; color: Yellow; font-weight: bold; font-style: italic; font-size: 26px;">' . $location . '</div>';
     }
 }
 
@@ -56,6 +56,18 @@ function my_theme_setup()
 	add_theme_support('post-formats', array('aside', 'gallery', 'link'));
 }
 add_action('after_setup_theme', 'my_theme_setup');
+
+
+
+/////////////////////////////////////////
+/* Customize excerpt word count length */
+/////////////////////////////////////////
+function custom_excerpt_length() {
+	return 50;
+}
+
+add_filter('excerpt_length', 'custom_excerpt_length');
+
 
 /* ******************************************************************************************* */
 /* ******************************************************************************************* */

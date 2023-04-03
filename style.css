@@ -11,15 +11,12 @@ Version: 1.0.15
 	padding: 0px;
 	border: 0px;
 	list-style: none;
+	font-weight: normal;
 }
 
 html,
 body {
-
 	font-family: Arial, sans-serif;
-	margin: 0px;
-	padding: 0px;
-	border: 0px;
 }
 
 div {
@@ -176,13 +173,6 @@ main section {
 	margin-right: 10%;
 }
 
-/* Main Content column */
-main .sidebar-column .widget,
-main section .content-column {
-	padding: 20px;
-}
-
-
 /* Main Sidebar column */
 main section .sidebar-column {
 	width: 220px;
@@ -191,13 +181,17 @@ main section .sidebar-column {
 	margin-left: 30px;
 }
 
+main section div.content-column article{
+	padding: 20px;
+	margin-bottom:30px;
+}
 /* =================== */
 /* =================== */
 /* =================== */
 /* Widgets */
 main .widget {
 	margin-bottom: 20px;
-	padding: 25px;
+	padding: 20px;
 }
 
 /* Widgets */

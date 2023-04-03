@@ -188,7 +188,7 @@ function main_content_css() { ?>
 
 		/* Main Content column */
 		main .sidebar-column .widget,
-		main section .content-column {
+		main section div article {
 			box-shadow: <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_article_dropshadow_size'); ?>px  <?php echo get_theme_mod('main_article_dropshadow');?>;
 		}	
 
