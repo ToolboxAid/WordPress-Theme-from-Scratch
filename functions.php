@@ -1,5 +1,17 @@
 <?php
 
+// Define a global boolean variable
+global $debug_page;
+$debug_page = true;
+
+function debug_location($location) {
+    global $debug_page; // Use the global variable inside the function
+
+    if ($debug_page) { // Only display the location if debug_page is true
+        echo '<div style="color: Blue; font-weight: bold; font-style: italic; font-size: 26px;">' . $location . '</div><br/>';
+    }
+}
+
 ////////////////////////////////////////////////////////////////
 /* Seperate control files for Header, Body, & Footer sections */
 ////////////////////////////////////////////////////////////////

@@ -3,11 +3,10 @@
 	get_header();
 	?>
 
-	<article class="content-column post page">		
-
+	<article class="content-column post page">	
 	<?php
 
-debug_location("Page");
+debug_location("Single");
 
 if ( has_children() OR $post->post_parent > 0 ) { ?>			
 	<nav class="site-nav children-links clearfix">
@@ -27,7 +26,18 @@ if ( has_children() OR $post->post_parent > 0 ) { ?>
 <?php } 
 
 	if (have_posts()) :
-		while (have_posts()) : the_post(); ?>		
+		while (have_posts()) : the_post();		
+
+			if (get_the_author_meta('display_name')) {
+				$display_name = get_the_author_meta('display_name');
+				echo $display_name; 
+			} else {
+				$current_user = wp_get_current_user();
+				$user_nickname = get_user_meta($current_user->ID, 'nickname', true);
+				echo $user_nickname;
+			}
+
+			?>		
 			<h2><?php the_title(); ?></h2>
 			<?php the_content(); ?>
 		<?php endwhile;	

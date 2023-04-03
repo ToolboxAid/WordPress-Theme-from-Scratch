@@ -1,4 +1,6 @@
-		<?php get_header(); ?>
+		<?php get_header(); 		
+		debug_location("Index");
+		?>
 <!-- container start -->
 
 		<div class="content-column">
