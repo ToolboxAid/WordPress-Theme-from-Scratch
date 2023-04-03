@@ -57,8 +57,6 @@ function my_theme_setup()
 }
 add_action('after_setup_theme', 'my_theme_setup');
 
-
-
 /////////////////////////////////////////
 /* Customize excerpt word count length */
 /////////////////////////////////////////
@@ -67,7 +65,6 @@ function custom_excerpt_length() {
 }
 
 add_filter('excerpt_length', 'custom_excerpt_length');
-
 
 /* ******************************************************************************************* */
 /* ******************************************************************************************* */
