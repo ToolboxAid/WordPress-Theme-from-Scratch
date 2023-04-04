@@ -29,6 +29,8 @@
 		if (have_posts()) :
 			while (have_posts()) : the_post();		
 
+			?> 		<p class="post-info"><?php the_time('F jS, Y @ g:i A'); ?> by <?php
+
 				if (get_the_author_meta('display_name')) {
 					$display_name = get_the_author_meta('display_name');
 					echo $display_name; 
@@ -37,7 +39,21 @@
 					$user_nickname = get_user_meta($current_user->ID, 'nickname', true);
 					echo $user_nickname;
 				}
+?>	| Posted in:  
+<?php
+$categories = get_the_category();
+$separator = ", ";
+$output = '';
 
+if ($categories) {
+	
+	foreach ($categories as $category) {				
+		$output .= '<a href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>'  . $separator;
+	}				
+	echo trim($output, $separator);
+}
+
+				
 				?>		
 				<h2><?php the_title(); ?></h2>
 				<?php the_content(); ?>
