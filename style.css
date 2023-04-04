@@ -156,6 +156,7 @@ color:rgb(0, 0, 0);
 /* =================== */
 /* Main section styles */
 /* =================== */
+
 /* Main content styles */
 main {
 	width: 100%;
@@ -207,6 +208,23 @@ main p {
 main p:last-child {
 	padding-bottom: 20px;
 }
+
+
+/* Index Post Styles */
+.post h2 {
+	margin-bottom: 0;
+}
+
+p.post-info {
+	font-size: 87%;
+	color: #999;
+}
+
+p.post-info a:link,
+p.post-info a:visited {
+	color: #999;
+}
+
 
 
 /* ===================== */
@@ -305,6 +323,7 @@ footer .star hr {
 	/* Main Content column */
 	main section .content-column {
 		width: 90%;
+		max-width: 90%;
 		margin: auto;
 		align-self: center;
 	}
