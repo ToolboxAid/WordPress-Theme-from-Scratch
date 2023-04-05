@@ -37,24 +37,7 @@
 		endif; ?>
 	</div>
 
-	<div class="sidebar-column">
-		<div class="widget">
-			Widgit 1
-			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-		</div>
-		<div class="widget">
-			Widgit 2
-			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-		</div>
-		<div class="widget">
-			Widgit 3
-			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-		</div>
-		<div class="widget">
-			Widgit 4
-			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-		</div>
-	</div>
+	<?php get_template_part('content-sidebar'); ?>
 
 	<?php	
 	get_footer();

@@ -11,7 +11,12 @@
 		} else { ?>
 			<!-- post-banner -->
 			<article class="post image-banner <?php if ( has_post_thumbnail() ) { ?>has-thumbnail <?php } ?>">
-				<div class="post-banner" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"><?php 		
+<?php
+$image_id = get_post_thumbnail_id(); // Get the ID of the featured image
+$image_url = wp_get_attachment_image_src($image_id, 'banner-image')[0]; // Get the URL of the 'banner-image' size
+?>
+
+				<div class="post-banner" style="background-image: url('<?php echo $image_url; ?>')"><?php 		
 					debug_location("______ - B");?>
 				</div><!-- /post-banner -->
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2><?php 

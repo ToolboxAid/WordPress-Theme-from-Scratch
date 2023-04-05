@@ -7,9 +7,9 @@ Template Post Type: post
 /* Page is used for posts of type page */
 get_header();
 
-debug_location("Single");	?>
-<div class="content-column"><?php
+debug_location("Single"); ?>
 
+<div class="content-column"><?php
 
 if (have_posts()) :
 	while (have_posts()) : the_post(); 
@@ -18,7 +18,6 @@ if (have_posts()) :
 else : 
 	get_template_part('content-sorry');
 endif; ?>
-
 
 </div>
 
