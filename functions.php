@@ -47,9 +47,9 @@ function my_theme_setup()
 
 	// Add feature image support
 	add_theme_support('post-thumbnails');
-// 	add_image_size('small-thumbnail', 180, 120, true);true forces aspect ratio
+ 	add_image_size('small-thumbnail', 180, 120, true);  //true forces aspect ratio
 // 	add_image_size('square-thumbnail', 80, 80, true);	
-//	add_image_size('banner-image', 920, 210, true);	
+	add_image_size('banner-image', 920, 210, true);	
 //	add_image_size('banner-image', 920, 210, 'left', 'top'); crop location
 
 	// Add post type support
