@@ -53,7 +53,7 @@ function my_theme_setup()
 //	add_image_size('banner-image', 920, 210, 'left', 'top'); crop location
 
 	// Add post type support
-	add_theme_support('post-formats', array('aside', 'gallery', 'link'));
+	//add_theme_support('post-formats', array('aside', 'gallery', 'link'));
 }
 add_action('after_setup_theme', 'my_theme_setup');
 
