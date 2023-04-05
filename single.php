@@ -70,6 +70,16 @@ if ($categories) {
 	</div>
 	<div class="sidebar-column">
 		<div class="widget">
+			<h3>Sidebar Widget(s)</h3>
+		</div>		
+		<div class="widget">
+			<!-- hd-search -->
+			<div class="hd-search">
+				<?php get_search_form(); ?>				
+			</div><!-- /hd-search -->
+			<br/><br/>
+		</div>
+		<div class="widget">
 			Widgit 1
 			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 		</div>
