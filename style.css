@@ -43,12 +43,7 @@ header {
 header .social-icons {
 	display: flex;
 	justify-content: center;
-	align-items: center;
-	align-self: center;
-	align-content: center;
-
 }
-
 
 header .social-icons a,
 header .social-icons a i,
@@ -68,6 +63,7 @@ header .header-image {
 /* Header content */
 header .header-content {
 	flex-direction: column;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 }
@@ -98,7 +94,6 @@ header .site-tagline-2 h2 {
 header div.site-nav nav ul {
 	display: flex;
 	justify-content: center;
-	list-style: none;
 }
 
 
@@ -144,7 +139,6 @@ main .site-nav.children-links ul,
 main .site-nav.children-links li {
 	display: inline-block;
 	padding: 10px;
-	margin: 0;
   }
 main .site-nav span.parent-seperator {
 	color:rgb(108, 108, 108);
@@ -225,7 +219,28 @@ p.post-info a:visited {
 	color: #999;
 }
 
+/* Image Styles */
+img.size-banner-image   {
+	max-width: 100%;
+	height: auto;
+}
+/* Inline styles go here */
+.image-container {
+	overflow: auto; /* Add this property to create a new block formatting context */
+}
+.has-thumbnail {
+	padding: 20px;
+}
 
+.post-thumbnail {
+	top: 10px;
+	left: 10px;
+}
+.image-container img {
+float: left;
+padding-bottom: 10px;;
+padding-right:20px;
+}
 
 /* ===================== */
 /* Footer section styles */
@@ -282,7 +297,6 @@ footer .footer-col p {
 
 /* Star */
 footer .star {
-	margin: 0px;
 	display: flex;
 	align-items: center;
 }

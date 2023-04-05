@@ -4,8 +4,7 @@
 	?>
 
 	<div class="content-column">
-		<article class="post page">	
-		<?php
+		<article class="post page"><?php
 
 		debug_location("Single");
 
@@ -23,13 +22,17 @@
 					); ?>
 					<?php wp_list_pages($args); ?>
 				</ul>
-			</nav>			
-		<?php } 
+			</nav><?php 
+		} 
 
 		if (have_posts()) :
 			while (have_posts()) : the_post();		
 
-			?> 		<p class="post-info"><?php the_time('F jS, Y @ g:i A'); ?> by <?php
+			the_post_thumbnail('banner-image'); ?>
+			
+				<h2><?php the_title(); ?></h2>
+
+			<p class="post-info"><?php the_time('F jS, Y @ g:i A'); ?> by <?php
 
 				if (get_the_author_meta('display_name')) {
 					$display_name = get_the_author_meta('display_name');
@@ -55,7 +58,6 @@ if ($categories) {
 
 				
 				?>		
-				<h2><?php the_title(); ?></h2>
 				<?php the_content(); ?>
 			<?php endwhile;	
 		else :
