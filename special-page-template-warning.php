@@ -6,7 +6,7 @@ Template Post Type: page
 
 get_header();
 
-debug_location("Special Ppage Layout Warning");?>
+debug_location("SPage");?>
 
 <div class="content-column"><?php
 

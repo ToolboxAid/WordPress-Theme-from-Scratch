@@ -1,18 +1,24 @@
-	<article class="post image-container <?php if ( has_post_thumbnail() ) { ?>has-thumbnail <?php } ?>">
 		
-		<!-- post-thumbnail -->
-		<div class="post-thumbnail"><?php 		
-			if ( is_search() OR is_archive() or is_home() ) { 
-debug_location("______ - A");?>
-				<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('small-thumbnail'); ?></a>
-			<?php } else {
-debug_location("______ - B");
-the_post_thumbnail('banner-image');
-			} ?>
-		</div><!-- /post-thumbnail -->		
+	<?php
+		if ( is_search() OR is_archive() or is_home() ) { ?>
+			<!-- post-thumbnail -->
+			<article class="post image-container <?php if ( has_post_thumbnail() ) { ?>has-thumbnail <?php } ?>">
+				<div class="post-thumbnail"><?php 		
+					debug_location("______ - A");?>
+					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('small-thumbnail'); ?></a>
+				</div><!-- /post-thumbnail --> 
+				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2><?php 
+		} else { ?>
+			<!-- post-banner -->
+			<article class="post image-banner <?php if ( has_post_thumbnail() ) { ?>has-thumbnail <?php } ?>">
+				<div class="post-banner" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>')"><?php 		
+					debug_location("______ - B");?>
+				</div><!-- /post-banner -->
+				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2><?php 
+		} 
 		
-		<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-		
+		?>
+
 		<p class="post-info"><?php the_time('F jS, Y @ g:i A'); ?> by <?php
 			if (get_the_author_meta('display_name')) {
 				$display_name = get_the_author_meta('display_name');
@@ -40,15 +46,24 @@ the_post_thumbnail('banner-image');
 		if ( is_search() OR is_archive() ) { 
 debug_location("______ - __1");?>
 			<p>
-				<?php echo get_the_excerpt(); ?>
-				<a href="<?php the_permalink(); ?>">Read more&raquo;</a>
+				<?php echo get_the_excerpt(); 
+				if (has_excerpt()){
+					echo "[....]";
+				}
+				?>
+
+				<a href="<?php the_permalink(); ?>">Read more1&raquo;</a>
 			</p><?php 
 		} else {
 			if (is_home()) { // The blog page (index.php)
 debug_location("______ - __2");?>
 					<p>
-						<?php echo get_the_excerpt(); ?>
-						<a href="<?php the_permalink(); ?>">Read more &raquo;</a>
+						<?php echo get_the_excerpt(); 
+										if (has_excerpt()){
+											echo "[....]";
+										}
+										?>
+						<a href="<?php the_permalink(); ?>">Read more2 &raquo;</a>
 					</p><?php 
 			} else {
 debug_location("______ - __3");

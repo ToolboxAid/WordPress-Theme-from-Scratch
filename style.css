@@ -247,12 +247,19 @@ p.post-info a:visited {
 	color: #999;
 }
 
-/* Image Styles */
+/*
+attachment-banner-image
+size-banner-image
+wp-post-image
+
+ Image Styles */
 img.size-banner-image   {
 	max-width: 100%;
 	height: auto;
+	float: none;
 }
 /* Inline styles go here */
+.image-banner,
 .image-container {
 	overflow: auto; /* Add this property to create a new block formatting context */
 }
@@ -264,12 +271,30 @@ img.size-banner-image   {
 	top: 10px;
 	left: 10px;
 }
-.image-container img {
-float: left;
-padding-bottom: 10px;;
-padding-right:20px;
-}
 
+.post-banner{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	height: 100%;
+	min-height: 150px;
+
+	height: 0;
+	width:100%;
+}
+.image-banner img {
+	float: none;
+	padding-bottom: 10px;;
+	padding-right:20px;
+	
+}
+.image-container img {
+	float: left;
+	padding-bottom: 10px;;
+	padding-right:20px;
+	}
+			
 /* ===================== */
 /* Footer section styles */
 footer {
