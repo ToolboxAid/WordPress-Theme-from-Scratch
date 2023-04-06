@@ -9,7 +9,7 @@
 				</div><!-- /post-thumbnail --> 
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2><?php 
 		} else { ?>
-			<!-- post-banner -->
+			<!-- post-banner is_single() -->
 			<article class="post image-banner <?php if ( has_post_thumbnail() ) { ?>has-thumbnail <?php } ?>">
 <?php
 $image_id = get_post_thumbnail_id(); // Get the ID of the featured image
@@ -19,12 +19,12 @@ $image_url = wp_get_attachment_image_src($image_id, 'banner-image')[0]; // Get t
 				<div class="post-banner" style="background-image: url('<?php echo $image_url; ?>')"><?php 		
 					debug_location("______ - B");?>
 				</div><!-- /post-banner -->
-				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2><?php 
+				<h2><?php the_title(); ?></h2><?php 
 		} 
 		
 		?>
 
-		<p class="post-info"><?php the_time('F jS, Y @ g:i A'); ?> by <?php
+		<p class="post-info">Posted <?php the_time('F jS, Y @ g:i A'); ?> by <?php
 			if (get_the_author_meta('display_name')) {
 				$display_name = get_the_author_meta('display_name');
 				echo $display_name; 
@@ -34,7 +34,7 @@ $image_url = wp_get_attachment_image_src($image_id, 'banner-image')[0]; // Get t
 				echo $user_nickname;
 			}		
 
-			?> | Posted in: <?php
+			?> | Categories: <?php
 			$categories = get_the_category();
 			$separator = ", ";
 			$output = '';
