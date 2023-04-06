@@ -1,50 +1,63 @@
 
-				</section>
-            </main>
+			</section>
+		</main>
 
 		<footer>
+
+			<!-- footer-widgets -->
 			<div class="footer-row">
-				<div class="footer-col menu">
-					<h4>Site Pages</h4>
-					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">Blog</a></li>
-					</ul>
-				</div>
 
-				<div class="footer-col">
-					<h4>Products</h4>
-					<ul>
-						<li><a href="#">Product A</a></li>
-						<li><a href="#">Product B</a></li>
-						<li><a href="#">Product C</a></li>
-						<li><a href="#">Product D</a></li>
-					</ul>
-				</div>
-				
-				<div class="footer-col">
-					<h4>Company</h4>
-					<ul>
-						<li><a href="#">About Us</a></li>
-						<li><a href="#">Jobs</a></li>
-						<li><a href="#">Press</a></li>
-						<li><a href="#">Blog</a></li>
-					</ul>
-				</div>
-				
-				<div class="footer-col">
-					<h4>Legal</h4>
-					<ul>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Terms and Conditions</a></li>
-						<li><a href="#">Cookie Policy</a></li>
-						<li><a href="#">Disclaimer</a></li>
-					</ul>
-				</div>
 
-			</div>
+				<div class="footer-col align-top menu"><?php
+					$footer_menu_name = wp_get_nav_menu_name('footer1');// Get the menu name for 'footer1'
+					echo '<h4>' . $footer_menu_name . '</h4>';// Echo the menu name to an H4 tag
+					 ?>
+					<nav>				
+						<?php				
+						$args = array( 'theme_location' => 'footer1' ); 
+						wp_nav_menu(  $args );
+						?>
+					</nav>
+				</div>	<!-- site-nav end -->
+
+				<div class="footer-col align-top menu"><?php
+					$footer_menu_name = wp_get_nav_menu_name('footer2');// Get the menu name for 'footer1'
+					echo '<h4>' . $footer_menu_name . '</h4>';// Echo the menu name to an H4 tag
+					 ?>
+					<nav class="footer-col align-top menu">				
+						<?php				
+						$args = array( 'theme_location' => 'footer2' ); 
+						wp_nav_menu(  $args );
+						?>
+					</nav>
+				</div>	<!-- site-nav end -->
+
+				<div class="footer-col menu"><?php
+					$footer_menu_name = wp_get_nav_menu_name('footer3');// Get the menu name for 'footer1'
+					echo '<h4>' . $footer_menu_name . '</h4>';// Echo the menu name to an H4 tag
+					 ?>
+					<nav>				
+						<?php				
+						$args = array( 'theme_location' => 'footer3' ); 
+						wp_nav_menu(  $args );
+						?>
+					</nav>
+				</div>	<!-- site-nav end -->
+
+				<div class="footer-col menu"><?php
+					$footer_menu_name = wp_get_nav_menu_name('footer4');// Get the menu name for 'footer1'
+					echo '<h4>' . $footer_menu_name . '</h4>';// Echo the menu name to an H4 tag
+					 ?>
+					<nav>				
+						<?php				
+						$args = array( 'theme_location' => 'footer4' ); 
+						wp_nav_menu(  $args );
+						?>
+					</nav>
+				</div>	<!-- site-nav end -->
+					
+			</div><!-- /footer-widgets -->
+
 			<div class="footer-row">
 				<div class="footer-col">
 					<div  class="star">

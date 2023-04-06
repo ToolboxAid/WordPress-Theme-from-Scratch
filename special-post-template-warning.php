@@ -25,8 +25,8 @@ debug_location("SPost");?>
 
 </div>
 
-<?php get_template_part('content-sidebar'); ?>
+<?php
+get_sidebar();
 
-<?php	
 get_footer();
 ?>

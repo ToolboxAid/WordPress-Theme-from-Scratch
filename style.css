@@ -197,6 +197,7 @@ main section {
 }
 
 /* Main Sidebar column */
+main section .side-column,
 main section .sidebar-column {
 	width: 220px;
 	min-width: 220px;
@@ -208,17 +209,24 @@ main section div.content-column article{
 	padding: 20px;
 	margin-bottom:30px;
 }
+
+
+.align-top {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+  }
 /* =================== */
 /* =================== */
 /* =================== */
 /* Widgets */
-main .widget {
+main .widget-item {
 	margin-bottom: 20px;
 	padding: 20px;
 }
 
 /* Widgets */
-main .widget:last-child {
+main .widget-item:last-child {
 	margin-bottom: 0px;
 }
 

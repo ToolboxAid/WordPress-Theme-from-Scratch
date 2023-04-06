@@ -37,8 +37,7 @@
 		endif; ?>
 	</div>
 
-	<?php get_template_part('content-sidebar'); ?>
-
-	<?php	
+	<?php get_sidebar(); 
+	
 	get_footer();
 	?>

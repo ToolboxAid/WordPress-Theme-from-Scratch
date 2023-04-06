@@ -16,9 +16,10 @@
 		get_template_part('content-sorry');
 	endif; ?>
 </div>
-
-<?php get_template_part('content-sidebar'); ?>
-
 <!-- container end -->
 
-<?php get_footer(); ?>
+<?php 
+get_sidebar(); 
+
+get_footer();
+?>

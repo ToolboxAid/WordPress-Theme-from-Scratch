@@ -42,7 +42,10 @@ function my_theme_setup()
 	// Navigation Menus
 	register_nav_menus(array(
 		'header' => __( 'Header Menu'),
-		'footer' => __( 'Footer Menu'),
+		'footer1' => __( 'Footer Menu 1'),
+		'footer2' => __( 'Footer Menu 2'),
+		'footer3' => __( 'Footer Menu 3'),
+		'footer4' => __( 'Footer Menu 4'),
 	));
 
 	// Add feature image support
@@ -68,6 +71,59 @@ add_filter('excerpt_length', 'custom_excerpt_length');
 /* ******************************************************************************************* */
 /* ******************************************************************************************* */
 /* ******************************************************************************************* */
+
+
+//////////////////////
+// Add Widget Areas //
+//////////////////////
+function ourWidgetsInit() {
+	
+	register_sidebar( array(
+		'name' => 'Sidebar',
+		'id' => 'sidebar1',
+		'before_widget' => '<div class="widget-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+	));
+	
+	register_sidebar( array(
+		'name' => 'Footer Area 1',
+		'id' => 'footer1',
+		'before_widget' => '<div class="widget-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+	));
+	
+	register_sidebar( array(
+		'name' => 'Footer Area 2',
+		'id' => 'footer2',
+		'before_widget' => '<div class="widget-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+	));
+	
+	register_sidebar( array(
+		'name' => 'Footer Area 3',
+		'id' => 'footer3',
+		'before_widget' => '<div class="widget-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+	));
+	
+	register_sidebar( array(
+		'name' => 'Footer Area 4',
+		'id' => 'footer4',
+		'before_widget' => '<div class="widget-item">',
+		'after_widget' => '</div>',
+		'before_title' => '<h2 class="widget-title">',
+		'after_title' => '</h2>',
+	));	
+}
+add_action('widgets_init', 'ourWidgetsInit');
 
 
 ?>

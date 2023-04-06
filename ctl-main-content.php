@@ -181,13 +181,13 @@ function main_content_css() { ?>
 		main {
 			background: linear-gradient(to bottom, <?php echo get_theme_mod('main_content_background_top'); ?>, <?php echo get_theme_mod('main_content_background_bottom'); ?>); height: 100%;"			
 		}
-		main article,
-		div.sidebar-column .widget{
+		div.side-column div.widget-item,
+		main article{
 			background-color: <?php echo get_theme_mod('main_article_background'); ?>; 
 		}
 
 		/* Main Content column */
-		main .sidebar-column .widget,
+		main section div.side-column .widget-item,		
 		main section div article {
 			box-shadow: <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_article_dropshadow_size'); ?>px  <?php echo get_theme_mod('main_article_dropshadow');?>;
 		}	
