@@ -6,7 +6,7 @@
 
 			<!-- footer-widgets -->
 			<div class="footer-row">
-				<div class="footer-col align-top menu"><?php
+				<div class="footer-col menu"><?php
 					$footer_menu_name = wp_get_nav_menu_name('footer1');// Get the menu name for 'footer1'
 					echo '<h4>' . $footer_menu_name . '</h4>';// Echo the menu name to an H4 tag
 					 ?>
@@ -18,7 +18,7 @@
 					
 				</div>	<!-- site-nav end -->
 
-				<div class="footer-col align-top menu"><?php
+				<div class="footer-col menu"><?php
 					$footer_menu_name = wp_get_nav_menu_name('footer2');// Get the menu name for 'footer1'
 					echo '<h4>' . $footer_menu_name . '</h4>';// Echo the menu name to an H4 tag
 					 ?>
@@ -42,7 +42,7 @@
 					
 				</div>	<!-- site-nav end -->
 
-				<div class="footer-col menu"><?php
+				<div class="footer-col menu "><?php
 					$footer_menu_name = wp_get_nav_menu_name('footer4');// Get the menu name for 'footer1'
 					echo '<h4>' . $footer_menu_name . '</h4>';// Echo the menu name to an H4 tag
 					 ?>
@@ -65,8 +65,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer-row copyright">
-				<div class="footer-col">
+			<div class="footer-row ">
+				<div class="footer-col align-center copyright">
 					<p>&copy;  
 					<?php
 					echo get_theme_mod('footer_copyright_established');

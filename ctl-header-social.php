@@ -183,8 +183,8 @@ function header_social_icons_css() { ?>
         header .social-icons a {
             color: <?php echo get_theme_mod('header_social_icons_color'); ?>;
             /* letter-spacing: <?php echo get_theme_mod('header_social_icons_spacing'); ?>px; */
-            padding-left: <?php echo get_theme_mod('header_social_icons_spacing'); ?>px;
-            padding-right: <?php echo get_theme_mod('header_social_icons_spacing'); ?>px;
+            margin-left: <?php echo get_theme_mod('header_social_icons_spacing'); ?>px;
+            margin-right: <?php echo get_theme_mod('header_social_icons_spacing'); ?>px;
         }
         header .social-icons a i {
             font-size:  <?php echo get_theme_mod('header_social_icons_size'); ?>px;

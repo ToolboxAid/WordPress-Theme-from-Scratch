@@ -179,7 +179,7 @@ function header_nav_css() { ?>
 		header nav li.current_page_item a {		
 			color: <?php echo get_theme_mod('header_nav_color_active'); ?>;
 		}
-		header nav {
+		header div.site-nav {
 			background-color: <?php echo get_theme_mod('header_nav_background'); ?>;
             border-bottom: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>  ;   
 		}

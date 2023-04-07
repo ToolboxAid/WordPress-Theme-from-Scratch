@@ -116,6 +116,48 @@ function header_title( $wp_customize ) {
     ) );
 
     /* ************************************************************ */
+    // Tagline2 Color
+	$wp_customize->add_setting('header_tagline2_color', array(
+		'default' => '#cccccc',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+	));
+	$wp_customize->add_control( 'header_tagline2_color', array(
+		'section' => 'header_title',
+		'settings' => 'header_tagline2_color',
+		'label' => __('Tagline 2 Color', 'qbytesworld_WordPress'),
+        'description'=> __( 'Alt location Color of the tagline', 'qbytesworld_WordPress' ),        
+        'type'       => 'color',
+	) );
+    /* ************************************************************ */
+    // Tagline2 Background Color
+	$wp_customize->add_setting('header_tagline2_bg_color', array(
+		'default' => '#333333',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+	));
+	$wp_customize->add_control( 'header_tagline2_bg_color', array(
+		'section' => 'header_title',
+		'settings' => 'header_tagline2_bg_color',
+		'label' => __('Tagline 2 Background Color', 'qbytesworld_WordPress'),
+        'description'=> __( 'Alt location Background Color of the tagline', 'qbytesworld_WordPress' ),        
+        'type'       => 'color',
+	) );
+    /* ************************************************************ */
+    // Tagline2 Background Color
+	$wp_customize->add_setting('header_tagline2_ds_color', array(
+		'default' => '#333333',
+        'sanitize_callback' => 'sanitize_hex_color',
+        'transport' => 'refresh',
+	));
+	$wp_customize->add_control( 'header_tagline2_ds_color', array(
+		'section' => 'header_title',
+		'settings' => 'header_tagline2_ds_color',
+		'label' => __('Tagline 2 Drop Shadow Color', 'qbytesworld_WordPress'),
+        'description'=> __( 'Alt location Drop Shadow Color of the tagline', 'qbytesworld_WordPress' ),        
+        'type'       => 'color',
+	) );    
+    /* ************************************************************ */
     // Color
 	$wp_customize->add_setting('header_title_color', array(
 		'default' => '#eeeeee',
@@ -255,15 +297,20 @@ function header_title_css() { ?>
         header h1.site-name a:hover {
             color: <?php echo get_theme_mod('header_title_hover'); ?>;
         }        
-        header .site-tagline,
-        header .site-tagline-2{/* tag */
+        header div.site-tagline-2 h2,
+        header .site-tagline{/* tag */
             color: <?php echo get_theme_mod('header_title_color'); ?>;
             text-shadow: <?php echo get_theme_mod('header_title_drop_shadow_spacing'); ?>px <?php echo get_theme_mod('header_title_drop_shadow_spacing'); ?>px  <?php echo get_theme_mod('header_title_drop_shadow_color'); ?>;                   
         }
 
-        header .site-tagline-2{
-            background-color: <?php echo get_theme_mod('header_title_background'); ?>;
+        header div.site-tagline-2{
+            background-color: <?php echo get_theme_mod('header_tagline2_bg_color'); ?>;
         }
+        header div.site-tagline-2 h2{
+            color: <?php echo get_theme_mod('header_tagline2_color'); ?>;
+            text-shadow: <?php echo get_theme_mod('header_title_drop_shadow_spacing'); ?>px <?php echo get_theme_mod('header_title_drop_shadow_spacing'); ?>px  <?php echo get_theme_mod('header_tagline2_ds_color'); ?>;                               
+        }
+     
 
         header .header-image a i {
             font-size:  <?php echo get_theme_mod('header_title_size'); ?>px;

@@ -23,43 +23,33 @@ div {
 	width: 100%;
 }
 
-a,
-a:hover {
+a {
 	text-decoration: none;
+}
+
+.align-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.bg-image-fill {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 0;
+	padding-bottom: 20%;
 }
 
 /* ===================== */
 /* Header section styles */
+/* ===================== */
 
-header {
 
-	display: block;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
+.social-icons a {
+	margin: 12px 0px;
 }
 
-
-/* Social icons styles */
-header .social-icons {
-	display: flex;
-	justify-content: center;
-}
-
-header .social-icons a,
-header .social-icons a i,
-header .social-icons i.fa {
-	width: 36px;
-	margin: 4px;
-}
-
-/* Header image and title*/
-header .header-image {
-	background-size: cover;
-	background-repeat: no-repeat;
-
-	min-height: 135px;
-}
 
 /* Header content */
 header .header-content {
@@ -69,22 +59,11 @@ header .header-content {
 	justify-content: center;
 }
 
-header h1.site-name a,
-header h2.site-tagline,
-header .site-tagline-2,
-header h2.site-tagline-2 {
-	white-space: nowrap;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding-top: 10px;
-}
-
 header h2.site-tagline {
 	font-size: clamp(4px, 3vw, 26px);
 }
 
-header .site-tagline-2 h2 {
+header div.site-tagline-2 h2 {
 	font-size: clamp(4px, 3vw, 20px);
 	padding: 10px;
 }
@@ -92,47 +71,32 @@ header .site-tagline-2 h2 {
 /* ========== */
 /* Navigation */
 /* ========== */
-header div.site-nav nav ul {
+/* Parent Menu  */
+.site-nav nav {
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 
+.site-nav li {
+	display: inline-block;
+}
 
-/*   */
-header div.site-nav  .parent-menu {
+/* Child Menu (on page) */
+.site-nav.children-links {
 	display: flex;
-	justify-content: space-between;
-}
-
-header div.site-nav  .parent-menu .menu-item {
-	padding: 5px;
-}
-
-/*   */
-/*   */
-header div.site-nav  .child-menu {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-header div.site-nav  .child-menu .menu-item {
-	width: 25%;
+	align-items: center;
 	padding: 10px;
-	box-sizing: border-box;
-}
-
-header div.site-nav  nav a {
-	display: block;
+  }
+  .site-nav.children-links span,
+  .site-nav.children-links li {
 	padding: 10px;
-	margin: 0px 15px;
-	white-space: nowrap;
-}
+  }
 
-
-
-
-
-/* Search */
+/* ===================== */
+/* Search section styles */
+/* ===================== */
+/* Search 
 div.hd-search {
 	float: right;
 }
@@ -151,181 +115,104 @@ div.hd-search #s {
 	vertical-align: top;
 	padding: 3px 0;
 }
+*/
 
-
-
-
-
-/* Sub menu */
-main .site-nav.children-links {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	}
-
-main .site-nav.children-links span,
-main .site-nav.children-links ul,
-main .site-nav.children-links li {
-	display: inline-block;
-	padding: 10px;
-  }
-main .site-nav span.parent-seperator {
-	color:rgb(108, 108, 108);
-  }
-
-  main .site-nav.children-links .current_page_item a {
-color:rgb(0, 0, 0);
-  }
 /* =================== */
 /* Main section styles */
 /* =================== */
-
-/* Main content styles */
-main {
-	width: 100%;
-	min-height: 57vh;
-	padding-top: 35px;
-	padding-bottom: 35px;
-}
-
-main section {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: flex-start;
-	margin-left: 10%;
-	margin-right: 10%;
-}
-
-/* Main Sidebar column */
-main section .side-column{
-	width: 220px;
-	min-width: 220px;
-	max-width: 220px;
-	margin-left: 30px;
-}
-
-div.content-column,
-article.post{
-	max-width: 80%;
-}
-main section div.content-column article{
-	padding: 20px;
-	margin-bottom:30px;
-	max-width: 100%;
-}
-
-
-/* =================== */
-/* =================== */
-/* =================== */
-/* Widgets */
-main .widget-item {
+article,
+div.widget-item {
 	margin-bottom: 20px;
 	padding: 20px;
 }
 
-/* Widgets */
-main .widget-item:last-child {
-	margin-bottom: 0px;
+section {
+	display: flex;
+	width: 80%;
+	margin: 0;
+	padding: 0;
 }
 
-main p {
-	padding: 15px;
-	padding-bottom: 0px;
+.content-column {
+	width: cal(80% - 220px);
+	box-sizing: border-box;
+}
+.content-column h2 {
+	padding-top: 20px;
+}
+.content-column h2 ,
+.content-column h3,
+.content-column h4,
+.content-column h5,
+.content-column h6,
+
+.content-column p {
+	padding-bottom: 10px;
+}
+section.side-by-side {
+	padding: 30px 0;
 }
 
-main p:last-child {
+.side-column {
+	width: 220px;
+	margin-left: 25px;
+	box-sizing: border-box;
+}
+
+/* thumb nail & banner*/
+.post-thumbnail img,
+.post-banner img {
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+}
+
+.has-thumbnail .post-info,
+.image-banner .post-info {
+	overflow: hidden;
 	padding-bottom: 20px;
 }
 
+.has-thumbnail h2,
+.image-banner h2 {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
 
-/* Index Post Styles */
-.post h2 {
+.has-thumbnail p,
+.image-banner p {
 	margin-bottom: 0;
 }
 
-p.post-info {
-	font-size: 87%;
-	color: #999;
-}
-
-p.post-info a:link,
-p.post-info a:visited {
-	color: #999;
-}
-
-/* Image Styles */
-.image-banner,
-.image-container {
-	overflow: auto; /* Add this property to create a new block formatting context */
-}
-.has-thumbnail {
-	padding: 20px;
-}
-
-.post-thumbnail {
-	top: 10px;
-	left: 10px;
-}
-
-.post-banner{
-	background-size: cover;
-	background-position: center;
-	height: 0;
-	padding-bottom: 20%; /* 16:9 aspect ratio */
-}
-.image-banner img { /* float around image */
-	float: none;
-	padding-bottom: 10px;;
-	padding-right:20px;
-	
-}
-.image-container img {
-	float: left;
-	padding-bottom: 10px;;
-	padding-right:20px;
-	}
-			
-/* ===================== */
-/* Footer section styles */
-footer .footer-row {
+/* ============== */
+/* Footer Section */
+/* ============== */
+.footer-row {
+	width: 80%;
+	margin: 0 auto;
 	display: flex;
-	padding-bottom: 20px;
+	justify-content: center;
+	align-items: flex-start;
 }
 
-footer .footer-col {
-	align-self: flex-start;
-	text-align: left;
-	white-space: nowrap;
-}
-  
-footer .footer-col.menu {
-	padding-left: 4%;
+.footer-col {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
 }
 
-footer div.footer-col:first-child {
-	margin-left: 15%;
+.footer-row {
+	padding-top: 5px;
 }
 
-footer div.footer-col:last-child {
-	margin-right: 15%;
+.footer-row:first-child .footer-col:first-child {
+	padding-left: 5%;
 }
 
-footer .footer-col h4 {
-	text-align: left;
-	padding: 15px;
-	padding-right: 0px;
-}
-
-footer .footer-col ul li {
-	margin-bottom: 6px;
-}
-
-
-footer .footer-col p {
-	font-size: 24px;
-	text-align: center;
+.copyright {
+	flex-direction: row;
+	justify-content: center;
 }
 
 /* Star */
@@ -345,89 +232,53 @@ footer .star hr {
 footer div.footer-row:last-child {
 	padding-bottom: 30px;
 }
-/* responsive, form small screens, use 13px font size? */
-/* tablet */
-@media only screen and (max-width: 1024px) {
 
-	/* CSS that should be displayed if width 
-	is equal to or less than 1024px and 
-	larger than 720px goes here */
-	body {
-		font-size: 85%;
+.footer-col,
+.footer-col h4 {
+	padding: 10px;
+}
+.footer-col h4 {
+	font-size: 125%;
+}
+
+p.post-info{
+	color: #999999;
+	padding: 4px;
+	font-size: 85%;
+}
+
+/* ============ */
+/* Media tablet */
+/* ============ */
+@media screen and (max-width: 1024px) {
+	section {
+		flex-direction: column;
+		align-items: center;
+		width: 80%;
 	}
 
-	main {
-		min-height: 0%;
+	.content-column,
+	.side-column {
+		padding: 0;
+		margin:0;
+	}	
+}
+
+/* ============ */
+/* Media phone  */
+/* ============ */
+@media screen and (max-width: 767px) {
+	.footer-row {
+		display: flex;
+		flex-direction: column;
 	}
 
-	main section {
+	div.footer-col.menu ul li,
+	.footer-col div,
+	.footer-col {
+		padding-left: 0px !important;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-
-		display: inline;
-		margin: auto;
 	}
-
-	/* Main Content column */
-	main section .content-column {
-		width: 80%;
-		max-width: 80%;
-		margin: auto;
-		align-self: center;
-	}
-
-	/* Main Sidebar column */
-	main section .side-column {
-		align-self: center;
-		margin: auto;
-		margin-top: 20px;
-	}
-
-	/* Widgets */
-	.widget {
-		align-self: center;
-	}
-
-	footer .footer-col.menu {
-		padding-left: 3%;
-	}
-
-}
-
-/* mobile */
-@media only screen and (max-width: 720px) {
-
-	/* CSS that should be displayed if width
-	is equal to or less than 720px goes here */
-
-	/* footer menu items */
-	footer .footer-col {
-		flex: 1;
-		text-align: center;
-		padding-left: 0px;
-	}
-
-	footer .footer-col h4 {
-		text-align: center;
-	}
-
-	footer .footer-row {
-		display: inline;
-	}
-	footer .footer-row:last-child {
-		display: inline;
-	}
-	.copyright {
-		padding-bottom: 30px;
-		padding-left: 0px;
-		color:rgb(50, 66, 205) !;
-	}
-
-	footer div.footer-col:last-child,
-	footer div.footer-col:first-child {
-		margin-left: 0%;
-		margin-right: 0%;
-	}
-
 }

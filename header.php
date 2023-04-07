@@ -15,7 +15,7 @@
         <header>
             <div class="header-content">
 
-                <div class="social-icons">
+                <div class="social-icons align-center">
                     <?php 
                     $url = get_theme_mod('header_social_icons_facebook_url');
                     if (!empty($url) ){ ?>
@@ -47,12 +47,12 @@
                     <?php } ?>
                 </div> <!-- social-icons end -->
 
-                <div class="header-image">
+                <div class="header-image bg-image-fill">
 
-                    <h1 class="site-name"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
+                    <h1 class="site-name align-center"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
 
                     <?php if ( ! get_theme_mod( 'header_tagline_location', false ) ) {?>                                          
-                        <h2 class="site-tagline"><?php bloginfo('description'); ?>
+                        <h2 class="site-tagline align-center"><?php bloginfo('description'); ?>
                     <?php } ?>
 
 					<?php /* if (is_page(7)) {*/
@@ -63,12 +63,12 @@
                 </div>	<!-- header-image end -->
 
                 <?php if ( get_theme_mod( 'header_tagline_location', false ) ) {?>  
-                    <div class="site-tagline-2">                                        
+                    <div class="site-tagline-2 align-center">                                        
                         <h2><?php bloginfo('description'); ?>
                     </div>
                 <?php } ?> <!-- end div diff location -->
 
-                <div class="site-nav">
+                <div class="site-nav align-center">
                     <nav>				
                         <?php				
                         $args = array( 'theme_location' => 'header' ); 
@@ -84,5 +84,5 @@
             </div> <!-- header-content end -->
 
         </header>
-        <main>
-            <section>
+        <main class="align-center">
+            <section class="side-by-side">
