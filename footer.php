@@ -65,7 +65,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer-row">
+			<div class="footer-row copyright">
 				<div class="footer-col">
 					<p>&copy;  
 					<?php

@@ -291,7 +291,7 @@ p.post-info a:visited {
 /* Footer section styles */
 footer .footer-row {
 	display: flex;
-	margin-bottom: 20px;
+	padding-bottom: 20px;
 }
 
 footer .footer-col {
@@ -415,9 +415,13 @@ footer div.footer-row:last-child {
 	footer .footer-row {
 		display: inline;
 	}
-
-	footer .footer-col.menu {
+	footer .footer-row:last-child {
+		display: inline;
+	}
+	.copyright {
+		padding-bottom: 30px;
 		padding-left: 0px;
+		color:rgb(50, 66, 205) !;
 	}
 
 	footer div.footer-col:last-child,
