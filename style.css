@@ -30,6 +30,7 @@ a:hover {
 
 /* ===================== */
 /* Header section styles */
+
 header {
 
 	display: block;
@@ -197,25 +198,24 @@ main section {
 }
 
 /* Main Sidebar column */
-main section .side-column,
-main section .sidebar-column {
+main section .side-column{
 	width: 220px;
 	min-width: 220px;
 	max-width: 220px;
 	margin-left: 30px;
 }
 
+div.content-column,
+article.post{
+	max-width: 80%;
+}
 main section div.content-column article{
 	padding: 20px;
 	margin-bottom:30px;
+	max-width: 100%;
 }
 
 
-.align-top {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-  }
 /* =================== */
 /* =================== */
 /* =================== */
@@ -255,14 +255,7 @@ p.post-info a:visited {
 	color: #999;
 }
 
-/* Image Styles 
-img.size-banner-image   {
-	max-width: 100%;
-	height: auto;
-	float: none;
-}*/
-
-/* Inline styles go here */
+/* Image Styles */
 .image-banner,
 .image-container {
 	overflow: auto; /* Add this property to create a new block formatting context */
@@ -296,26 +289,19 @@ img.size-banner-image   {
 			
 /* ===================== */
 /* Footer section styles */
-footer {
-	padding: 10px;
-}
-
 footer .footer-row {
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	margin-bottom: 20px;
 }
 
 footer .footer-col {
-	flex: 1;
+	align-self: flex-start;
 	text-align: left;
-	padding-left: 0px;
 	white-space: nowrap;
 }
-
+  
 footer .footer-col.menu {
-	padding-left: 6%;
+	padding-left: 4%;
 }
 
 footer div.footer-col:first-child {
@@ -328,7 +314,6 @@ footer div.footer-col:last-child {
 
 footer .footer-col h4 {
 	text-align: left;
-
 	padding: 15px;
 	padding-right: 0px;
 }
@@ -337,10 +322,6 @@ footer .footer-col ul li {
 	margin-bottom: 6px;
 }
 
-footer .footer-col img {
-	max-width: 100%;
-	height: auto;
-}
 
 footer .footer-col p {
 	font-size: 24px;
@@ -361,7 +342,9 @@ footer .star hr {
 	width: 50%;
 }
 
-
+footer div.footer-row:last-child {
+	padding-bottom: 30px;
+}
 /* responsive, form small screens, use 13px font size? */
 /* tablet */
 @media only screen and (max-width: 1024px) {
@@ -388,14 +371,14 @@ footer .star hr {
 
 	/* Main Content column */
 	main section .content-column {
-		width: 90%;
-		max-width: 90%;
+		width: 80%;
+		max-width: 80%;
 		margin: auto;
 		align-self: center;
 	}
 
 	/* Main Sidebar column */
-	main section .sidebar-column {
+	main section .side-column {
 		align-self: center;
 		margin: auto;
 		margin-top: 20px;
