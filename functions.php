@@ -127,4 +127,36 @@ function ourWidgetsInit() {
 add_action('widgets_init', 'ourWidgetsInit');
 
 
+
+/* ************************ */
+
+// Define the shortcode function
+function image_container_shortcode($atts) {
+	// Extract the shortcode attributes
+	extract(shortcode_atts(array(
+	  'src' => '',
+	  'width' => '200',
+	  'height' => '200',
+	), $atts));
+	
+	// Set the image URL to use HTTPS instead of HTTP
+	$src = str_replace('http://', 'https://', $src);
+  
+	// Build the HTML for the image container
+	//width:' . $width . 'px; height:' . $height . 'px;
+	$html = '<div class="image-container-no-overflow ">';
+	$html .= '<div class="image-hover-zoom-rotate" style="background-image:url(' . $src . ');"></div>';
+	$html .= '</div>';
+  
+	/*
+<div class="image-container-no-overflow">
+  <div class="image-hover-zoom-rotate"></div>
+</div>
+*/
+	// Return the HTML
+	return $html;
+  }
+  // Register the shortcode
+  add_shortcode('image_container', 'image_container_shortcode');
+// Usage: [image_container src="http://path-to-image" width="100" height="100"]
 ?>
