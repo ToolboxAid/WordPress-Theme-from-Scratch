@@ -3,7 +3,9 @@
 		</main>
 
 		<footer>
-
+		<div class="ball">
+				<i class="fa-solid fa-circle-up"></i>
+			</div>
 			<!-- footer-widgets -->
 			<div class="footer-row">
 				<div class="footer-col menu"><?php
@@ -76,5 +78,16 @@
 				</div>
 			</div>
 		</footer>
+		<div>
+
+		<div class="ball-loc">	
+			<div class="ball orange"></div>
+			<div class="ball red"></div>
+			<div class="ball yellow"></div>
+			<div class="ball green"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>
+			<div class="ball">
+				<i class="fa fa-arrow-up" aria-hidden="true"></i>
+			</div>
+		</div>
 	</body>
 </html>		
