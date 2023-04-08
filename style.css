@@ -23,8 +23,10 @@ div {
 	width: 100%;
 }
 
-a {
+/* target the all a element for effect */
+a {	
 	text-decoration: none;
+	transition: color 1.5s; /* add transition effect to color property */	
 }
 
 .align-center {
@@ -349,3 +351,13 @@ i.fa.fa-arrow-up {
 main .content-column * {
 	font-size: 105%;
   }
+
+
+
+
+
+
+
+
+
+  
