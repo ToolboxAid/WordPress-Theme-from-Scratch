@@ -80,14 +80,15 @@
 		</footer>
 		<div>
 
-		<div class="ball-loc">	
-			<div class="ball orange"></div>
-			<div class="ball red"></div>
-			<div class="ball yellow"></div>
-			<div class="ball green"><i class="fa fa-arrow-up" aria-hidden="true"></i></div>
-			<div class="ball">
-				<i class="fa fa-arrow-up" aria-hidden="true"></i>
-			</div>
-		</div>
+<div class="ball-loc">  
+  <div class="ball static-ball"></div>
+  <div class="ball wave1"></div>
+  <div class="ball wave2"></div>
+  <div class="ball wave3"></div>
+  <div class="ball">
+    <i class="fa fa-arrow-up"></i>
+  </div>
+</div>
+
 	</body>
 </html>		
