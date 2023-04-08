@@ -13,10 +13,13 @@ debug_location("SPost");?>
 	if (have_posts()) :
 		while (have_posts()) : the_post(); ?>
 			<!-- info-box -->
-			<div class="info-box">
-				<p style="background-color: white;color: red; font-size: 30px; font-style: italic; border: 5px solid orange; margin: 10px;margin-top: 0;"><i class="fa fa-exclamation-triangle"></i> POST: pre article special template 'warning'.</p>
-				<?php get_template_part('content'); ?>
-				<p style="background-color: white;color: red; font-size: 30px; font-style: italic; border: 5px solid orange; margin: 10px;margin-top: 0;"><i class="fa fa-exclamation-triangle"></i> POST: pre article special template 'warning'.</p>
+			
+			<div class="info-box" style="background-color: white; border: 3px solid red; margin-bottom: 15px;">
+				<p style="color: red; font-size: 30px; font-style: italic; padding:10px; padding-left:30px;"><i class="fa fa-exclamation-triangle"></i> POST: pre article special template 'warning'.</p></p>
+			</div>
+			<?php get_template_part('content'); ?>
+			<div class="info-box" style="background-color: white; border: 3px solid red; margin-bottom: 15px;">
+				<p style="color: red; font-size: 30px; font-style: italic; padding:10px; padding-left:30px;"><i class="fa fa-exclamation-triangle"></i> POST: pre article special template 'warning'.</p></p>
 			</div><!-- /info-box --><?php
 		endwhile;	
 	else : 
@@ -25,7 +28,7 @@ debug_location("SPost");?>
 
 </div>
 
-<?php
+<?php	
 get_sidebar();
 
 get_footer();

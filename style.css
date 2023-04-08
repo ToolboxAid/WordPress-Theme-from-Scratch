@@ -96,6 +96,57 @@ header div.site-tagline-2 h2 {
 	padding: 10px;
 }
 
+li.menu-item {
+	padding-top: 6px;
+	padding-bottom: 6px;
+  }
+  
+/* animation */
+/* set initial styles for the link */
+div.menu-header-container a {
+	position: relative;
+	text-decoration: none;
+  }
+  
+  /* create the underline elements */
+  div.menu-header-container a::before,
+  div.menu-header-container a::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 3px;
+	background-color: #aa0000;
+	opacity: 0;
+	transition: all 0.5s ease-out;
+  }
+  
+  /* apply the effect on hover */
+  div.menu-header-container a:hover::before,
+  div.menu-header-container a:hover::after {
+	width: 100%;
+	opacity: 1;
+	transition: all 0.5s ease-in-out;
+  }
+  
+  /* animate the effect out after hover */
+  div.menu-header-container a:not(:hover)::before,
+  div.menu-header-container a:not(:hover)::after {
+	width: 0;
+	opacity: 0;
+	transition: all 0.5s ease-in-out;
+  }
+  
+  /* position the elements above and below the text */
+  div.menu-header-container a::before {
+	top: -1px;
+  }
+  
+  div.menu-header-container a::after {
+	bottom: -1px;
+  }
+
+  
 /* ===================== */
 /* Search section styles */
 /* ===================== */
@@ -267,17 +318,21 @@ p.post-info {
 		align-items: center;
 		width: 80%;
 	}
+	div.side-column * {
+		width:220px;
+	  }	
+	div.side-column {
+		width: 220px;
+		margin-left: 0px;
+		box-sizing: border-box;
+	}
 
-	.content-column,
-	.side-column {
+	div.content-column{
 		padding: 0;
 		margin: 0;
 	  }
 	  
-	  div.side-column * {
-		margin: 0;
-		width:220px;
-	  }	
+
 }
 
 /* ============ */
