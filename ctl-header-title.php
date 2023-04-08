@@ -269,6 +269,28 @@ function header_title( $wp_customize ) {
         'step'   => '1',
         ),
      ) );
+
+
+    /* ************************************************************ */
+    // Image Height
+    $wp_customize->add_setting( 'header_title_image_height', array(
+        'default'    => '10',
+        'transport'  => 'refresh',
+     ) );
+     $wp_customize->add_control( 'header_title_image_height_control', array(
+        'section'    => 'header_title',
+        'settings'   => 'header_title_image_height',
+        'label'      => __( 'Image Height', 'qbytesworld_WordPress' ),
+        'description'=> __( 'Adjust the height of the image', 'qbytesworld_WordPress' ),        
+        'type'       => 'range',
+        'priority'   => 10,
+        'input_attrs' => array(
+        'min'    => '1',
+        'max'    => '40',
+        'step'   => '1',
+        ),
+     ) );
+
 }
 add_action('customize_register', 'header_title');
 
@@ -332,6 +354,9 @@ function header_title_css() { ?>
             border-bottom: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>  ;          
         }
 
+        .bg-image-fill {
+            padding-bottom: <?php echo get_theme_mod('header_title_image_height'); ?>%;
+        }
 	</style>
 
 <?php }

@@ -40,18 +40,14 @@ a {
 	background-position: center;
 	background-repeat: no-repeat;
 	height: 0;
-	padding-bottom: 20%;
 }
 
 /* ===================== */
 /* Header section styles */
 /* ===================== */
-
-
 .social-icons a {
 	margin: 12px 0px;
 }
-
 
 /* Header content */
 header .header-content {
@@ -285,6 +281,19 @@ footer .star i {
 footer .star hr {
 	width: 50%;
 }
+
+footer .star:hover .fa-star {
+	animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+	from {
+	  transform: rotate(0deg);
+	}
+	to {
+	  transform: rotate(360deg);
+	}
+  }
 
 footer div.footer-row:last-child {
 	padding-bottom: 30px;
