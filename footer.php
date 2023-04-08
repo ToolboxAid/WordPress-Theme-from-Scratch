@@ -80,15 +80,14 @@
 		</footer>
 		<div>
 
-<div class="ball-loc">  
-  <div class="ball static-ball"></div>
-  <div class="ball wave1"></div>
-  <div class="ball wave2"></div>
-  <div class="ball wave3"></div>
-  <div class="ball">
-    <i class="fa fa-arrow-up"></i>
-  </div>
-</div>
+		<!-- TOP code -->
+		<div class="ball-loc">  
+			<div class="ball static-ball"></div>
+			<div class="ball wave1"></div>
+			<div class="ball wave2"></div>
+			<div class="ball wave3"></div>
+			<div class="ball"><i class="fa fa-arrow-up"></i></div>
+		</div>
 
 	</body>
 </html>		
