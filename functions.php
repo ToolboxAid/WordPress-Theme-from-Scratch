@@ -25,6 +25,7 @@ require_once('ctl-main-sidebar.php');
 require_once('ctl-footer-nav.php');
 require_once('ctl-footer-star.php');
 require_once('ctl-footer-copyright.php');
+require_once('ctl-footer-top.php');
 
 //////////////
 /* Resource */

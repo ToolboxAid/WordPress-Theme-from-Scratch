@@ -103,10 +103,10 @@
 		</script>
 
 		<div id="ball-container" class="ball-loc bounce" style="display: none;">
-		<div class="ball wave1"></div>
-		<div class="ball wave2"></div>
-		<div class="ball wave3"></div>
-		<div class="ball static-ball"><i class="fa fa-arrow-up"></i></div>
+			<div class="ball wave1"></div>
+			<div class="ball wave2"></div>
+			<div class="ball wave3"></div>
+			<div class="ball static-ball"><i class="fa fa-arrow-up"></i></div>
 		</div>
 
 	</body>
