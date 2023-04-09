@@ -221,7 +221,7 @@ section.side-by-side {
     height: 140px;
     overflow: hidden;
 	float: left;
-	marin-right: 10px;
+	margin-right: 10px;
 	margin-bottom: 2px;
 }
 .image-hover-zoom-rotate{
