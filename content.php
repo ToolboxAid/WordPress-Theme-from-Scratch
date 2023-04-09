@@ -83,4 +83,84 @@ debug_location("______ - __3");
 			}
 		} ?>
 
+
+<!-- ====================================================== -->            
+<!-- ====================================================== -->            
+<!-- ====================================================== -->    
+<style>
+      .line-container {
+        display: flex;
+        align-items: center;
+      }
+
+      .line-number {
+        display: inline-block;
+        min-width: 30px;
+        text-align: right;
+        color: gray;
+        margin-right: 10px;
+      }
+
+      .code-line {
+        display: inline-block;
+        white-space: pre-wrap;
+      }
+
+      .code {
+        font-family: monospace;
+        font-size: 14px;
+      }
+	  pre.wp-block-preformatted,
+	  pre.wp-block-code{
+		background-color: white;
+	  }
+    </style>
+  </head>
+  <body>
+    <pre class="wp-block-code">
+      <code>
+        // Your code here
+        &lt;!DOCTYPE html&gt; declares the document type and version of HTML being used in the document, in this case, HTML5.
+        &lt;html&gt; is the root element of the HTML document.
+        &lt;head&gt; contains metadata about the document, such as the title, character encoding, and any external resources used.
+        &lt;title&gt; defines the title of the document that will be displayed in the browser tab or window.
+        &lt;meta charset="UTF-8"&gt; sets the character encoding to UTF-8, which supports all characters in the Unicode standard.
+      </code>
+    </pre>
+
+	<script>
+  window.addEventListener('load', function() {
+    const codeElements = document.querySelectorAll('pre code');
+    
+    codeElements.forEach(function(codeElement) {
+      const codeLines = codeElement.textContent.trim().split('\n');
+      codeElement.innerHTML = '';
+
+      for (let i = 0; i < codeLines.length; i++) {
+        const lineNumber = document.createElement('span');
+        lineNumber.textContent = (i + 1) + '. ';
+        lineNumber.classList.add('line-number');
+
+        const codeLine = document.createElement('span');
+        codeLine.textContent = codeLines[i].trim();
+        codeLine.classList.add('code-line');
+
+        const lineContainer = document.createElement('div');
+        lineContainer.classList.add('line-container');
+        lineContainer.appendChild(lineNumber);
+        lineContainer.appendChild(codeLine);
+
+        codeElement.appendChild(lineContainer);
+      }
+    });
+  });
+</script>
+
+ 
+
+<!-- ====================================================== -->            
+<!-- ====================================================== -->            
+<!-- ====================================================== -->  
+
+
 	</article>

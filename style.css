@@ -212,7 +212,6 @@ section.side-by-side {
 	box-sizing: border-box;
 }
 
-
 /* =========== */
 /*             */
 /* =========== */
@@ -221,11 +220,14 @@ section.side-by-side {
     width: 250px;
     height: 140px;
     overflow: hidden;
+	float: left;
+	marin-right: 10px;
+	margin-bottom: 2px;
 }
 .image-hover-zoom-rotate{
     width:100%;
     height:100%;
-    background-image: url(http://q-bytes-world-theme.local/wp-content/uploads/2022/06/WhatsApp-Image-2019-11-26-at-7.52.45-AM.jpeg);
+    /* background-image: url(http://q-bytes-world-theme.local/wp-content/uploads/2022/06/WhatsApp-Image-2019-11-26-at-7.52.45-AM.jpeg); */
     background-position: center center;
     background-size: cover;
     transition: 0.5s ease-in-out;
@@ -234,8 +236,6 @@ section.side-by-side {
 .image-hover-zoom-rotate:hover{
     transform: rotate(5deg) scale(1.4);
 }
-
-
 
 
 /* thumb nail & banner*/

@@ -2,7 +2,7 @@
 
 // Define a global boolean variable
 global $debug_page;
-$debug_page = true;
+$debug_page = false;
 
 function debug_location($location) {
     global $debug_page; // Use the global variable inside the function
