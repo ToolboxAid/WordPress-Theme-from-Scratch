@@ -113,7 +113,11 @@ debug_location("______ - __3");
 	  pre.wp-block-preformatted,
 	  pre.wp-block-code{
 		background-color: white;
-	  }
+		font-family: Courier, monospace;
+		font-size: 10px;
+		overflow-x: auto;
+  		white-space: nowrap;
+	}
     </style>
   </head>
   <body>
