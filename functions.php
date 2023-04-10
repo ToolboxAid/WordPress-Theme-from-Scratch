@@ -30,10 +30,18 @@ require_once('ctl-footer-top.php');
 //////////////
 /* Resource */
 //////////////
-function script_resources() {	
+function my_enqueue_css() {	
 	wp_enqueue_style('style', get_stylesheet_uri());
 }
-add_action('wp_enqueue_scripts', 'script_resources');
+add_action('wp_enqueue_scripts', 'my_enqueue_css');
+
+
+function my_enqueue_scripts() {
+	// echo get_template_directory_uri() . '/assets/js/javascript.js';
+    wp_enqueue_script( 'my-script', get_template_directory_uri() . '/assets/js/javascript.js', array(), '1.0.0', false );
+}
+add_action( 'wp_enqueue_scripts', 'my_enqueue_scripts' );
+
 
 /////////////////
 /* Theme setup */

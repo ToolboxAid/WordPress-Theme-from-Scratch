@@ -2,7 +2,7 @@
 			</section>
 		</main>
 
-		<footer>
+		<footer>		
 		<div class="ball">
 				<i class="fa-solid fa-circle-up"></i>
 			</div>
@@ -108,6 +108,8 @@
 			<div class="ball wave3"></div>
 			<div class="ball static-ball"><i class="fa fa-arrow-up"></i></div>
 		</div>
+
+		<!-- <script src="https://wp-02.local/wp-content/themes/WordPress-Theme-from-Scritch/assets/js/javascript.js"></script>		 -->
 
 	</body>
 </html>		
