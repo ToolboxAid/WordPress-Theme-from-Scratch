@@ -167,4 +167,60 @@ function image_container_shortcode($atts) {
   // Register the shortcode
   add_shortcode('image_container', 'image_container_shortcode');
 // Usage: [image_container src="http://path-to-image" width="100" height="100"]
+
+
+
+
+
+
+
+
+
+	function modify_pre_code_block( $content ) {
+		// Search for <pre><code> blocks in the content
+	    $pattern = '/<pre class="wp-block-code"><code>(.*?)<\/code><\/pre>/s';
+		if ( preg_match_all( $pattern, $content, $matches ) ) {
+			foreach ( $matches[0] as $match ) {
+				// Modify the content of the <pre><code> block
+				$lines = explode( "\n", $match );
+				$new_content = '<div class="modified-code-block"><pre class="wp-block-code"><code>';
+				for ( $i = 0; $i < count( $lines ); $i++ ) {
+					$line_number = str_pad( $i + 1, 3, '0', STR_PAD_LEFT );
+
+/*
+$line = 'have a nice day';
+
+$start = 'have a nice';
+if (strpos($line, $start) === 0) {
+	$trimmed = substr($line, strlen($start));
+	$trimmed = trim($trimmed);
+	echo $trimmed; // Outputs: day
+}
+
+
+$line = 'have a nice day';
+
+$pattern = '/^have a nice /';
+$replacement = '';
+$trimmed = preg_replace($pattern, $replacement, $line);
+
+echo $trimmed; // Outputs: day
+*/
+
+
+					$new_content .= sprintf( '<span class="line-number">%s</span>%s', $line_number, $lines[$i] );
+					if ( $i < count( $lines ) - 1 ) {
+						$new_content .= "\n";
+					}
+				}
+				$new_content .= '</div>';
+				// Replace the original <pre><code> block with the modified content
+				$content = str_replace( $match, $new_content, $content );
+			}
+		}
+		return $content;
+	}
+	add_filter( 'the_content', 'modify_pre_code_block' );
+	
+
 ?>

@@ -126,7 +126,7 @@ copyButton.addEventListener('click', () => {
 
 <div>
 	<pre id="code" class="wp-block-code">
-<code>
+		<code>
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
@@ -136,7 +136,7 @@ copyButton.addEventListener('click', () => {
 	&lt;h1&gt;Hello, world!&lt;/h1&gt;
 	&lt;/body&gt;
 &lt;/html&gt;
-</code>
+		</code>
 	</pre>
 <button id="copy-btn">Copy to Clipboard</button>
 </div>
