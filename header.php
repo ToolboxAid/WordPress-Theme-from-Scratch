@@ -6,8 +6,8 @@
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!--	< link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-<!--    <link rel="stylesheet" href="/wp-content/uploads/font-awesome-4.7.0/css/font-awesome.min.css"> -->
-    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/wp-content/uploads/font-awesome-4.7.0/css/font-awesome.min.css">
+    	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>		
 	</head>
 
@@ -67,26 +67,6 @@
                     </div>
                 <?php } ?> <!-- end div diff location -->
 
-<!-- ====================================================== -->            
-<!-- ====================================================== -->            
-<!-- ====================================================== -->  
-<style>
-.widget-item {
-    opacity: 0;
-    transform: translateY(250px);
-    transition: all 2s ease;
-    min-height:100px;
-}
-.widget-item.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-</style>
-
-<!-- ====================================================== -->            
-<!-- ====================================================== -->            
-<!-- ====================================================== -->            
-
                 <div class="site-nav align-center">
                     <nav>				
                         <?php				
@@ -101,11 +81,6 @@
                     } ?>
 
             </div> <!-- header-content end -->
-
-            
-<!--====================================================== -->            
-<!-- ====================================================== -->            
-<!-- ====================================================== -->            
 
         </header>
         <main class="align-center">

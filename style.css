@@ -176,6 +176,17 @@ div.widget-item {
 	padding: 20px;
 }
 
+.widget-item {
+    opacity: 0;
+    transform: translateY(250px);
+    transition: all 2s ease;
+    min-height:100px;
+}
+.widget-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 section {
 	display: flex;
 	width: 80%;

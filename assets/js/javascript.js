@@ -107,7 +107,7 @@ window.onload = function() {
     copyButton.addEventListener('click', () => {
       const textToCopy = lines.map(line => line + '\n').join('');
       navigator.clipboard.writeText(textToCopy);
-      alert('Code block copied to clipboard!');
+      alert('Upon clicking ok, the code block will be copied to clipboard!');
     });
   });
 
@@ -121,4 +121,28 @@ window.onload = function() {
   }
 
 };
+
+
+/* ================== */
+/* Top Of Page button */
+/* ================== */
+window.addEventListener('load', function() {
+//$(document).ready(function() {
+  const ballContainer = $("#ball-container");
+
+  ballContainer.on("click", function() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+  });
+
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 250) {
+    ballContainer.fadeIn(1500);
+    } else {
+    ballContainer.fadeOut(1500);
+    }
+  });
+
+  $(window).scroll(); // execute scroll() function on page load
+  
+});
 

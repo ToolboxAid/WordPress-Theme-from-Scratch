@@ -78,38 +78,14 @@
 				</div>
 			</div>
 		</footer>
-		<div>
 
-		<!-- TOP code -->
-		<script>
-		$(document).ready(function() {
-			const ballContainer = $("#ball-container");
-
-			ballContainer.on("click", function() {
-				$("html, body").animate({ scrollTop: 0 }, "slow");
-			});
-
-			$(window).scroll(function() {
-				if ($(this).scrollTop() > 250) {
-				ballContainer.fadeIn(1500);
-				} else {
-				ballContainer.fadeOut(1500);
-				}
-			});
-
-			$(window).scroll(); // execute scroll() function on page load
-			
-		});
-		</script>
-
+		<!-- Top Of Page control -->
 		<div id="ball-container" class="ball-loc bounce" style="display: none;">
 			<div class="ball wave1"></div>
 			<div class="ball wave2"></div>
 			<div class="ball wave3"></div>
 			<div class="ball static-ball"><i class="fa fa-arrow-up"></i></div>
 		</div>
-
-		<!-- <script src="https://wp-02.local/wp-content/themes/WordPress-Theme-from-Scritch/assets/js/javascript.js"></script>		 -->
 
 	</body>
 </html>		
