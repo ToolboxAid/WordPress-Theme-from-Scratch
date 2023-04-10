@@ -279,8 +279,14 @@ pre.wp-modified-code{
 	white-space: nowrap;
 	overflow-x: auto;
 	background-color: #eeeeee;
+	margin-bottom: 20px;
   }
-  
+
+   p.line-wrap{
+	padding: 0;	
+	width: calc(100% - 2px);
+  } 
+
   span.line-number {
 	margin-right:8px;
 	display: inline-block;
@@ -292,12 +298,6 @@ pre.wp-modified-code{
   
   span.line-content {
 	display: inline-block;
-
-  }
-  
-  p.line-wrap{
-	padding: 0;	
-	width: calc(100% - 2px);
 
   }
 

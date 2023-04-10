@@ -53,6 +53,10 @@ window.addEventListener('load', function() {
 /* */
 /* */
 // pre.code block formatting
+
+// Create a static variable to keep track of the code block count
+let codeCounter = 0;
+
 window.onload = function() {
 
   // Get all the code blocks on the page
@@ -65,6 +69,7 @@ window.onload = function() {
     // Create a new <pre> element with the modified class
     const newBlock = document.createElement('pre');
     newBlock.classList.add('wp-modified-code');
+    parent.classList.add(`code-${++codeCounter}`); // Add the code-# class
 
     // Create a new <code> element and append the block's content to it
     const newCode = document.createElement('code');
@@ -98,6 +103,7 @@ window.onload = function() {
     // Create a new button for copying the code block to clipboard
     const copyButton = document.createElement('a');
     copyButton.textContent = 'Copy to Clipboard';
+    copyButton.classList.add(`code-${codeCounter}`); // Add the code-# class to the button
     newBlock.appendChild(copyButton);
 
     // Add event listener to the copy button
@@ -112,7 +118,6 @@ window.onload = function() {
   /* Now hide the original*/
   // Select all elements with the class of 'widget'
   const widgets = document.querySelectorAll('.wp-block-code');
-
   // Loop through each 'widget' element and add a new class
   for (let i = 0; i < widgets.length; i++) {
     widgets[i].classList.add('hide-me');
