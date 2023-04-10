@@ -13,7 +13,7 @@ window.addEventListener('load', function() {
       return (
           rect.top >= 0 &&
           rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.bottom - 250 <= (window.innerHeight || document.documentElement.clientHeight) &&
           rect.right <= (window.innerWidth || document.documentElement.clientWidth)
       );
   }
@@ -34,12 +34,11 @@ window.addEventListener('load', function() {
   window.addEventListener("resize", callbackFunc);
 
   function widgetFunc() {
-    var widgets = document.querySelectorAll('.widget');
+    var widgets = document.querySelectorAll('.widget-item');
     console.log("Number of widgets: " + widgets.length);
-
     for (var i = 0; i < widgets.length; i++) {
       var rect = widgets[i].getBoundingClientRect();
-      console.log("Widget top: " + rect.top + ", left: " + rect.left);
+      console.log("Widget-top: " + rect.top + ", left: " + rect.left);
     }
   }
   widgetFunc();
