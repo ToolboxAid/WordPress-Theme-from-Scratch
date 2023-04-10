@@ -5,11 +5,11 @@
  */
 
 window.addEventListener('load', function() {
-  console.log("hello my friends");
+  //console.log("hello my friends");
   function isElementInViewport(el) {
       var rect = el.getBoundingClientRect();
 
-      console.log(el.getBoundingClientRect().top," ",el.getBoundingClientRect().left);    
+      //console.log(el.getBoundingClientRect().top," ",el.getBoundingClientRect().left);    
       return (
           rect.top >= 0 &&
           rect.left >= 0 &&
@@ -35,10 +35,10 @@ window.addEventListener('load', function() {
 
   function widgetFunc() {
     var widgets = document.querySelectorAll('.widget-item');
-    console.log("Number of widgets: " + widgets.length);
+    //console.log("Number of widgets: " + widgets.length);
     for (var i = 0; i < widgets.length; i++) {
       var rect = widgets[i].getBoundingClientRect();
-      console.log("Widget-top: " + rect.top + ", left: " + rect.left);
+      //console.log("Widget-top: " + rect.top + ", left: " + rect.left);
     }
   }
   widgetFunc();
