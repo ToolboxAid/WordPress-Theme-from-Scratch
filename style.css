@@ -269,7 +269,8 @@ section.side-by-side {
 /*     */
 
 /* =============== */
-/*  pre.code block */
+/* pre.code block  */
+/* greenbar colors */
 /* =============== */
 .hide-me{
 	display:none;
@@ -278,7 +279,7 @@ section.side-by-side {
 pre.wp-modified-code{
 	white-space: nowrap;
 	overflow-x: auto;
-	background-color: #eeeeee;
+	background-color: #F9F6EE;
 	margin-bottom: 20px;
   }
 
@@ -302,15 +303,8 @@ pre.wp-modified-code{
   }
 
   p.line-wrap:nth-child(even) {
-	background-color: #d0f0d0;
+	background-color: #ffcccc; /* #d0f0d0; greenbar green */
   }
-
-  
-
-  
-  
-
-
 
 /* ============== */
 /* Footer Section */

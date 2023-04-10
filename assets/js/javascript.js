@@ -42,18 +42,12 @@ window.addEventListener('load', function() {
     }
   }
   widgetFunc();
-
-
-
-
 });
 
 
-/* */
-/* */
-/* */
-// pre.code block formatting
-
+/* ========================= */
+/* pre.code block formatting */
+/* ========================= */
 // Create a static variable to keep track of the code block count
 let codeCounter = 0;
 
@@ -66,10 +60,18 @@ window.onload = function() {
   codeBlocks.forEach((block) => {
     const parent = block.parentNode;
 
+
+    // Create a new button for copying the code block to clipboard
+    const copyButton = document.createElement('a');
+    copyButton.textContent = 'Copy to Clipboard';
+    copyButton.classList.add(`code-${++codeCounter}`); // Add the code-# class to the button
+
     // Create a new <pre> element with the modified class
     const newBlock = document.createElement('pre');
+    newBlock.appendChild(copyButton);
+
     newBlock.classList.add('wp-modified-code');
-    parent.classList.add(`code-${++codeCounter}`); // Add the code-# class
+    parent.classList.add(`code-${codeCounter}`); // Add the code-# class
 
     // Create a new <code> element and append the block's content to it
     const newCode = document.createElement('code');
@@ -100,11 +102,6 @@ window.onload = function() {
     // Insert the new block after the original block
     parent.insertAdjacentElement('afterend', newBlock);
 
-    // Create a new button for copying the code block to clipboard
-    const copyButton = document.createElement('a');
-    copyButton.textContent = 'Copy to Clipboard';
-    copyButton.classList.add(`code-${codeCounter}`); // Add the code-# class to the button
-    newBlock.appendChild(copyButton);
 
     // Add event listener to the copy button
     copyButton.addEventListener('click', () => {
@@ -115,12 +112,12 @@ window.onload = function() {
   });
 
 
-  /* Now hide the original*/
-  // Select all elements with the class of 'widget'
-  const widgets = document.querySelectorAll('.wp-block-code');
-  // Loop through each 'widget' element and add a new class
-  for (let i = 0; i < widgets.length; i++) {
-    widgets[i].classList.add('hide-me');
+  /* Now hide the original code if javascript is enabled */
+  // Select all elements with the class of 'wp-block-code'
+  const blockcodes = document.querySelectorAll('.wp-block-code');
+  // Loop through each 'wp-block-code' element and add a new class
+  for (let i = 0; i < blockcodes.length; i++) {
+    blockcodes[i].classList.add('hide-me');
   }
 
 };
