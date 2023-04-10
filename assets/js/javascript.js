@@ -6,42 +6,50 @@
 
 
 /* animation section */
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
 
   function isElementInViewport(el, offset) {
-      var rect = el.getBoundingClientRect();
+    var rect = el.getBoundingClientRect();
 
-      console.log(offset);
-      return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.top + offset <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      );
+    console.log(offset);
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.top + offset <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
   }
 
   function callbackFunc(queryList, offset) {
     console.log(offset);
-      for (var i = 0; i < queryList.length; i++) {
-        if (isElementInViewport(queryList[i], offset)) {
-          queryList[i].classList.add("visible");
-        }
+    for (var i = 0; i < queryList.length; i++) {
+      if (isElementInViewport(queryList[i], offset)) {
+        queryList[i].classList.add("visible");
       }
+    }
   }
 
   var widgets = document.querySelectorAll('.widget-item');
   var widget_offset = -100;
   callbackFunc(widgets, widget_offset);
-  window.addEventListener("load", function() { callbackFunc(widgets, widget_offset); });
-  window.addEventListener("scroll", function() { callbackFunc(widgets, widget_offset); });
-  window.addEventListener("resize", function() { callbackFunc(widgets, widget_offset); });
+  window.addEventListener("load", function () { callbackFunc(widgets, widget_offset); });
+  window.addEventListener("scroll", function () { callbackFunc(widgets, widget_offset); });
+  window.addEventListener("resize", function () { callbackFunc(widgets, widget_offset); });
 
   var posts = document.querySelectorAll('.post');
   var post_offset = 50;
   callbackFunc(posts, post_offset);
-  window.addEventListener("load", function() { callbackFunc(posts, post_offset); });
-  window.addEventListener("scroll", function() { callbackFunc(posts, post_offset); });
-  window.addEventListener("resize", function() { callbackFunc(posts, post_offset); });
+  window.addEventListener("load", function () { callbackFunc(posts, post_offset); });
+  window.addEventListener("scroll", function () { callbackFunc(posts, post_offset); });
+  window.addEventListener("resize", function () { callbackFunc(posts, post_offset); });
+
+  var info = document.querySelectorAll('.info-box');
+  var info_offset = -100;
+  callbackFunc(info, info_offset);
+  window.addEventListener("load", function () { callbackFunc(widgets, info_offset); });
+  window.addEventListener("scroll", function () { callbackFunc(widgets, info_offset); });
+  window.addEventListener("resize", function () { callbackFunc(widgets, info_offset); });
+
 
 });
 
@@ -52,7 +60,7 @@ window.addEventListener('load', function() {
 // Create a static variable to keep track of the code block count
 let codeCounter = 0;
 
-window.onload = function() {
+window.onload = function () {
 
   // Get all the code blocks on the page
   const codeBlocks = document.querySelectorAll('pre.wp-block-code code');
@@ -83,19 +91,19 @@ window.onload = function() {
       const lineNumber = document.createElement('span');
       lineNumber.classList.add('line-number');
       lineNumber.textContent = String(i + 1).padStart(3, '0');
-    
+
       const lineContent = document.createElement('span');
       lineContent.classList.add('line-content');
       lineContent.classList.add('printed-line');
       lineContent.textContent = lines[i];
-    
+
       const lineWrap = document.createElement('p');
       lineWrap.appendChild(lineNumber);
       lineWrap.appendChild(lineContent);
       lineWrap.classList.add('line-wrap');
-      
+
       newCode.appendChild(lineWrap);
-    }    
+    }
 
     // Append the new <code> element to the new <pre> element
     newBlock.appendChild(newCode);
@@ -108,10 +116,9 @@ window.onload = function() {
     copyButton.addEventListener('click', () => {
       const textToCopy = lines.map(line => line + '\n').join('');
       navigator.clipboard.writeText(textToCopy);
-      alert('Upon clicking ok, the code block will be copied to clipboard!');
+      alert('Upon clicking `OK`, the code block will be copied to clipboard!');
     });
   });
-
 
   /* Now hide the original code if javascript is enabled */
   // Select all elements with the class of 'wp-block-code'
@@ -127,23 +134,23 @@ window.onload = function() {
 /* ================== */
 /* Top Of Page button */
 /* ================== */
-window.addEventListener('load', function() {
-//$(document).ready(function() {
+window.addEventListener('load', function () {
+  //$(document).ready(function() {
   const ballContainer = $("#ball-container");
 
-  ballContainer.on("click", function() {
+  ballContainer.on("click", function () {
     $("html, body").animate({ scrollTop: 0 }, "slow");
   });
 
-  $(window).scroll(function() {
+  $(window).scroll(function () {
     if ($(this).scrollTop() > 250) {
-    ballContainer.fadeIn(1500);
+      ballContainer.fadeIn(1500);
     } else {
-    ballContainer.fadeOut(1500);
+      ballContainer.fadeOut(1500);
     }
   });
 
   $(window).scroll(); // execute scroll() function on page load
-  
+
 });
 

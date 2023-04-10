@@ -82,6 +82,37 @@
 
             </div> <!-- header-content end -->
 
+
+            <noscript>
+                <style>
+                    article,
+                    .widget-item {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                    .no-script-content{
+                        background-color: red;
+                        margin: 0 auto;
+                        font-family: arial;
+                        font-size: 26px;
+                        outline: dashed 5px black;  
+                        text-align: center;
+                        padding:10px;
+                    }
+                    .no-script-content p{
+                        color: white !important;
+                        padding: 6px;
+                    }
+                </style>
+                <div class="no-script-content ">
+                    <p>Oh Me, Oh My: looks like somebody does not like having fun.</p>
+                    <p>Please enable JavaScript to view this page properly.</p>
+                    <p>Page not displayed properly and will move around without JavaScript.</p>
+                </div>
+            </noscript>
+
+
         </header>
         <main class="align-center">
             <section class="side-by-side">
+

@@ -170,20 +170,23 @@ div.hd-search #s {
 /* =================== */
 /* Main section styles */
 /* =================== */
+.info-box,
 article,
 div.widget-item {
 	margin-bottom: 20px;
 	padding: 20px;
 }
 
+.info-box,
 article,
 .widget-item {
     opacity: 0;
     transform: translateY(250px);
     transition: all 2s ease;
-    min-height:100px;
+    /* min-height:100px; */
 }
 
+.info-box.visible,
 article.visible,
 .widget-item.visible {
     opacity: 1;
