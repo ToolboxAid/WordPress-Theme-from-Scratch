@@ -263,6 +263,55 @@ section.side-by-side {
 	margin-bottom: 0;
 }
 
+
+/*     */
+/*     */
+/*     */
+
+/* =============== */
+/*  pre.code block */
+/* =============== */
+.hide-me{
+	display:none;
+}
+
+pre.wp-modified-code{
+	white-space: nowrap;
+	overflow-x: auto;
+	background-color: #eeeeee;
+  }
+  
+  span.line-number {
+	margin-right:8px;
+	display: inline-block;
+	padding: 3px 10px;
+	color: #888888;
+	text-align: right;
+	border-right: 3px solid #aa0000;
+  }
+  
+  span.line-content {
+	display: inline-block;
+
+  }
+  
+  p.line-wrap{
+	padding: 0;	
+	width: calc(100% - 2px);
+
+  }
+
+  p.line-wrap:nth-child(even) {
+	background-color: #d0f0d0;
+  }
+
+  
+
+  
+  
+
+
+
 /* ============== */
 /* Footer Section */
 /* ============== */

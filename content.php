@@ -87,59 +87,6 @@ debug_location("______ - __3");
 <!-- ====================================================== -->            
 <!-- ====================================================== -->            
 <!-- ====================================================== -->    
-<style>
-pre {
-  white-space: pre;
-  overflow-x: auto;
-  line-height: 1.5;
-}
-
-.line-number {
-  display: inline-block;
-  width: 2em;
-  text-align: right;
-  margin-right: 0.5em;
-  color: #999;
-}
-</style>
-
-<script>
-// Remove leading white space from code block
-const codeBlock = document.querySelector('pre code');
-codeBlock.innerHTML = codeBlock.innerHTML.replace(/^\s+/, '');
-
-// Add line numbers to code block
-const lines = codeBlock.innerHTML.split('\n');
-const formattedLines = lines.map((line, index) => {
-  const lineNumber = String(index + 1).padStart(3, '0');
-  return `<span class="line-number">${lineNumber}</span><span>${line}</span>`;
-});
-codeBlock.innerHTML = formattedLines.join('\n');
-
-// Add copy to clipboard functionality
-const copyButton = document.getElementById('copy-btn');
-copyButton.addEventListener('click', () => {
-  const code = document.querySelector('pre code').innerText;
-  navigator.clipboard.writeText(code);
-});
-</script>
-
-<div>
-	<pre id="code" class="wp-block-code">
-		<code>
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-	&lt;head&gt;
-	&lt;title&gt;Example&lt;/title&gt;
-	&lt;/head&gt;
-	&lt;body&gt;
-	&lt;h1&gt;Hello, world!&lt;/h1&gt;
-	&lt;/body&gt;
-&lt;/html&gt;
-		</code>
-	</pre>
-<button id="copy-btn">Copy to Clipboard</button>
-</div>
 
 <!-- ====================================================== -->            
 <!-- ====================================================== -->            
