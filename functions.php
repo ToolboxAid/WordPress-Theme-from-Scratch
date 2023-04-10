@@ -137,7 +137,7 @@ add_action('widgets_init', 'ourWidgetsInit');
 
 
 /* ************************ */
-
+// Usage: [image_container src="http://path-to-image" width="100" height="100"]
 // Define the shortcode function
 function image_container_shortcode($atts) {
 	// Extract the shortcode attributes
@@ -155,18 +155,12 @@ function image_container_shortcode($atts) {
 	$html = '<div class="image-container-no-overflow ">';
 	$html .= '<div class="image-hover-zoom-rotate" style="background-image:url(' . $src . ');"></div>';
 	$html .= '</div>';
-  
-	/*
-<div class="image-container-no-overflow">
-  <div class="image-hover-zoom-rotate"></div>
-</div>
-*/
+
 	// Return the HTML
 	return $html;
   }
   // Register the shortcode
   add_shortcode('image_container', 'image_container_shortcode');
 // Usage: [image_container src="http://path-to-image" width="100" height="100"]
-
 
 ?>

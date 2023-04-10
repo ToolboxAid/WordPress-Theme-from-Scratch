@@ -1,4 +1,3 @@
-		
 	<?php
 		if ( is_search() OR is_archive() or is_home() ) { ?>
 			<!-- post-thumbnail -->
@@ -20,7 +19,7 @@
 					$image_id = get_post_thumbnail_id();
 					$image_url = wp_get_attachment_image_src($image_id, 'banner-image')[0];
 				?>
-				<div class="post-banner bg-image-fill" style="background-image: url('<?php echo $image_url; ?>')">		
+				<div class=" post post-banner bg-image-fill" style="background-image: url('<?php echo $image_url; ?>')">		
 					<?php debug_location("______ - B");?>
 				</div><!-- /post-banner -->
 				<h2><?php the_title(); ?></h2>
@@ -82,15 +81,5 @@ debug_location("______ - __3");
 				the_content();
 			}
 		} ?>
-
-
-<!-- ====================================================== -->            
-<!-- ====================================================== -->            
-<!-- ====================================================== -->    
-
-<!-- ====================================================== -->            
-<!-- ====================================================== -->            
-<!-- ====================================================== -->  
-
 
 	</article>

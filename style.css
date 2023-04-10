@@ -176,12 +176,15 @@ div.widget-item {
 	padding: 20px;
 }
 
+article,
 .widget-item {
     opacity: 0;
     transform: translateY(250px);
     transition: all 2s ease;
     min-height:100px;
 }
+
+article.visible,
 .widget-item.visible {
     opacity: 1;
     transform: translateY(0);

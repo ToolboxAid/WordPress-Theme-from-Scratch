@@ -4,44 +4,45 @@
  * Version: 1.0.0
  */
 
+
+/* animation section */
 window.addEventListener('load', function() {
-  //console.log("hello my friends");
-  function isElementInViewport(el) {
+
+  function isElementInViewport(el, offset) {
       var rect = el.getBoundingClientRect();
 
-      //console.log(el.getBoundingClientRect().top," ",el.getBoundingClientRect().left);    
+      console.log(offset);
       return (
           rect.top >= 0 &&
           rect.left >= 0 &&
-          rect.bottom - 250 <= (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.top + offset <= (window.innerHeight || document.documentElement.clientHeight) &&
           rect.right <= (window.innerWidth || document.documentElement.clientWidth)
       );
   }
 
-  var items = document.querySelectorAll('.widget-item');
-
-  function callbackFunc() {
-      for (var i = 0; i < items.length; i++) {
-          if (isElementInViewport(items[i])) {
-              items[i].classList.add("visible");
-          }
+  function callbackFunc(queryList, offset) {
+    console.log(offset);
+      for (var i = 0; i < queryList.length; i++) {
+        if (isElementInViewport(queryList[i], offset)) {
+          queryList[i].classList.add("visible");
+        }
       }
   }
 
-  callbackFunc();
-  window.addEventListener("load", callbackFunc);
-  window.addEventListener("scroll", callbackFunc);
-  window.addEventListener("resize", callbackFunc);
+  var widgets = document.querySelectorAll('.widget-item');
+  var widget_offset = -100;
+  callbackFunc(widgets, widget_offset);
+  window.addEventListener("load", function() { callbackFunc(widgets, widget_offset); });
+  window.addEventListener("scroll", function() { callbackFunc(widgets, widget_offset); });
+  window.addEventListener("resize", function() { callbackFunc(widgets, widget_offset); });
 
-  function widgetFunc() {
-    var widgets = document.querySelectorAll('.widget-item');
-    //console.log("Number of widgets: " + widgets.length);
-    for (var i = 0; i < widgets.length; i++) {
-      var rect = widgets[i].getBoundingClientRect();
-      //console.log("Widget-top: " + rect.top + ", left: " + rect.left);
-    }
-  }
-  widgetFunc();
+  var posts = document.querySelectorAll('.post');
+  var post_offset = 50;
+  callbackFunc(posts, post_offset);
+  window.addEventListener("load", function() { callbackFunc(posts, post_offset); });
+  window.addEventListener("scroll", function() { callbackFunc(posts, post_offset); });
+  window.addEventListener("resize", function() { callbackFunc(posts, post_offset); });
+
 });
 
 
@@ -120,7 +121,7 @@ window.onload = function() {
     blockcodes[i].classList.add('hide-me');
   }
 
-};
+}; // end window.onload
 
 
 /* ================== */
