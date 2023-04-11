@@ -99,49 +99,49 @@ li.menu-item {
   
 /* animation */
 /* set initial styles for the link */
-div.menu-header-container a {
+a {
 	position: relative;
 	text-decoration: none;
   }
   
-  /* create the underline elements */
-  div.menu-header-container a::before,
-  div.menu-header-container a::after {
+  /* create the under/over line elements */
+ul#menu-header-links li.menu-item a::before,
+ul#menu-header-links li.menu-item a::after {
 	content: "";
 	position: absolute;
 	left: 0;
 	width: 0;
 	height: 3px;
-	background-color: #aa0000;
+	background-color: #3600af; /* orange; */
 	opacity: 0;
 	transition: all 0.5s ease-out;
   }
   
   /* apply the effect on hover */
-  div.menu-header-container a:hover::before,
-  div.menu-header-container a:hover::after {
+  ul#menu-header-links li.menu-item a:hover::before,
+  ul#menu-header-links li.menu-item a:hover::after {
 	width: 100%;
 	opacity: 1;
 	transition: all 0.5s ease-in-out;
   }
   
   /* animate the effect out after hover */
-  div.menu-header-container a:not(:hover)::before,
-  div.menu-header-container a:not(:hover)::after {
+  ul#menu-header-links li.menu-item a:not(:hover)::before,
+  ul#menu-header-links li.menu-item a:not(:hover)::after {
 	width: 0;
 	opacity: 0;
-	transition: all 0.5s ease-in-out;
+	transition: all 3.5s ease-in-out;
   }
   
   /* position the elements above and below the text */
-  div.menu-header-container a::before {
+  ul#menu-header-links li.menu-item a::before {
 	top: -1px;
   }
   
-  div.menu-header-container a::after {
+  ul#menu-header-links li.menu-item a::after {
 	bottom: -1px;
   }
-
+/* current_page_item */
   
 /* ===================== */
 /* Search section styles */
