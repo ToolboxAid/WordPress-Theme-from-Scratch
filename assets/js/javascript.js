@@ -4,52 +4,60 @@
  * Version: 1.0.0
  */
 
-
 /* animation section */
 window.addEventListener('load', function () {
 
-  function isElementInViewport(el, offset) {
+  function isElementInViewport(el) {
     var rect = el.getBoundingClientRect();
-
-    console.log(offset);
     return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.top + offset <= (window.innerHeight || document.documentElement.clientHeight) &&
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      //rect.top > 0 && rect.top + 300 <= this.scrollY + window.innerHeight
+      rect.top + 1 <= this.scrollY + window.innerHeight  // what is the correct math here
     );
   }
 
-  function callbackFunc(queryList, offset) {
-    console.log(offset);
+  function callbackFunc(queryList) {    
     for (var i = 0; i < queryList.length; i++) {
-      if (isElementInViewport(queryList[i], offset)) {
-        queryList[i].classList.add("visible");
+
+// if (!queryList[i].classList.contains('visible')) {      
+// // //const element = document.querySelector('.widget-item');
+// // const elementRect = element.getBoundingClientRect();
+// // Get the height of the viewport
+// const windowHeight = window.innerHeight;
+// // Check if any part of the element is visible
+// if (queryList[i].bottom >= 0 && queryList[i].top <= windowHeight) {
+//   console.log('Element is partially or fully visible on the page');
+// } else {
+//   console.log('Element is not visible on the page');
+// }
+// }
+
+      if (isElementInViewport(queryList[i])) {
+        if (!queryList[i].classList.contains('visible')) {
+          var rect = queryList[i].getBoundingClientRect();
+          //console.log(this.scrollY,"<scroll YOff>", window.pageYOffset, rect.top, "<top -rect- bottom>", rect.bottom, " iHt>", window.innerHeight);      
+          queryList[i].classList.add("visible");
+        }
       }
     }
   }
 
   var widgets = document.querySelectorAll('.widget-item');
-  var widget_offset = -100;
-  callbackFunc(widgets, widget_offset);
-  window.addEventListener("load", function () { callbackFunc(widgets, widget_offset); });
-  window.addEventListener("scroll", function () { callbackFunc(widgets, widget_offset); });
-  window.addEventListener("resize", function () { callbackFunc(widgets, widget_offset); });
+  callbackFunc(widgets);
+  window.addEventListener("load", function () { callbackFunc(widgets); });
+  window.addEventListener("scroll", function () { callbackFunc(widgets); });
+  window.addEventListener("resize", function () { callbackFunc(widgets); });
 
   var posts = document.querySelectorAll('.post');
-  var post_offset = 50;
-  callbackFunc(posts, post_offset);
-  window.addEventListener("load", function () { callbackFunc(posts, post_offset); });
-  window.addEventListener("scroll", function () { callbackFunc(posts, post_offset); });
-  window.addEventListener("resize", function () { callbackFunc(posts, post_offset); });
+  callbackFunc(posts);
+  window.addEventListener("load", function () { callbackFunc(posts); });
+  window.addEventListener("scroll", function () { callbackFunc(posts); });
+  window.addEventListener("resize", function () { callbackFunc(posts); });
 
   var info = document.querySelectorAll('.info-box');
-  var info_offset = -100;
-  callbackFunc(info, info_offset);
-  window.addEventListener("load", function () { callbackFunc(widgets, info_offset); });
-  window.addEventListener("scroll", function () { callbackFunc(widgets, info_offset); });
-  window.addEventListener("resize", function () { callbackFunc(widgets, info_offset); });
-
+  callbackFunc(info);
+  window.addEventListener("load", function () { callbackFunc(info); });
+  window.addEventListener("scroll", function () { callbackFunc(info); });
+  window.addEventListener("resize", function () { callbackFunc(info); });
 
 });
 
