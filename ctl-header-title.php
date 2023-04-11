@@ -304,7 +304,7 @@ function header_title_css() { ?>
 
         header .header-image {
 	        background-color: <?php echo get_theme_mod('header_title_background'); ?>;
-            background-image: url('<?php echo get_theme_mod('header_title_image'); ?>');
+            background-image: url('<?php echo str_replace('http://', 'https://', get_theme_mod('header_title_image')); ?>');
             border-top: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>;
             border-bottom: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>  ;          
         }

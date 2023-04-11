@@ -5,36 +5,27 @@
  */
 
 /* animation section */
-window.addEventListener('load', function () {
+function handleAnimationEvents() {
 
-  function isElementInViewport(el) {
-    var rect = el.getBoundingClientRect();
-    return (
-      //rect.top > 0 && rect.top + 300 <= this.scrollY + window.innerHeight
-      rect.top + 1 <= this.scrollY + window.innerHeight  // what is the correct math here
-    );
-  }
+  $.fn.visible = function(partial) {
+    
+      var $t            = $(this),
+          $w            = $(window),
+          viewTop       = $w.scrollTop(),
+          viewBottom    = viewTop + $w.height(),
+          _top          = $t.offset().top,
+          _bottom       = _top + $t.height(),
+          compareTop    = partial === true ? _bottom : _top,
+          compareBottom = partial === true ? _top : _bottom;
+    
+    return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+  };
 
   function callbackFunc(queryList) {    
     for (var i = 0; i < queryList.length; i++) {
-
-// if (!queryList[i].classList.contains('visible')) {      
-// // //const element = document.querySelector('.widget-item');
-// // const elementRect = element.getBoundingClientRect();
-// // Get the height of the viewport
-// const windowHeight = window.innerHeight;
-// // Check if any part of the element is visible
-// if (queryList[i].bottom >= 0 && queryList[i].top <= windowHeight) {
-//   console.log('Element is partially or fully visible on the page');
-// } else {
-//   console.log('Element is not visible on the page');
-// }
-// }
-
-      if (isElementInViewport(queryList[i])) {
+      if ($(queryList[i]).visible(true)){
         if (!queryList[i].classList.contains('visible')) {
           var rect = queryList[i].getBoundingClientRect();
-          //console.log(this.scrollY,"<scroll YOff>", window.pageYOffset, rect.top, "<top -rect- bottom>", rect.bottom, " iHt>", window.innerHeight);      
           queryList[i].classList.add("visible");
         }
       }
@@ -43,23 +34,21 @@ window.addEventListener('load', function () {
 
   var widgets = document.querySelectorAll('.widget-item');
   callbackFunc(widgets);
-  window.addEventListener("load", function () { callbackFunc(widgets); });
-  window.addEventListener("scroll", function () { callbackFunc(widgets); });
-  window.addEventListener("resize", function () { callbackFunc(widgets); });
-
   var posts = document.querySelectorAll('.post');
   callbackFunc(posts);
-  window.addEventListener("load", function () { callbackFunc(posts); });
-  window.addEventListener("scroll", function () { callbackFunc(posts); });
-  window.addEventListener("resize", function () { callbackFunc(posts); });
-
   var info = document.querySelectorAll('.info-box');
   callbackFunc(info);
-  window.addEventListener("load", function () { callbackFunc(info); });
-  window.addEventListener("scroll", function () { callbackFunc(info); });
-  window.addEventListener("resize", function () { callbackFunc(info); });
 
-});
+  var events = ["load", "scroll", "resize"]; // this load does not trigger, i.e. above callbacFunc()
+  events.forEach(function(event) {
+    window.addEventListener(event, function() {callbackFunc(widgets);});
+    window.addEventListener(event, function() {callbackFunc(posts);});
+    window.addEventListener(event, function() {callbackFunc(info);});
+  });
+}
+window.addEventListener('load', handleAnimationEvents);
+
+
 
 
 /* ========================= */

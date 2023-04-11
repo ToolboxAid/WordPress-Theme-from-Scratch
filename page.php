@@ -9,7 +9,8 @@
 
 		if (have_posts()){ ?>
 			<article class="post page"><?php
-				if ( has_children() OR $post->post_parent > 0 ) { ?>
+				if ( has_children() OR $post->post_parent > 0 ) { 
+					/* add the child menu */ ?>
 					<nav class="site-nav children-links">
 						<span class="parent-link">
 							<a href="<?php echo get_the_permalink(get_top_ancestor_id()); ?>">
@@ -27,6 +28,7 @@
 					</nav><?php
 				}
 
+				/* add the content */
 				while (have_posts()) : the_post(); ?>		
 					<h2><?php the_title(); ?></h2>
 					<?php the_content(); ?>
