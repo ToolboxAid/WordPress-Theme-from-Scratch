@@ -135,11 +135,11 @@ ul#menu-header-links li.menu-item a::after {
   
   /* position the elements above and below the text */
   ul#menu-header-links li.menu-item a::before {
-	top: -1px;
+	top: -3px;
   }
   
   ul#menu-header-links li.menu-item a::after {
-	bottom: -1px;
+	bottom: -5px;
   }
 /* current_page_item */
   
