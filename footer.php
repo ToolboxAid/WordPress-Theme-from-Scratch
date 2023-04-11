@@ -3,11 +3,8 @@
 		</main>
 
 		<footer>		
-		<div class="ball">
-				<i class="fa-solid fa-circle-up"></i>
-			</div>
 			<!-- footer-widgets -->
-			<div class="footer-row">
+			<div class="footer-row footer-row-menu">
 				<div class="footer-col menu"><?php
 					$footer_menu_name = wp_get_nav_menu_name('footer1');// Get the menu name for 'footer1'
 					echo '<h4>' . $footer_menu_name . '</h4>';// Echo the menu name to an H4 tag
@@ -58,7 +55,7 @@
 					
 			</div><!-- /footer-widgets -->
 
-			<div class="footer-row">
+			<div class="footer-row footer-row-star">
 				<div class="footer-col">
 					<div  class="star">
 						<hr/>
@@ -67,7 +64,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="footer-row ">
+			<div class="footer-row  footer-row-copyright">
 				<div class="footer-col align-center copyright">
 					<p>&copy;  
 					<?php
@@ -79,6 +76,9 @@
 			</div>
 		</footer>
 
+		<!-- <div class="ball">
+			<i class="fa-solid fa-circle-up"></i>
+		</div> -->
 		<!-- Top Of Page control -->
 		<div id="ball-container" class="ball-loc bounce" style="display: none;">
 			<div class="ball wave1"></div>
