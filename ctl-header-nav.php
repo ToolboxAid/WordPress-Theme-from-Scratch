@@ -166,8 +166,13 @@ function header_nav_css() { ?>
 		header nav a:hover {
 			color: <?php echo get_theme_mod('header_nav_color_hover'); ?>;
 		}
-		/* Active page color: #eeeeee; */
-
+		/* apply the effect on hover */
+		ul#menu-header li.menu-item a:hover::before,
+		ul#menu-header li.menu-item a:hover::after,
+		ul#menu-header-links li.menu-item a:hover::before,
+		ul#menu-header-links li.menu-item a:hover::after {
+			background-color:  <?php echo get_theme_mod('header_nav_color_hover'); ?>;
+		}	
 		header nav li.current-menu-item,
 		header nav li.current-page-ancestor,		
 		header nav li.current_page_item {		

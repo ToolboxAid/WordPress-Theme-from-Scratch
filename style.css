@@ -106,6 +106,8 @@ a {
 }
 
 /* create the under/over line elements */
+ul#menu-header li.menu-item a::before,
+ul#menu-header li.menu-item a::after,
 ul#menu-header-links li.menu-item a::before,
 ul#menu-header-links li.menu-item a::after {
 	content: "";
@@ -113,13 +115,13 @@ ul#menu-header-links li.menu-item a::after {
 	left: 0;
 	width: 0;
 	height: 3px;
-	background-color: #3600af;
-	/* orange; */
 	opacity: 0;
 	transition: all 0.5s ease-out;
 }
 
 /* apply the effect on hover */
+ul#menu-header li.menu-item a:hover::before,
+ul#menu-header li.menu-item a:hover::after,
 ul#menu-header-links li.menu-item a:hover::before,
 ul#menu-header-links li.menu-item a:hover::after {
 	width: 100%;
@@ -128,6 +130,8 @@ ul#menu-header-links li.menu-item a:hover::after {
 }
 
 /* animate the effect out after hover */
+ul#menu-header li.menu-item a:not(:hover)::before,
+ul#menu-header li.menu-item a:not(:hover)::after,
 ul#menu-header-links li.menu-item a:not(:hover)::before,
 ul#menu-header-links li.menu-item a:not(:hover)::after {
 	width: 0;
@@ -136,10 +140,12 @@ ul#menu-header-links li.menu-item a:not(:hover)::after {
 }
 
 /* position the elements above and below the text */
+ul#menu-header li.menu-item a::before,
 ul#menu-header-links li.menu-item a::before {
 	top: -3px;
 }
 
+ul#menu-header li.menu-item a::after,
 ul#menu-header-links li.menu-item a::after {
 	bottom: -5px;
 }
@@ -576,5 +582,5 @@ i.fa.fa-arrow-up {
 /*             */
 /* =========== */
 main .content-column * {
-	font-size: 105%;
+	font-size: 110%;
 }
