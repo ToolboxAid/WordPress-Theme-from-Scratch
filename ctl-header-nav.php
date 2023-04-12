@@ -173,13 +173,13 @@ function header_nav_css() { ?>
 		ul#menu-header-links li.menu-item a:hover::after {
 			background-color:  <?php echo get_theme_mod('header_nav_color_hover'); ?>;
 		}	
-		header nav li.current-menu-item,
+		header nav li.current-menu-item:not(current-menu-item ),
 		header nav li.current-page-ancestor,		
 		header nav li.current_page_item {		
 			background-color: <?php echo get_theme_mod('header_nav_background_active'); ?>;
 		}
 
-		header nav li.current-menu-item a,
+		header nav li.current-menu-item a:not(current-menu-item ),
 		header nav li.current-page-ancestor a,
 		header nav li.current_page_item a {		
 			color: <?php echo get_theme_mod('header_nav_color_active'); ?>;
