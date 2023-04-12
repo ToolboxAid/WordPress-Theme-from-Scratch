@@ -5,8 +5,8 @@
 		<title><?php bloginfo('name'); ?></title>
 		<meta charset="<?php bloginfo('charset'); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--	< link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-        <link rel="stylesheet" href="/wp-content/uploads/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- <link rel="stylesheet" href="/wp-content/uploads/font-awesome-4.7.0/css/font-awesome.min.css"> -->
     	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>		
 	</head>
@@ -69,10 +69,10 @@
 
                 <div class="site-nav align-center">
                     <nav>				
-                        <?php				
+                        <?php
                         $args = array( 'theme_location' => 'header' ); 
-                        wp_nav_menu(  $args );
-                        ?>
+ wp_nav_menu(  $args );                        
+?>
                     </nav>
                 </div>	<!-- site-nav end -->
 
