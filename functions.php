@@ -27,6 +27,7 @@ require_once('ctl-footer-star.php');
 require_once('ctl-footer-copyright.php');
 require_once('ctl-footer-top.php');
 
+
 //////////////
 /* Resource */
 //////////////
