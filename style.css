@@ -612,10 +612,43 @@ body main section div.content-column article.post ul.li-disc {
 
 /* body main section div.content-column article.post ul.li-disc li,
 body main section div.content-column article.post ul.li-disc li ul { */
-article.post ul li,
+/* article.post ul li,
 article.post ol li {
-	list-style-type: circle;
+	list-style-type: japanese-formal;
 	font-size: 18px;
 	padding: 0 5px;
 	margin-left: 5px;
-}
+} */
+
+article.post ul {
+	list-style-type: none;
+	margin-left: 15px;
+	padding-left: 5px;
+  }
+  
+
+  /* https://fontawesome.com/v4/cheatsheet/ */
+  article.post ul li:before {
+	font-family: 'FontAwesome';
+	content: "\f0a6"; /* This is the Unicode for the desired icon */
+	display: inline-block;
+	width: 1.5em;
+	font-size: 16px;
+	/* transform: rotate(270deg); */
+  }
+  article.post ul li ul li:before {
+	font-family: 'FontAwesome';
+	content: "\f25b"; /* This is the Unicode for the desired icon */
+	display: inline-block;
+	width: 1.5em;
+	font-size: 16px;
+	/* transform: rotate(270deg); */
+  }
+  article.post ul li ul li ul li:before {
+	font-family: 'FontAwesome';
+	content: "\f259"; /* This is the Unicode for the desired icon */
+	display: inline-block;
+	width: 1.5em;
+	font-size: 16px;
+	/* transform: rotate(270deg); */
+  }
