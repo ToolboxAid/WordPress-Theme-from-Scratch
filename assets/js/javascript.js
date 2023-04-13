@@ -66,10 +66,10 @@ window.onload = function () {
   codeBlocks.forEach((block) => {
     const parent = block.parentNode;
 
-
     // Create a new button for copying the code block to clipboard
     const copyButton = document.createElement('a');
-    copyButton.textContent = 'Copy to Clipboard';
+    copyButton.textContent = 'Copy';
+    copyButton.classList.add(`code`); // Add the code-# class to the button
     copyButton.classList.add(`code-${++codeCounter}`); // Add the code-# class to the button
 
     // Create a new <pre> element with the modified class

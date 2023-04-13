@@ -223,7 +223,6 @@ section {
 .content-column h4,
 .content-column h5,
 .content-column h6,
-
 .content-column p {
 	padding-bottom: 10px;
 }
@@ -322,19 +321,42 @@ span.line-number {
 	padding: 3px 10px;
 	color: #888888;
 	text-align: right;
-	border-right: 3px solid #aa0000;
+	border-right: 2px solid #aa0000;
 }
 
 span.line-content {
 	display: inline-block;
-
 }
 
-p.line-wrap:nth-child(even) {
-	background-color: #ffcccc;
+p.line-wrap:nth-child(odd) {
+	background-color: #ffdddd;
 	/* #d0f0d0; greenbar green */
 }
+p.line-wrap:nth-child(even) {
+	background-color: #ffeeee;
+	/* #d0f0d0; greenbar green */
+}
+.wp-modified-code a {
+	padding: 5px;
+	color: #eeeeee;
+	background-color: #aa0000;
+}
 
+.wp-modified-code {
+	text-align: center;
+}
+
+.wp-modified-code a.code {
+	display: block;
+}
+
+.wp-modified-code code {
+	text-align: left;
+}
+
+.wp-modified-code {
+	border: 2px solid #aa0000;
+}
 
 
 
@@ -406,14 +428,12 @@ footer div.footer-row:last-child {
 	padding: 10px;
 }
 
-.footer-col h4 {
-	font-size: 125%;
-}
+/* .footer-col h4 {	font-size: 125%;} */
 
 p.post-info {
 	color: #999999;
 	padding: 4px;
-	font-size: 85%;
+	/* font-size: 85%; */
 }
 
 
@@ -584,9 +604,7 @@ i.fa.fa-arrow-up {
 /* =========== */
 /*             */
 /* =========== */
-main .content-column * {
-	font-size: 110%;
-}
+/* main .content-column * {	font-size: 110%; } */
 
 body main section div.content-column article.post ul.li-disc {
 	margin: 20px;
@@ -598,9 +616,6 @@ article.post ul li,
 article.post ol li {
 	list-style-type: circle;
 	font-size: 18px;
-	padding:0 5px;
+	padding: 0 5px;
 	margin-left: 5px;
 }
-
-
-
