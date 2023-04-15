@@ -18,54 +18,55 @@
                     <?php 
                     $url = get_theme_mod('header_social_icons_facebook_url');
                     if (!empty($url) ){ ?>
-                    <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-facebook-f"></i></a>
+                        <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-facebook-f"></i></a>
                     <?php } ?>
 
                     <?php 
                     $url = get_theme_mod('header_social_icons_instagram_url');
                     if (!empty($url) ){ ?>
-                    <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-instagram"></i></a>
                     <?php } ?>
 
                     <?php 
                     $url = get_theme_mod('header_social_icons_linkedin_url');
                     if (!empty($url) ){ ?>
-                    <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-linkedin"></i></a>
                     <?php } ?>
 
                     <?php 
                     $url = get_theme_mod('header_social_icons_twitter_url');
                     if (!empty($url) ){ ?>
-                    <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-twitter"></i></a>
                     <?php } ?>
 
                     <?php 
                     $url = get_theme_mod('header_social_icons_youtube_url');
                     if (!empty($url) ){ ?>
-                    <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-youtube"></i></a>
+                        <a href="<?php echo $url; ?>" target="_blank"><i class="fa fa-youtube"></i></a>
                     <?php } ?>
                 </div> <!-- social-icons end -->
 
-                <div class="header-image bg-image-fill">
+                <div class="header-image bg-image-fill site-tagline ">
 
                     <h1 class="site-name align-center"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
 
-                    <?php if ( ! get_theme_mod( 'header_tagline_location', false ) ) {?>                                          
-                        <h2 class="site-tagline align-center"><?php bloginfo('description'); ?>
-                    <?php } ?>
-
-					<?php /* if (is_page(7)) {*/
-					if (is_page('front-page')) {?>
-						- Thank you for the visit our KEWL site.
-					<?php } ?>                
-                    </h2>
+                    <?php if ( ! get_theme_mod( 'header_tagline_hide', false ) ) {
+                            if ( ! get_theme_mod( 'header_tagline_location', false ) ) {?>                                          
+                                <h2 class="site-tagline align-center"><?php bloginfo('description'); 
+                                /* if (is_page(7)) {*/
+                                if (is_page('front-page')) {?>
+                                    - Thank you for the visit our KEWL site.<?php } ?>  
+                                </h2>
+                            <?php } } ?>                
                 </div>	<!-- header-image end -->
 
-                <?php if ( get_theme_mod( 'header_tagline_location', false ) ) {?>  
-                    <div class="site-tagline-2 align-center">                                        
-                        <h2><?php bloginfo('description'); ?>
+                <?php if ( ! get_theme_mod( 'header_tagline_hide', false ) ) {
+                         if ( get_theme_mod( 'header_tagline_location', false ) ) {?>   
+                    <div class="site-tagline site-tagline-alt align-center">                                        
+                        <h2><?php bloginfo('description'); 
+                        ?></h2>
                     </div>
-                <?php } ?> <!-- end div diff location -->
+                <?php } } ?> <!-- end div diff location -->
 
                 <div class="site-nav align-center">
                     <nav>				

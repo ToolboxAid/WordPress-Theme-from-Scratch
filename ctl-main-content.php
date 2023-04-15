@@ -8,7 +8,7 @@ function main_content( $wp_customize ) {
 	/* Create section */
 	$wp_customize->add_section('main_content', array(
 		'title' => __('Main - Content', 'qbytesworld_WordPress'),
-		'priority' => 165,
+		'priority' => 166,
 	));
 
     /* ************************************************************ */

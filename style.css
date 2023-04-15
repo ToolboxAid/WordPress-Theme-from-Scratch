@@ -58,15 +58,6 @@ header .header-content {
 	justify-content: center;
 }
 
-header h2.site-tagline {
-	font-size: clamp(4px, 3vw, 26px);
-}
-
-header div.site-tagline-2 h2 {
-	font-size: clamp(4px, 3vw, 20px);
-	padding: 10px;
-}
-
 /* ========== */
 /* Navigation */
 /* ========== */

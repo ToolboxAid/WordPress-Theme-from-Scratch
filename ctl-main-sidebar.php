@@ -8,7 +8,7 @@ function main_sidebar( $wp_customize ) {
 	/* Create section */
 	$wp_customize->add_section('main_sidebar', array(
 		'title' => __('Main - Sidebar (incomplete)', 'qbytesworld_WordPress'),
-		'priority' => 166,
+		'priority' => 167,
 	));
 
     /* ************************************************************ */

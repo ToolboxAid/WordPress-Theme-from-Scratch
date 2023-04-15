@@ -30,7 +30,7 @@ function header_nav( $wp_customize ) {
 	/* Create section */
 	$wp_customize->add_section('header_nav', array(
 		'title' => __('Header - Nav', 'qbytesworld_WordPress'),
-		'priority' => 162,
+		'priority' => 163,
 	));
 
     /* ************************************************************ */
@@ -40,7 +40,7 @@ function header_nav( $wp_customize ) {
     /* ************************************************************ */
     // Add font size setting and control
     $wp_customize->add_setting( 'header_nav_size', array(
-        'default'    => '22',
+        'default'    => '16',
         'transport'  => 'refresh',
      ) );
      $wp_customize->add_control( 'header_nav_size', array(
@@ -51,7 +51,7 @@ function header_nav( $wp_customize ) {
         'type'       => 'range',
         'priority'   => 10,
         'input_attrs' => array(
-        'min'    => '15',
+        'min'    => '3',
         'max'    => '30',
         'step'   => '1',
         ),
@@ -154,7 +154,7 @@ function header_nav_css() { ?>
 	<style type="text/css">
 		/* Font Size & Spacing*/
 		header nav a{		
-            font-size: <?php echo get_theme_mod('header_nav_size') ?>px;
+            font-size: clamp(3px, 2vw, <?php echo get_theme_mod('header_nav_size') ?>px) !important;			
 		}
 		header nav li{		
             padding-left: <?php echo get_theme_mod('header_nav_spacing'); ?>px;

@@ -37,7 +37,7 @@ function header_breadcrumbs( $wp_customize ) {
 	/* Create section */
 	$wp_customize->add_section('header_breadcrumbs', array(
 		'title' => __('Header - Bread Crumbs (incomplete)', 'qbytesworld_WordPress'),
-		'priority' => 164,
+		'priority' => 165,
 	));
 
     /* ************************************************************ */

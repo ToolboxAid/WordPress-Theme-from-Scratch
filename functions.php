@@ -17,6 +17,7 @@ function debug_location($location) {
 ////////////////////////////////////////////////////////////////
 require_once('ctl-header-social.php');
 require_once('ctl-header-title.php');
+require_once('ctl-header-title-tagline.php');
 require_once('ctl-header-nav.php');
 require_once('ctl-header-nav-sub.php');
 require_once('ctl-header-breadcrumbs.php');
@@ -26,7 +27,6 @@ require_once('ctl-footer-nav.php');
 require_once('ctl-footer-star.php');
 require_once('ctl-footer-copyright.php');
 require_once('ctl-footer-top.php');
-
 
 //////////////
 /* Resource */
@@ -51,7 +51,7 @@ function my_theme_setup()
 {
 	// Navigation Menus
 	register_nav_menus(array(
-		'header' => __( 'Header Menu'),
+		'header' =>  __( 'Header Menu'),
 		'footer1' => __( 'Footer Menu 1'),
 		'footer2' => __( 'Footer Menu 2'),
 		'footer3' => __( 'Footer Menu 3'),

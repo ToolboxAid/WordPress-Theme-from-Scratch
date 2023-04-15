@@ -8,7 +8,7 @@ function header_menu_sub( $wp_customize ) {
 	/* Create section */
 	$wp_customize->add_section('header_menu_sub', array(
 		'title' => __('Header - Sub-Menu (incomplete)', 'qbytesworld_WordPress'),
-		'priority' => 163,
+		'priority' => 164,
 	));
 
     /* ************************************************************ */

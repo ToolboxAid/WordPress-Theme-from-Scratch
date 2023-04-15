@@ -8,7 +8,7 @@ function footer_nav( $wp_customize ) {
 	/* Create section */
 	$wp_customize->add_section('footer_nav', array(
 		'title' => __('Footer - Nav', 'qbytesworld_WordPress'),
-		'priority' => 167,
+		'priority' => 171,
 	));
 
     /* ************************************************************ */
