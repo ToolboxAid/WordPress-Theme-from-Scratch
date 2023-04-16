@@ -23,6 +23,9 @@ div {
 	width: 100%;
 }
 
+a:hover{
+	transition: 0.5s ease-in-out;
+}
 /* target the all a element for effect */
 li a {
 	text-decoration: none;
@@ -96,77 +99,6 @@ a {
 	text-decoration: none;
 }
 
-/* create the under/over line elements */
-/* ul#menu-header li.menu-item a::before,
-ul#menu-header li.menu-item a::after,
-ul#menu-header-links li.menu-item a::before,
-ul#menu-header-links li.menu-item a::after {
-	content: "";
-	position: absolute;
-	left: 0;
-	width: 0;
-	height: 3px;
-	opacity: 0;
-	transition: all 0.5s ease-out;
-} */
-
-/* apply the effect on hover */
-/* ul#menu-header li.menu-item a:hover::before,
-ul#menu-header li.menu-item a:hover::after,
-ul#menu-header-links li.menu-item a:hover::before,
-ul#menu-header-links li.menu-item a:hover::after {
-	width: 100%;
-	opacity: 1;
-	transition: all 0.5s ease-in-out;
-} */
-
-/* animate the effect out after hover */
-/* ul#menu-header li.menu-item a:not(:hover)::before,
-ul#menu-header li.menu-item a:not(:hover)::after,
-ul#menu-header-links li.menu-item a:not(:hover)::before,
-ul#menu-header-links li.menu-item a:not(:hover)::after {
-	width: 0;
-	opacity: 0;
-	transition: all 3.5s ease-in-out;
-} */
-
-/* position the elements above and below the text */
-/* ul#menu-header li.menu-item a::before,
-ul#menu-header-links li.menu-item a::before {
-	top: -3px;
-}
-
-ul#menu-header li.menu-item a::after,
-ul#menu-header-links li.menu-item a::after {
-	bottom: -5px;
-} */
-
-/* current_page_item */
-
-/* ===================== */
-/* Search section styles */
-/* ===================== */
-/* Search 
-div.hd-search {
-	float: right;
-}
-div.hd-search label {
-	position: absolute;
-	left: -9999px;
-}
-div.hd-search #searchsubmit {
-	background-color: #006ec3;
-	color: #FFF;
-	padding: 5px 14px;
-	border: none;
-	vertical-align: top;
-}
-div.hd-search #s {
-	vertical-align: top;
-	padding: 3px 0;
-}
-*/
-
 /* =================== */
 /* Main section styles */
 /* =================== */
@@ -204,7 +136,7 @@ section {
 }
 
 .content-column {
-	width: cal(80% - 220px);
+	width: calc(100% - (240px + 25px));
 	box-sizing: border-box;
 }
 
@@ -227,7 +159,6 @@ section.side-by-side {
 
 .side-column {
 	width: 240px;
-	/*260*/
 	margin-left: 25px;
 	box-sizing: border-box;
 }
@@ -284,11 +215,6 @@ section.side-by-side {
 .image-banner p {
 	margin-bottom: 0;
 }
-
-
-/*     */
-/*     */
-/*     */
 
 /* =============== */
 /* pre.code block  */
@@ -354,8 +280,6 @@ p.line-wrap:nth-child(even) {
 .wp-modified-code {
 	border: 2px solid #aa0000;
 }
-
-
 
 /* ============== */
 /* Footer Section */
@@ -433,10 +357,7 @@ p.post-info {
 	/* font-size: 85%; */
 }
 
-
 /*************************************************************/
-
-
 /* ============ */
 /* Media tablet */
 /* ============ */
@@ -458,7 +379,6 @@ p.post-info {
 		padding: 0;
 		margin: 0;
 	}
-
 
 }
 
@@ -618,7 +538,6 @@ i.fa.fa-arrow-up {
 	}
 }
 
-
 /* =========== */
 /*             */
 /* =========== */
@@ -643,7 +562,6 @@ article.post ul {
 	margin-left: 15px;
 	padding-left: 5px;
 }
-
 
 /* https://fontawesome.com/v4/cheatsheet/ */
 article.post ul li:before {
@@ -676,39 +594,7 @@ article.post ul li ul li ul li:before {
 	/* transform: rotate(270deg); */
 }
 
-/* Overline From Center */
-/* .hvr-overline-from-center {
-	display: inline-block;
-	vertical-align: middle;
-	-webkit-transform: perspective(1px) translateZ(0);
-	transform: perspective(1px) translateZ(0);
-	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-	position: relative;
-	overflow: hidden;
-  }
-  .hvr-overline-from-center:before {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	left: 51%;
-	right: 51%;
-	top: 0;
-	background: #2098D1;
-	height: 2px;
-	-webkit-transition-property: left, right;
-	transition-property: left, right;
-	-webkit-transition-duration: 0.75s;
-	transition-duration: 0.75s;
-	-webkit-transition-timing-function: ease-out;
-	transition-timing-function: ease-out;
-  }
-  .hvr-overline-from-center:hover:before, .hvr-overline-from-center:focus:before, .hvr-overline-from-center:active:before {
-	left: 0;
-	right: 0;
-  } */
-
-  /* Sweep To Top */
-
+/* Sweep To Top */
 .hvr-sweep-to-top {
   display: inline-block;
   vertical-align: middle;
@@ -754,42 +640,10 @@ article.post ul li ul li ul li:before {
   -webkit-transform: scaleY(1);
   transform: scaleY(1);
 }
-/* Underline From Center */
-/* .hvr-underline-from-center {
-	display: inline-block;
-	vertical-align: middle;
-	-webkit-transform: perspective(1px) translateZ(0);
-	transform: perspective(1px) translateZ(0);
-	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-	position: relative;
-	overflow: hidden;
-  }
-  .hvr-underline-from-center:before {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	left: 51%;
-	right: 51%;
-	bottom: 0;
-	background: orange;
-	height: 4px;
-	-webkit-transition-property: left, right;
-	transition-property: left, right;
-	-webkit-transition-duration: 0.3s;
-	transition-duration: 0.3s;
-	-webkit-transition-timing-function: ease-out;
-	transition-timing-function: ease-out;
-  }
-  .hvr-underline-from-center:hover:before,
-  .hvr-underline-from-center:focus:before,
-  .hvr-underline-from-center:active:before {
-	left: 0;
-	right: 0;
-  } */
 
   /* Bounce To Top */
   /* div.menu-header-links-container ul.menu li.menu-item , */
-li.menu-item,
+header li.menu-item,
 .hvr-bounce-to-top {
 	display: inline-block;
 	vertical-align: middle;
@@ -803,7 +657,7 @@ li.menu-item,
 	transition-duration: 0.5s;
   }
   /* div.menu-header-links-container ul.menu li.menu-item:before , */
-  li.menu-item:before,
+  header li.menu-item:before,
   .hvr-bounce-to-top:before {
 	content: "";
 	position: absolute;
@@ -824,23 +678,10 @@ li.menu-item,
 	-webkit-transition-timing-function: ease-out;
 	transition-timing-function: ease-out;
   }
-/* div.menu-header-links-container ul.menu li.menu-item:hover ,
-div.menu-header-links-container ul.menu li.menu-item:focus ,
-div.menu-header-links-container ul.menu li.menu-item:active , */
-/* li.menu-item:hover,
-li.menu-item:focus,
-li.menu-item:active,
-  .hvr-bounce-to-top:hover,
-  .hvr-bounce-to-top:focus,
-  .hvr-bounce-to-top:active {
-	color: white;
-  } */
-/* div.menu-header-links-container ul.menu li.menu-item:hover:before ,
-div.menu-header-links-container ul.menu li.menu-item:focus:before ,
-div.menu-header-links-container ul.menu li.menu-item:active:before , */
-li.menu-item:hover:before,
-li.menu-item:focus:before,
-li.menu-item:active:before,
+
+  header li.menu-item:hover:before,
+  header li.menu-item:focus:before,
+  header li.menu-item:active:before,
   .hvr-bounce-to-top:hover:before,
   .hvr-bounce-to-top:focus:before,
   .hvr-bounce-to-top:active:before {
@@ -858,7 +699,7 @@ li.menu-item:active:before,
 	padding: 10px 0;
 	color: #3600af;
   }
-  li.menu-item:not(.current-menu-item) a:before,
+  header li.menu-item:not(.current-menu-item) a:before,
   .hover-10:before {
 	content: '';
 	position: absolute;
@@ -870,7 +711,7 @@ li.menu-item:active:before,
 	transform: scaleX(0);
 	transition: transform 0.6s;
   }
-  li.menu-item:not(.current-menu-item) a:after,
+  header li.menu-item:not(.current-menu-item) a:after,
   .hover-10:after {
 	content: '';
 	position: absolute;
@@ -882,8 +723,8 @@ li.menu-item:active:before,
 	transform: scaleX(0);
 	transition: transform 0.6s;
   }
-  li.menu-item:not(.current-menu-item):hover a:before,
-  li.menu-item:not(.current-menu-item):hover a:after,
+  header li.menu-item:not(.current-menu-item):hover a:before,
+  header li.menu-item:not(.current-menu-item):hover a:after,
   .hover-10:hover:before,
   .hover-10:hover:after {
 	transform: scaleX(1);

@@ -4,7 +4,7 @@ function get_header_breadcrumbs() {
 	if ( get_theme_mod( 'mytheme_breadcrumbs_toggle', false ) )
 	{
 		if ( !is_home() && !is_front_page() ) {
-			echo '<div class="center-breadcrumb clear-formatting">';	
+			echo '<div id="crumb" class="center-breadcrumb clear-formatting">';	
 			echo '<nav aria-label="breadcrumb"><ol class="breadcrumb">';
 			echo '<li class="breadcrumb-item"><a href="'.home_url('/').'">'.__('Home').'</a></li>';
 			echo '<li class="breadcrumb-item"> > </li>';
@@ -22,12 +22,8 @@ function get_header_breadcrumbs() {
 				echo '</li>';
 			}
 			echo '</ol></nav>';
-		}
-echo '</div>';		
-	}
-}
-//add_action( 'wp_head', 'get_header_breadcrumbs' );
-
+			echo '</div>';		
+	} } }
 
 /////////////////////////////////////////
 /* Customize Appearance Options header */

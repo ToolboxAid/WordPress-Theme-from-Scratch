@@ -95,9 +95,28 @@ function header_order( $wp_customize ) {
         ),
      ) );
 
-
-        /* ************************************************************ */
-    // Border color
+    /* ************************************************************ */
+    // Nav Order
+    $wp_customize->add_setting( 'header_order_breadcrumb', array(
+      'default'    => '5',
+      'transport'  => 'refresh',
+   ) );
+   $wp_customize->add_control( 'header_order_breadcrumb_control', array(
+      'section'    => 'header_order',
+      'settings'   => 'header_order_breadcrumb',
+      'label'      => __( 'Bread-Crumb DIV order', 'qbytesworld_WordPress' ),
+      'description'=> __( 'Adjust the Bread-Crumb DIV order', 'qbytesworld_WordPress' ),        
+      'type'       => 'range',
+      'priority'   => 10,
+      'input_attrs' => array(
+      'min'    => '0',
+      'max'    => '10',
+      'step'   => '1',
+      ),
+   ) );
+   
+   /* ************************************************************ */
+   // Border color
 	$wp_customize->add_setting('header_order_border_color', array(
 		'default' => '#aa0000',
         'sanitize_callback' => 'sanitize_hex_color',
@@ -145,10 +164,11 @@ function header_order_css() { ?>
 	<style type="text/css">
 
         #flex    { display: flex; flex-direction: column; }
-        #social  { order: <?php echo get_theme_mod('header_order_social'); ?>; }
-        #image   { order: <?php echo get_theme_mod('header_order_image');  ?>; }
-        #tagline { order: <?php echo get_theme_mod('header_order_tagline');  ?>; }
-        #nav     { order: <?php echo get_theme_mod('header_order_nav');    ?>; }
+        #social  { order: <?php echo get_theme_mod('header_order_social');    ?>; }
+        #image   { order: <?php echo get_theme_mod('header_order_image');     ?>; }
+        #tagline { order: <?php echo get_theme_mod('header_order_tagline');   ?>; }
+        #nav     { order: <?php echo get_theme_mod('header_order_nav');       ?>; }
+        #crumb   { order: <?php echo get_theme_mod('header_order_breadcrumb');?>; }
 
         div.flex.header-content{
             border-top: <?php echo get_theme_mod('header_order_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>  ;          
