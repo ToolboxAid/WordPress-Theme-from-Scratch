@@ -692,13 +692,13 @@ header li.menu-item,
   }
 
 
-  .link {
+  /* .link {
 	display: inline-block;
 	position: relative;
 	text-decoration: none;
 	padding: 10px 0;
 	color: #3600af;
-  }
+  } */
   header li.menu-item:not(.current-menu-item) a:before,
   .hover-10:before {
 	content: '';
