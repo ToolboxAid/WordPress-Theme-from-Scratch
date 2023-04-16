@@ -116,6 +116,22 @@
         <main class="align-center">
             <section class="side-by-side">
 
-
-           
-
+<!--
+<div>
+	<a href="#">
+		<title  class="link hover-10" >CodePen - Links 1 / Buttons hover animations</title>
+	</a>
+	<a href="#">
+		<title  class="link hover-10" >CodePen - Links 2 / Buttons hover animations</title>
+	</a>
+	<a href="#">
+		<title  class="link hover-10" >CodePen - Links 3 / Buttons hover animations</title>
+	</a>
+</div>
+  
+<div class="link-cont">
+    <div class="link-wrapper">
+        <a class="link hover-10" href="#">#10 top &amp; bottom tips to center</a>
+    </div>
+</div>
+-->

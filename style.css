@@ -24,9 +24,9 @@ div {
 }
 
 /* target the all a element for effect */
-a {
+li a {
 	text-decoration: none;
-	transition: color 1.5s;
+	transition: color 0.6s;
 	/* add transition effect to color property */
 }
 
@@ -97,7 +97,7 @@ a {
 }
 
 /* create the under/over line elements */
-ul#menu-header li.menu-item a::before,
+/* ul#menu-header li.menu-item a::before,
 ul#menu-header li.menu-item a::after,
 ul#menu-header-links li.menu-item a::before,
 ul#menu-header-links li.menu-item a::after {
@@ -108,30 +108,30 @@ ul#menu-header-links li.menu-item a::after {
 	height: 3px;
 	opacity: 0;
 	transition: all 0.5s ease-out;
-}
+} */
 
 /* apply the effect on hover */
-ul#menu-header li.menu-item a:hover::before,
+/* ul#menu-header li.menu-item a:hover::before,
 ul#menu-header li.menu-item a:hover::after,
 ul#menu-header-links li.menu-item a:hover::before,
 ul#menu-header-links li.menu-item a:hover::after {
 	width: 100%;
 	opacity: 1;
 	transition: all 0.5s ease-in-out;
-}
+} */
 
 /* animate the effect out after hover */
-ul#menu-header li.menu-item a:not(:hover)::before,
+/* ul#menu-header li.menu-item a:not(:hover)::before,
 ul#menu-header li.menu-item a:not(:hover)::after,
 ul#menu-header-links li.menu-item a:not(:hover)::before,
 ul#menu-header-links li.menu-item a:not(:hover)::after {
 	width: 0;
 	opacity: 0;
 	transition: all 3.5s ease-in-out;
-}
+} */
 
 /* position the elements above and below the text */
-ul#menu-header li.menu-item a::before,
+/* ul#menu-header li.menu-item a::before,
 ul#menu-header-links li.menu-item a::before {
 	top: -3px;
 }
@@ -139,7 +139,7 @@ ul#menu-header-links li.menu-item a::before {
 ul#menu-header li.menu-item a::after,
 ul#menu-header-links li.menu-item a::after {
 	bottom: -5px;
-}
+} */
 
 /* current_page_item */
 
@@ -677,7 +677,7 @@ article.post ul li ul li ul li:before {
 }
 
 /* Overline From Center */
-.hvr-overline-from-center {
+/* .hvr-overline-from-center {
 	display: inline-block;
 	vertical-align: middle;
 	-webkit-transform: perspective(1px) translateZ(0);
@@ -705,7 +705,7 @@ article.post ul li ul li ul li:before {
   .hvr-overline-from-center:hover:before, .hvr-overline-from-center:focus:before, .hvr-overline-from-center:active:before {
 	left: 0;
 	right: 0;
-  }
+  } */
 
   /* Sweep To Top */
 
@@ -742,7 +742,6 @@ article.post ul li ul li ul li:before {
   transition-timing-function: ease-out;
 }
 
-
 .hvr-sweep-to-top:hover,
 .hvr-sweep-to-top:focus,
 .hvr-sweep-to-top:active {
@@ -756,7 +755,7 @@ article.post ul li ul li ul li:before {
   transform: scaleY(1);
 }
 /* Underline From Center */
-.hvr-underline-from-center {
+/* .hvr-underline-from-center {
 	display: inline-block;
 	vertical-align: middle;
 	-webkit-transform: perspective(1px) translateZ(0);
@@ -772,7 +771,7 @@ article.post ul li ul li ul li:before {
 	left: 51%;
 	right: 51%;
 	bottom: 0;
-	background: orange; /* #2098D1; */
+	background: orange;
 	height: 4px;
 	-webkit-transition-property: left, right;
 	transition-property: left, right;
@@ -781,13 +780,16 @@ article.post ul li ul li ul li:before {
 	-webkit-transition-timing-function: ease-out;
 	transition-timing-function: ease-out;
   }
-  .hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+  .hvr-underline-from-center:hover:before,
+  .hvr-underline-from-center:focus:before,
+  .hvr-underline-from-center:active:before {
 	left: 0;
 	right: 0;
-  }
+  } */
 
   /* Bounce To Top */
-  div.menu-header-links-container ul.menu li.menu-item ,
+  /* div.menu-header-links-container ul.menu li.menu-item , */
+li.menu-item,
 .hvr-bounce-to-top {
 	display: inline-block;
 	vertical-align: middle;
@@ -800,8 +802,9 @@ article.post ul li ul li ul li:before {
 	-webkit-transition-duration: 0.5s;
 	transition-duration: 0.5s;
   }
-  div.menu-header-links-container ul.menu li.menu-item:before ,
-   .hvr-bounce-to-top:before {
+  /* div.menu-header-links-container ul.menu li.menu-item:before , */
+  li.menu-item:before,
+  .hvr-bounce-to-top:before {
 	content: "";
 	position: absolute;
 	z-index: -1;
@@ -821,17 +824,23 @@ article.post ul li ul li ul li:before {
 	-webkit-transition-timing-function: ease-out;
 	transition-timing-function: ease-out;
   }
-  div.menu-header-links-container ul.menu li.menu-item:hover ,
+/* div.menu-header-links-container ul.menu li.menu-item:hover ,
 div.menu-header-links-container ul.menu li.menu-item:focus ,
-div.menu-header-links-container ul.menu li.menu-item:active ,
+div.menu-header-links-container ul.menu li.menu-item:active , */
+/* li.menu-item:hover,
+li.menu-item:focus,
+li.menu-item:active,
   .hvr-bounce-to-top:hover,
   .hvr-bounce-to-top:focus,
   .hvr-bounce-to-top:active {
 	color: white;
-  }
-  div.menu-header-links-container ul.menu li.menu-item:hover:before ,
+  } */
+/* div.menu-header-links-container ul.menu li.menu-item:hover:before ,
 div.menu-header-links-container ul.menu li.menu-item:focus:before ,
-div.menu-header-links-container ul.menu li.menu-item:active:before ,
+div.menu-header-links-container ul.menu li.menu-item:active:before , */
+li.menu-item:hover:before,
+li.menu-item:focus:before,
+li.menu-item:active:before,
   .hvr-bounce-to-top:hover:before,
   .hvr-bounce-to-top:focus:before,
   .hvr-bounce-to-top:active:before {
@@ -839,4 +848,43 @@ div.menu-header-links-container ul.menu li.menu-item:active:before ,
 	transform: scaleY(1);
 	-webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 	transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  }
+
+
+  .link {
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	padding: 10px 0;
+	color: #3600af;
+  }
+  li.menu-item:not(.current-menu-item) a:before,
+  .hover-10:before {
+	content: '';
+	position: absolute;
+	top: 0px ;
+	right: 0;
+	width: 100%;
+	height: 2px;
+	background-color: orange;
+	transform: scaleX(0);
+	transition: transform 0.6s;
+  }
+  li.menu-item:not(.current-menu-item) a:after,
+  .hover-10:after {
+	content: '';
+	position: absolute;
+	bottom: 0px ;
+	right: 0;
+	width: 100%;
+	height: 2px;
+	background-color: orange;
+	transform: scaleX(0);
+	transition: transform 0.6s;
+  }
+  li.menu-item:not(.current-menu-item):hover a:before,
+  li.menu-item:not(.current-menu-item):hover a:after,
+  .hover-10:hover:before,
+  .hover-10:hover:after {
+	transform: scaleX(1);
   }
