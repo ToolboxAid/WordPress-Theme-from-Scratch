@@ -246,16 +246,10 @@ function header_title_css() { ?>
             color: <?php echo get_theme_mod('header_title_color'); ?>;
             font-size: clamp(4px, 4vw, <?php echo get_theme_mod('header_title_size') ?>px);
             letter-spacing: <?php echo get_theme_mod('header_title_spacing'); ?>px;
-            text-shadow:<?php echo get_theme_mod('header_title_drop_shadow_x'); ?>px 
-                        <?php echo get_theme_mod('header_title_drop_shadow_y'); ?>px  
-                        <?php echo get_theme_mod('header_title_drop_shadow_blur'); ?>px  
-                        <?php echo get_theme_mod('header_title_drop_shadow_color'); ?>,
-                        <?php echo get_theme_mod('header_title_drop_shadow_x'); ?>px 
-                        <?php echo get_theme_mod('header_title_drop_shadow_y'); ?>px  
-                        <?php echo get_theme_mod('header_title_drop_shadow_blur'); ?>px  
-                        <?php echo get_theme_mod('header_title_drop_shadow_color'); ?>                                                
-                        ;                   
-        }        
+            text-shadow:<?php echo get_theme_mod('header_title_drop_shadow_x'); ?>px  <?php echo get_theme_mod('header_title_drop_shadow_y'); ?>px   <?php echo get_theme_mod('header_title_drop_shadow_blur'); ?>px   <?php echo get_theme_mod('header_title_drop_shadow_color'); ?>,
+                        <?php echo get_theme_mod('header_title_drop_shadow_x'); ?>px  <?php echo get_theme_mod('header_title_drop_shadow_y'); ?>px <?php echo (get_theme_mod('header_title_drop_shadow_blur') * 1.5 ); ?>px <?php echo get_theme_mod('header_title_drop_shadow_color'); ?>,
+                        <?php echo get_theme_mod('header_title_drop_shadow_x'); ?>px  <?php echo get_theme_mod('header_title_drop_shadow_y'); ?>px <?php echo (get_theme_mod('header_title_drop_shadow_blur') * 2.0 ); ?>px <?php echo get_theme_mod('header_title_drop_shadow_color'); ?>;
+                    }        
         header h1.site-name a:hover {
             color: <?php echo get_theme_mod('header_title_hover'); ?>;
         }   
