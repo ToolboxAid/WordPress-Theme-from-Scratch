@@ -223,42 +223,7 @@ function header_title( $wp_customize ) {
         'step'   => '1',
         ),
      ) );    
-    /* ************************************************************ */
-    // Border color
-	$wp_customize->add_setting('header_title_border_color', array(
-		'default' => '#aa0000',
-        'sanitize_callback' => 'sanitize_hex_color',
-        'transport' => 'refresh',
-	));
-	$wp_customize->add_control( 'header_title_border_color', array(
-		'section' => 'header_title',
-		'settings' => 'header_title_border_color',
-		'label' => __('Border Color', 'qbytesworld_WordPress'),
-        'description'=> __( 'Set the dorder color of the title', 'qbytesworld_WordPress' ),
-        'type'       => 'color',
-	) );
-
-    /* ************************************************************ */
-    // Border size
-    $wp_customize->add_setting( 'header_title_border_size', array(
-        'default'    => '10',
-        'transport'  => 'refresh',
-     ) );
-     $wp_customize->add_control( 'header_title_border_size_control', array(
-        'section'    => 'header_title',
-        'settings'   => 'header_title_border_size',
-        'label'      => __( 'Border size', 'qbytesworld_WordPress' ),
-        'description'=> __( 'Adjust the border size of the title', 'qbytesworld_WordPress' ),        
-        'type'       => 'range',
-        'priority'   => 10,
-        'input_attrs' => array(
-        'min'    => '0',
-        'max'    => '50',
-        'step'   => '1',
-        ),
-     ) );
-
-
+ 
 
 }
 add_action('customize_register', 'header_title');
@@ -271,11 +236,11 @@ function header_title_css() { ?>
 
 	<style type="text/css">
 
+
         header .header-image {
 	        background-color: <?php echo get_theme_mod('header_title_background'); ?>;
             background-image: url('<?php echo str_replace('http://', 'https://', get_theme_mod('header_title_image')); ?>');
-            border-top: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>;
-            border-bottom: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>  ;          
+            border-bottom: <?php echo get_theme_mod('header_order_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>  ;          
         }
         header h1.site-name a {
             color: <?php echo get_theme_mod('header_title_color'); ?>;

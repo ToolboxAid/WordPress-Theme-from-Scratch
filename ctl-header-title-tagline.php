@@ -214,7 +214,8 @@ function header_tagline_css() { ?>
         }
 
         header .site-tagline-alt {
-            border-bottom: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('header_title_border_color'); ?>  ;          
+            border-bottom: <?php echo get_theme_mod('header_order_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>  ;          
+            
         }
 
         <?php if ( get_theme_mod( 'header_tagline_hide', false ) ) {?>

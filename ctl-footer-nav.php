@@ -88,7 +88,7 @@ function footer_nav_css() { ?>
 
 	<style type="text/css">
 		footer {
-            border-top: <?php echo get_theme_mod('header_title_border_size'); ?>px solid <?php echo get_theme_mod('footer_nav_border_color'); ?>  ;   
+            border-top: <?php echo get_theme_mod('header_order_border_size'); ?>px solid <?php echo get_theme_mod('footer_nav_border_color'); ?>  ;   
 			background-color: <?php echo get_theme_mod('footer_nav_background_color'); ?>;
 		}
 

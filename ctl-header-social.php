@@ -179,6 +179,7 @@ function header_social_icons_css() { ?>
 	<style type="text/css">
         header .social-icons {
 	        background-color: <?php echo get_theme_mod('header_social_icons_background'); ?>;
+            border-bottom: <?php echo get_theme_mod('header_order_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>  ;          
         }
         header .social-icons a {
             color: <?php echo get_theme_mod('header_social_icons_color'); ?>;

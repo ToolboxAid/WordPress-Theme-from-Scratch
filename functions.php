@@ -15,6 +15,7 @@ function debug_location($location) {
 ////////////////////////////////////////////////////////////////
 /* Seperate control files for Header, Body, & Footer sections */
 ////////////////////////////////////////////////////////////////
+require_once('ctl-header-order.php');
 require_once('ctl-header-social.php');
 require_once('ctl-header-title.php');
 require_once('ctl-header-title-tagline.php');

@@ -13,8 +13,8 @@
 
     <body <?php body_class(); ?>>
         <header>
-            <div class="header-content">
-                <div class="social-icons align-center">
+            <div class="flex header-content">
+                <div id="social" class="social-icons align-center">
                     <?php 
                     $url = get_theme_mod('header_social_icons_facebook_url');
                     if (!empty($url) ){ ?>
@@ -46,7 +46,7 @@
                     <?php } ?>
                 </div> <!-- social-icons end -->
 
-                <div class="header-image bg-image-fill site-tagline ">
+                <div id="image" class="header-image bg-image-fill site-tagline ">
 
                     <h1 class="site-name align-center"><a href="<?php echo home_url(); ?>"><?php bloginfo('name'); ?></a></h1>
 
@@ -62,18 +62,17 @@
 
                 <?php if ( ! get_theme_mod( 'header_tagline_hide', false ) ) {
                          if ( get_theme_mod( 'header_tagline_location', false ) ) {?>   
-                    <div class="site-tagline site-tagline-alt align-center">                                        
+                    <div id="tagline" class="site-tagline site-tagline-alt align-center">                                        
                         <h2><?php bloginfo('description'); 
                         ?></h2>
                     </div>
                 <?php } } ?> <!-- end div diff location -->
 
-                <div class="site-nav align-center">
+                <div id="nav" class="site-nav align-center">
                     <nav>				
                         <?php
                         $args = array( 'theme_location' => 'header' ); 
- wp_nav_menu(  $args );                        
-?>
+ wp_nav_menu(  $args ); ?>
                     </nav>
                 </div>	<!-- site-nav end -->
 
@@ -116,4 +115,7 @@
         </header>
         <main class="align-center">
             <section class="side-by-side">
+
+
+           
 
