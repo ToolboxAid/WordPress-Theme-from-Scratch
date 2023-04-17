@@ -248,15 +248,15 @@ function header_breadcrumbs( $wp_customize ) {
 	) ) );
 
     /* Button hover color */
-	$wp_customize->add_setting('header_breadcrumbs_color_active', array(
+	$wp_customize->add_setting('header_breadcrumbs_background_color', array(
 		'default' => '#004C87',
 		'transport' => 'refresh',
 	));
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_breadcrumbs_color_active_control', array(
-		'label' => __('Button Active Color', 'qbytesworld_WordPress'),
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'header_breadcrumbs_background_color_control', array(
+		'label' => __('Button Background Color', 'qbytesworld_WordPress'),
 		'section' => 'header_breadcrumbs',
-		'settings' => 'header_breadcrumbs_color_active',
-        'description'=> __( 'Active Menu Item color', 'qbytesworld_WordPress' ),        
+		'settings' => 'header_breadcrumbs_background_color',
+        'description'=> __( 'Background Item color', 'qbytesworld_WordPress' ),        
 	) ) );
 
 }
@@ -277,23 +277,34 @@ function header_breadcrumbs_css() { ?>
 		font-family: inherit;		
 		} */
 
+		div.header-content{
+			background: <?php echo get_theme_mod('main_content_background_top'); ?>
+		}
 		header div.center-breadcrumb{
-		background-color: #444444;	
+		background-color: <?php echo get_theme_mod('header_breadcrumbs_background_color'); ?>;	
 		display: flex;
+		margin-top:20px;
+		width:70%;
 		justify-content: center;
 		align-items: center;
-		border-bottom: <?php echo get_theme_mod('header_order_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>;
+		border: <?php echo get_theme_mod('header_order_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>;
+		border-radius: 15px;
 		}
-
 		header div.center-breadcrumb nav ul li{
-		color: #ffffff;	
-		padding: 4px;
-		display: inline;
+			color: <?php echo get_theme_mod('header_breadcrumbs_color_hover'); ?>;
+			display: inline;
 		}
-
+		li.breadcrumb-item{
+			padding: 0;
+		}
 		li.breadcrumb-item a,
 		nav.breadcrumb ul li.breadcrumb-item a{
 			font-size: 16px !important;
+			color: <?php echo get_theme_mod('header_breadcrumbs_color'); ?>;
+		}
+		li.breadcrumb-item a:hover,
+		nav.breadcrumb ul li.breadcrumb-item a:hover{
+			color: <?php echo get_theme_mod('header_breadcrumbs_color_hover'); ?>;
 		}
 	</style>
 
