@@ -197,7 +197,7 @@ function main_content_css() { ?>
 		}
 
 		main {
-			background: linear-gradient(to bottom, <?php echo get_theme_mod('main_content_background_top'); ?>, <?php echo get_theme_mod('main_content_background_bottom'); ?>); height: 100%;"			
+			background: linear-gradient(to bottom, <?php echo get_theme_mod('main_content_background_top'); ?>, <?php echo get_theme_mod('main_content_background_bottom'); ?>); height: 100%;			
 		}
 		div.side-column div.widget-item,
 		main article{
