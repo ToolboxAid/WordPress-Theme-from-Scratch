@@ -4,7 +4,7 @@ function get_header_breadcrumbs() {
 	if ( get_theme_mod( 'mytheme_breadcrumbs_toggle', false ) )
 	{
 		if ( !is_home() && !is_front_page() ) {
-			echo '<div id="crumb" class="center-breadcrumb clear-formatting">';	
+			echo '<div id="crumb" class="center-breadcrumb innerA clear-formatting">';	
 			echo '<nav aria-label="breadcrumb"><ol class="breadcrumb">';
 			echo '<li class="breadcrumb-item"><a href="'.home_url('/').'">'.__('Home').'</a></li>';
 			echo '<li class="breadcrumb-item"> > </li>';
@@ -23,7 +23,160 @@ function get_header_breadcrumbs() {
 			}
 			echo '</ol></nav>';
 			echo '</div>';		
-	} } }
+		} 
+	} 
+}
+
+/**
+ * Echo or return a formatted list of breadcrumbs.
+ *
+ * @param  array  $args An array of arguments to controll the output of the 
+ *                      function.
+ * @return string       The breadcrumb list.
+ */
+function get_breadcrumbs($args = array())
+{
+	if ( get_theme_mod( 'mytheme_breadcrumbs_toggle', false ) )
+	{
+
+
+
+		global $post;
+	
+		if (is_string($args)) {
+			parse_str($args, $args);
+		}
+	
+		// Set up defaults.
+		$defaults = array(
+			'separator'   => ' &gt; ',
+			'linkFinal'   => false,
+			'echo'        => true,
+			'printOnHome' => true, 
+			'before'      => '', 
+			'after'       => '', 
+		);
+	
+		// Merge the defaults with the parameters.
+		$options = array_merge($defaults, (array)$args);
+	
+		// Initialise the trail with the current post.
+		$trail = array($post);
+		
+		// Initialise the output.
+		$output = '';
+		
+		$currentCategory = 0;
+	
+		if (is_front_page() == true && $options['printOnHome'] == false) {
+			/**
+			 * If this is the front page and the option to prevent priting on the
+			 * home page is disabled then echo or return the empty string depending
+			 * on the echo option.
+			 */
+			if ($options['echo'] == true) {
+				echo $output;
+			}
+			return $output;
+		}
+		
+		if (is_page()) {
+			// If the current page is a page.
+			$parent = $post;
+			while ($parent->post_parent) {
+				$parent = get_post($parent->post_parent);
+				array_unshift($trail, $parent);
+			}
+		} elseif (is_category()) {
+			// The current page is a category page.
+			$trail = array();
+			$currentCategory = get_query_var('cat');
+			$category        = get_category($currentCategory);
+			while ($category->category_parent > 0) {
+				array_unshift($trail, $category);
+				$category = get_category($category->category_parent);
+			}
+			// Add the final category to the trail.
+			array_unshift($trail, $category);
+		} else {
+			// The current page will be a post or set of posts.
+			$path = explode('/', $_SERVER['REQUEST_URI']);
+			$path = array_filter($path);
+			while (count($path) > 0) {
+				$page = get_page_by_path(implode('/', $path));
+				if ($page != NULL) {
+					array_unshift($trail, $page);
+				}
+				array_pop($path);
+			}
+			
+			if (count($trail) == 1) {
+				// No pages found in path, try using categories.
+				$category = get_the_category();
+				$category = $category[0];
+				while ($category->category_parent > 0) {
+					array_unshift($trail, $category);
+					$category = get_category($category->category_parent);
+				}
+				array_unshift($trail, $category);
+			}
+		}
+	
+		$show_on_front = get_option('show_on_front');
+		if ('posts' == $show_on_front) {
+			// The home page is a list of posts so just call it Home.
+			$output .= '<li class="breadcrumb-item" id="breadcrumb-0"><a href="' . get_bloginfo('home') . '" title="Home">Home</a></li>' . "\n"; // home page link
+		} else {
+			// Otherwise the front page is a page so get the page name.
+			$page_on_front = get_option('page_on_front');
+			$home_page = get_post($page_on_front);
+			$output .= '<li class="breadcrumb-item" id="breadcrumb-' . $home_page->ID . '"><a href="' . get_bloginfo('home') . '" title="' . $home_page->post_title . '">' . $home_page->post_title . '</a></li>' . "\n"; // home page link
+			if ($trail[0]->ID == $page_on_front) {
+				array_shift($trail);
+			}
+		}
+	
+		if (is_front_page() == false) {
+			// If we aren't on the home page then construct the output. 
+			foreach ($trail as $key => $page) {
+				// Every item in the trail will be either a post/page object or a category.
+				if (count($trail) - 1 == $key && $options['linkFinal'] == false) {
+					// If we are on the last page and the option to link the final link is true.
+					if (isset($page->post_title)) {
+						$output .= '<li class="breadcrumb-item" id="breadcrumb-' . $page->ID . '">' . $options['separator'] . ' ' . $page->post_title . '</li>' . "\n";
+					} elseif (isset($page->cat_name)) {
+						$output .= '<li class="breadcrumb-item" id="breadcrumb-cat-' . $page->term_id . '">' . $options['separator'] . ' ' . $page->cat_name . '</li>' . "\n";
+					}
+				} else {
+					// Create the link to the page or category
+					if (isset($page->post_title)) {
+						$output .= '<li class="breadcrumb-item" id="breadcrumb-' . $page->ID . '">' . $options['separator'] . '<a href="' . get_page_link($page->ID) . '" title="' . $page->post_title . '">' . $page->post_title . '</a></li>' . "\n";
+					} elseif (isset($page->cat_name)) {
+						$output .= '<li class="breadcrumb-item" id="breadcrumb-cat-' . $page->term_id . '">' . $options['separator'] . '<a href="' . get_category_link($page->term_id) . '" title="' . $page->cat_name . '">' . $page->cat_name . '</a></li>' . "\n";
+					}
+				}
+			}
+		}
+		
+		// Finish off the html of the ul
+		$output = "<ul>\n" . $output . "</ul>\n";
+		
+		// Add other elements
+		$output = $options['before'] . $output .  $options['after'];
+		
+		if ($options['echo'] == true) {
+			// Print out the $output variable.
+			echo '<div id="crumb" class="center-breadcrumb clear-formatting">';	
+			echo '<nav aria-label="breadcrumb">';	// ol		
+			echo $output;
+			echo '</nav>';
+			echo '</div>';			
+		}
+		// Return 
+		return $output;
+	}
+}
+
 
 /////////////////////////////////////////
 /* Customize Appearance Options header */
@@ -117,26 +270,30 @@ function header_breadcrumbs_css() { ?>
 
 	<style type="text/css">
 		/* breadcrumbs */
-		header div.clear-formatting * {
+		/* header div.clear-formatting * {
 		all: unset;
 		margin: 0;
 		padding: 0;
-		font-size: inherit;
 		font-family: inherit;		
-		}
+		} */
 
 		header div.center-breadcrumb{
 		background-color: #444444;	
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		padding: 5px 0;
+		border-bottom: <?php echo get_theme_mod('header_order_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>;
 		}
 
-		header div.center-breadcrumb nav ol li{
+		header div.center-breadcrumb nav ul li{
 		color: #ffffff;	
-		padding: 5px;
-		font-size:18px;
+		padding: 4px;
+		display: inline;
+		}
+
+		li.breadcrumb-item a,
+		nav.breadcrumb ul li.breadcrumb-item a{
+			font-size: 16px !important;
 		}
 	</style>
 

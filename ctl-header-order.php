@@ -150,8 +150,6 @@ function header_order( $wp_customize ) {
         ),
      ) );
 
-
-
 }
 add_action('customize_register', 'header_order');
 

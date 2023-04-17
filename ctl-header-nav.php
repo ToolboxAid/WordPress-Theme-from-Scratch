@@ -189,6 +189,21 @@ function header_nav_css() { ?>
             border-bottom: <?php echo get_theme_mod('header_order_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>  ;   
 		}
 
+
+		header li.menu-item:not(.current-menu-item) a:before,
+		.hover-10:before {
+			background-color:<?php echo get_theme_mod('header_nav_color_hover'); ?>;
+		}
+		header li.menu-item:not(.current-menu-item) a:after,
+		.hover-10:after {
+			background-color: <?php echo get_theme_mod('header_nav_color_hover'); ?>;
+		}
+
+		header li.menu-item:not(.current-menu-item):before,
+		.hvr-bounce-to-top:before {
+			background: <?php echo get_theme_mod('header_nav_background_active'); ?>; 
+		}
+
 	</style>
 
 <?php }

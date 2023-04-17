@@ -76,12 +76,24 @@
                     </nav>
                 </div>	<!-- site-nav end -->
 
-                <?php if (function_exists('get_header_breadcrumbs')) {
-                        get_header_breadcrumbs();
+                <?php 
+                // if (function_exists('get_header_breadcrumbs')) {
+                //         get_header_breadcrumbs(); }
+                 ?>
+
+                <?php if (function_exists('get_breadcrumbs')) {
+                        //get_header_breadcrumbs();
+                        get_breadcrumbs(
+                            array(
+                                'separator'   => '&gt; ',
+                                'linkFinal'   => true,
+                                'echo'        => true,
+                                'printOnHome' => false, 
+                            )
+                        );                        
                     } ?>
 
             </div> <!-- header-content end -->
-
 
             <noscript>
                 <style>
@@ -107,7 +119,7 @@
                 <div class="no-script-content ">
                     <p>Oh Me, Oh My: looks like somebody does not like having fun.</p>
                     <p>Please enable JavaScript to view this page properly.</p>
-                    <p>Page not displayed properly and will move around without JavaScript.</p>
+                    <p>Page not displays inproperly, missing parts and may adust without JavaScript.</p>
                 </div>
             </noscript>
 
@@ -115,23 +127,3 @@
         </header>
         <main class="align-center">
             <section class="side-by-side">
-
-<!--
-<div>
-	<a href="#">
-		<title  class="link hover-10" >CodePen - Links 1 / Buttons hover animations</title>
-	</a>
-	<a href="#">
-		<title  class="link hover-10" >CodePen - Links 2 / Buttons hover animations</title>
-	</a>
-	<a href="#">
-		<title  class="link hover-10" >CodePen - Links 3 / Buttons hover animations</title>
-	</a>
-</div>
-  
-<div class="link-cont">
-    <div class="link-wrapper">
-        <a class="link hover-10" href="#">#10 top &amp; bottom tips to center</a>
-    </div>
-</div>
--->

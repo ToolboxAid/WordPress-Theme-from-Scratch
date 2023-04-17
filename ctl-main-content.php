@@ -64,7 +64,19 @@ function main_content( $wp_customize ) {
         'description'=> __( 'Mouse Hover for Link & button color', 'qbytesworld_WordPress' ),        
 	) ) );
 
-    /* Button hover color */
+    /* Button active color */
+	$wp_customize->add_setting('main_content_link_color_active', array(
+		'default' => '#ff0000',
+		'transport' => 'refresh',
+	));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_content_link_color_active_control', array(
+		'label' => __('Button & Link Active Color', 'qbytesworld_WordPress'),
+		'section' => 'main_content',
+		'settings' => 'main_content_link_color_active',
+        'description'=> __( 'Active for Link & button color', 'qbytesworld_WordPress' ),        
+	) ) );	
+
+    /* Button article background color */
 	$wp_customize->add_setting('main_article_background', array(
 		'default' => '#cccccc',
 		'transport' => 'refresh',
@@ -178,6 +190,12 @@ function main_content_css() { ?>
 		a:hover{
 			color: <?php echo get_theme_mod('main_content_link_color_hover'); ?>;
 		}
+
+		li.current-cat a,
+		li.current_page_item a{
+			color: <?php echo get_theme_mod('main_content_link_color_active'); ?>;
+		}
+
 		main {
 			background: linear-gradient(to bottom, <?php echo get_theme_mod('main_content_background_top'); ?>, <?php echo get_theme_mod('main_content_background_bottom'); ?>); height: 100%;"			
 		}
