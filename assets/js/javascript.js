@@ -18,7 +18,8 @@ function handleAnimationEvents() {
           compareTop    = partial === true ? _bottom : _top,
           compareBottom = partial === true ? _top : _bottom;
     
-    return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+    //return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+    return (((compareBottom - 150) <= viewBottom) && (compareTop >= viewTop));
   };
 
   function callbackFunc(queryList) {    
@@ -32,6 +33,8 @@ function handleAnimationEvents() {
     }
   }
 
+  var navs = document.querySelectorAll('.post-navigation');
+  callbackFunc(navs);
   var widgets = document.querySelectorAll('.widget-item');
   callbackFunc(widgets);
   var posts = document.querySelectorAll('.post');
@@ -41,6 +44,7 @@ function handleAnimationEvents() {
 
   var events = ["load", "scroll", "resize"]; // this load does not trigger, i.e. above callbacFunc()
   events.forEach(function(event) {
+    window.addEventListener(event, function() {callbackFunc(navs);});
     window.addEventListener(event, function() {callbackFunc(widgets);});
     window.addEventListener(event, function() {callbackFunc(posts);});
     window.addEventListener(event, function() {callbackFunc(info);});

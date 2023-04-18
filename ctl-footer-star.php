@@ -8,7 +8,7 @@ function footer_star( $wp_customize ) {
 	/* Create section */
 	$wp_customize->add_section('footer_star', array(
 		'title' => __('Footer - Star', 'qbytesworld_WordPress'),
-		'priority' => 168,
+		'priority' => 172,
 	));
 
     /* ************************************************************ */

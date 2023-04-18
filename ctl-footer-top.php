@@ -8,7 +8,7 @@ function footer_top( $wp_customize ) {
 	/* Create section */
 	$wp_customize->add_section('footer_top', array(
 		'title' => __('Footer - Top Of Page', 'qbytesworld_WordPress'),
-		'priority' => 170,
+		'priority' => 174,
 	));
 
     /* ************************************************************ */

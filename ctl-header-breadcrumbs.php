@@ -87,11 +87,8 @@ function get_breadcrumbs($args = array())
 {
 	if ( get_theme_mod( 'mytheme_breadcrumbs_toggle', false ) )
 	{
-
-
-
 		global $post;
-	
+
 		if (is_string($args)) {
 			parse_str($args, $args);
 		}
@@ -336,7 +333,7 @@ function header_breadcrumbs_css() { ?>
 		width:70%;
 		justify-content: center;
 		align-items: center;
-		border: 2px solid <?php echo get_theme_mod('header_order_border_color'); ?>;
+		border: <?php echo get_theme_mod('main_content_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>;		
 		box-shadow: <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_article_dropshadow_size'); ?>px  <?php echo get_theme_mod('main_article_dropshadow');?>;
 
 		border-radius: 15px;

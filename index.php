@@ -9,7 +9,8 @@
 	if (have_posts()) {
 		while (have_posts()) : the_post(); 
 			get_template_part('content'); 
-		endwhile;	
+		endwhile;
+		get_template_part( 'content-pagination' ); 
 	} else {
 		get_template_part('content-sorry');
 	} ?>

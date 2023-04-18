@@ -162,6 +162,24 @@ function main_content( $wp_customize ) {
 		),
 		) );
 
+	// Add border size
+	$wp_customize->add_setting( 'main_content_border_size', array(
+		'default'    => '3',
+		'transport'  => 'refresh',
+		) );
+	$wp_customize->add_control( 'main_content_border_size_control', array(
+		'section'    => 'main_content',
+		'settings'   => 'main_content_border_size',
+		'label'      => __( 'Border Size', 'qbytesworld_WordPress' ),
+		'description'=> __( 'Adjust the border', 'qbytesworld_WordPress' ),        
+		'type'       => 'range',
+		'priority'   => 10,
+		'input_attrs' => array(
+		'min'    => '0',
+		'max'    => '20',
+		'step'   => '1',
+		),
+		) );
 
 }
 add_action('customize_register', 'main_content');
@@ -207,6 +225,9 @@ function main_content_css() { ?>
 		/* Main Content column */
 		main section div.side-column .widget-item,		
 		main section div article {
+
+			
+			border: <?php echo get_theme_mod('main_content_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>;
 			box-shadow: <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_article_dropshadow_size'); ?>px  <?php echo get_theme_mod('main_article_dropshadow');?>;
 		}	
 

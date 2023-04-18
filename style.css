@@ -110,6 +110,7 @@ div.widget-item {
 	margin:auto;
 	width: 90% !important;
 }
+.post-navigation,
 .info-box,
 article,
 div.widget-item {
@@ -117,7 +118,7 @@ div.widget-item {
 	padding: 10px;
 }
 
-
+.post-navigation,
 .info-box,
 article,
 .widget-item {
@@ -126,6 +127,7 @@ article,
 	transition: all 1s ease;
 }
 
+.post-navigation.visible,
 .info-box.visible,
 article.visible,
 .widget-item.visible {
@@ -688,3 +690,36 @@ header li.menu-item,
   .hover-10:hover:after {
 	transform: scaleX(1);
   }
+
+
+
+
+/* pagination */
+nav.navigation.post-navigation{	
+	border-radius: 28px;
+	width:90%;
+	margin:auto;
+	margin-bottom: 20px;
+
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;	
+}
+
+div.nav-links.align-center a,
+div.nav-links.align-center span{
+	padding: 0 5px;
+}
+
+div.nav-links div,    
+.one-half {
+    width: 45%;
+    float: left;
+	padding-left:12px;
+}
+.nav-next,
+.last{
+    float: right !important;
+    text-align:right;
+	padding-right:12px;
+}

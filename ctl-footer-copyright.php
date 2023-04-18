@@ -8,7 +8,7 @@ function footer_copyright( $wp_customize ) {
 	/* Create section */
 	$wp_customize->add_section('footer_copyright', array(
 		'title' => __('Footer - Copyright', 'qbytesworld_WordPress'),
-		'priority' => 169,
+		'priority' => 173,
 	));
 
     /* ************************************************************ */

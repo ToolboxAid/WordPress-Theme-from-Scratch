@@ -11,7 +11,12 @@
 	if (have_posts()) :
 		while (have_posts()) : the_post(); 
 			get_template_part('content');
-		endwhile;	
+		endwhile; 
+
+		// Previous/next post navigation.
+		get_template_part( 'content-pagination' );?>
+
+		</div><?php
 	else : ?>
 		<article class="post">
 			<nav class="site-nav">

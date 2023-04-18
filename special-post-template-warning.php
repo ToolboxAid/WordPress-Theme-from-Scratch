@@ -22,6 +22,10 @@ debug_location("SPost");?>
 				<p style="color: red; font-size: 30px; font-style: italic; padding:10px; padding-left:30px;"><i class="fa fa-exclamation-triangle"></i> POST: pre article special template 'warning'.</p></p>
 			</div><!-- /info-box --><?php
 		endwhile;	
+
+        // Previous/next post navigation.
+		get_template_part( 'content-pagination-post' );
+		
 	else : 
 		get_template_part('content-sorry');
 	endif; ?>
