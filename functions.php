@@ -162,4 +162,26 @@ function image_container_shortcode($atts) {
   add_shortcode('image_container', 'image_container_shortcode');
 // Usage: [image_container src="http://path-to-image" width="100" height="100"]
 
+
+
+
+/* ************************ */
+// Usage:  [icon47 name="fa-solid fa-coffee fa-3x"].
+// Define the shortcode function for awesome font
+function awesome_font_icon_shortcode( $atts ) {
+    $atts = shortcode_atts( array(
+        'name'   => '',
+        'prefix' => 'fa',
+    ), $atts );
+
+    $icon = '<i class="' . esc_attr( $atts['prefix'] ) . ' ' . esc_attr( $atts['name'] ) . '"></i>';
+
+    return $icon;
+}
+add_shortcode( 'iconAF', 'awesome_font_icon_shortcode' );
+
+
+
+
+// Nothing below here.  I must be last
 ?>

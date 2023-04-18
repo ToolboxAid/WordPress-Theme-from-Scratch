@@ -155,3 +155,20 @@ window.addEventListener('load', function () {
 
 });
 
+
+/* ===================== */
+/* Awesome font 4.7 hack */
+/* get all elements with */
+/* class "fa-fa" and     */
+/* replace with fa       */
+/* ===================== */
+window.addEventListener('load', function () {
+const faElements = document.querySelectorAll('.fa-fa');
+
+// loop through each element and replace "fa-fa" with "fa"
+faElements.forEach(element => {
+  element.classList.remove('fa-fa');
+  element.classList.add('fa');
+});
+});
+
