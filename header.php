@@ -90,7 +90,8 @@
                                 'echo'        => true,
                                 'printOnHome' => false, 
                             )
-                        );                        
+                        );                         
+                        //display_breadcrumb();
                     } ?>
 
             </div> <!-- header-content end -->

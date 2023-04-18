@@ -236,8 +236,7 @@ function header_title_css() { ?>
 
 	<style type="text/css">
 
-
-        header .header-image {
+        header div.header-image {
 	        background-color: <?php echo get_theme_mod('header_title_background'); ?>;
             background-image: url('<?php echo str_replace('http://', 'https://', get_theme_mod('header_title_image')); ?>');
             border-bottom: <?php echo get_theme_mod('header_order_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>  ;          

@@ -27,11 +27,15 @@
 			<article class="post image-banner">
 				<h2><?php the_title(); ?></h2>
 			<?php } ?>
-		<?php } ?>
-
-
-		<p class="post-info">Posted <?php the_time('F jS, Y @ g:i A'); ?> by <?php
-			if (get_the_author_meta('display_name')) {
+		<?php } ?>		
+		
+		<p class="post-info">
+			<i class="fa fa-calendar" aria-hidden="true"></i>
+			<?php the_time(' F jS, Y '); ?>
+			<i class="fa fa-clock-o" aria-hidden="true"></i>
+			<?php the_time(' g:i A '); 
+				echo '<i class="fa fa-user" aria-hidden="true"></i> ';
+				if (get_the_author_meta('display_name')) {
 				$display_name = get_the_author_meta('display_name');
 				echo $display_name; 
 			} else {
@@ -40,7 +44,7 @@
 				echo $user_nickname;
 			}		
 
-			?> | Categories: <?php
+			?> <i class="fa fa-gear fa-spin" aria-hidden="true"></i> Categories: <?php
 			$categories = get_the_category();
 			$separator = ", ";
 			$output = '';
