@@ -51,7 +51,7 @@ a:hover{
 /* Header section styles */
 /* ===================== */
 .social-icons a {
-	margin: 12px 0px;
+	margin: 4px 0px;
 }
 
 /* Header content */
@@ -159,7 +159,7 @@ section {
 }
 
 section.side-by-side {
-	padding: 30px 0;
+	padding: 20px 0;
 }
 
 .side-column {

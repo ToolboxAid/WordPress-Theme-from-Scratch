@@ -1,5 +1,54 @@
 <?php
 
+ function display_breadcrumb() {
+	  global $post;
+	  $separator = ' <span class="breadcrumb-separator">/</span> ';
+  
+	  echo '<div class="breadcrumb">';
+	  echo '<a href="' . home_url() . '">Home</a>' . $separator;
+  
+	  if ( is_archive() || is_search() ) {
+		echo '<span class="breadcrumb-current">';
+		echo get_the_archive_title();
+		echo '</span>';
+	  } elseif ( is_404() ) {
+		echo '<span class="breadcrumb-current">Error 404</span>';
+	  } elseif ( is_single() ) {
+		$categories = get_the_category();
+		$category   = $categories[0];
+		$cat_id     = $category->cat_ID;
+		$cat_link   = get_category_link( $cat_id );
+		$cat_name   = $category->name;
+		echo '<a href="' . $cat_link . '">' . $cat_name . '</a>' . $separator;
+		echo '<span class="breadcrumb-current">';
+		the_title();
+		echo '</span>';
+	  } elseif ( is_page() ) {
+		$ancestors = get_post_ancestors( $post->ID );
+		if ( $ancestors ) {
+		  $ancestors = array_reverse( $ancestors );
+		  foreach ( $ancestors as $ancestor ) {
+			echo '<a href="' . get_permalink( $ancestor ) . '">' . get_the_title( $ancestor ) . '</a>' . $separator;
+		  }
+		}
+		echo '<span class="breadcrumb-current">';
+		the_title();
+		echo '</span>';
+	  } elseif ( is_category() ) {
+		$category = get_queried_object();
+		$cat_id   = $category->cat_ID;
+		$cat_link = get_category_link( $cat_id );
+		$cat_name = $category->name;
+		echo '<a href="' . home_url() . '">Blog</a>' . $separator;
+		echo '<a href="' . $cat_link . '">' . $cat_name . '</a>';
+	  } else {
+		echo '<span class="breadcrumb-current">';
+		the_title();
+		echo '</span>';
+	  }
+	  echo '</div>';
+	}
+  
 function get_header_breadcrumbs() {
 	if ( get_theme_mod( 'mytheme_breadcrumbs_toggle', false ) )
 	{
@@ -185,7 +234,7 @@ function header_breadcrumbs( $wp_customize ) {
 
 	/* Create section */
 	$wp_customize->add_section('header_breadcrumbs', array(
-		'title' => __('Header - Bread Crumbs (incomplete)', 'qbytesworld_WordPress'),
+		'title' => __('Header - Bread Crumbs', 'qbytesworld_WordPress'),
 		'priority' => 165,
 	));
 
@@ -287,7 +336,9 @@ function header_breadcrumbs_css() { ?>
 		width:70%;
 		justify-content: center;
 		align-items: center;
-		border: <?php echo get_theme_mod('header_order_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>;
+		border: 2px solid <?php echo get_theme_mod('header_order_border_color'); ?>;
+		box-shadow: <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_article_dropshadow_size'); ?>px  <?php echo get_theme_mod('main_article_dropshadow');?>;
+
 		border-radius: 15px;
 		}
 		header div.center-breadcrumb nav ul li{
@@ -299,7 +350,7 @@ function header_breadcrumbs_css() { ?>
 		}
 		li.breadcrumb-item a,
 		nav.breadcrumb ul li.breadcrumb-item a{
-			font-size: 16px !important;
+			font-size: 18px !important;
 			color: <?php echo get_theme_mod('header_breadcrumbs_color'); ?>;
 		}
 		li.breadcrumb-item a:hover,
