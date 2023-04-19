@@ -3,10 +3,10 @@
 			<!-- post-thumbnail -->
 			<?php if ( has_post_thumbnail() ) { ?>
 			<article class="post image-container has-thumbnail">
+				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				<div class="post-thumbnail">
 					<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('small-thumbnail'); ?></a>
 				</div><!-- /post-thumbnail --> 
-				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 			<?php } else { ?>
 			<article class="post image-container">
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -15,6 +15,7 @@
 			<!-- post-banner is_single() -->
 			<?php if ( has_post_thumbnail() ) { ?>
 			<article class="post image-banner has-thumbnail">
+				<h2><?php the_title(); ?></h2>
 				<?php 
 					$image_id = get_post_thumbnail_id();
 					$image_url = wp_get_attachment_image_src($image_id, 'banner-image')[0];
@@ -22,7 +23,7 @@
 				<div class=" post post-banner bg-image-fill" style="background-image: url('<?php echo $image_url; ?>')">		
 					<?php debug_location("______ - B");?>
 				</div><!-- /post-banner -->
-				<h2><?php the_title(); ?></h2>
+				
 			<?php } else { ?>
 			<article class="post image-banner">
 				<h2><?php the_title(); ?></h2>
@@ -67,7 +68,7 @@ debug_location("______ - __1");?>
 				}
 				?>
 
-				<a href="<?php the_permalink(); ?>">Read more &raquo;</a>
+				<br/><a href="<?php the_permalink(); ?>">Read more &raquo;</a>
 			</p><?php 
 		} else {
 			if (is_home()) { // The blog page (index.php)
@@ -78,7 +79,7 @@ debug_location("______ - __2");?>
 											echo "[....]";
 										}
 										?>
-						<a href="<?php the_permalink(); ?>">Read more &raquo;</a>
+						<br/><a href="<?php the_permalink(); ?>">Read more &raquo;</a>
 					</p><?php 
 			} else {
 debug_location("______ - __3");

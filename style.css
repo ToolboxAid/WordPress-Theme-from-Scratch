@@ -110,12 +110,40 @@ div.widget-item {
 	margin:auto;
 	width: 90% !important;
 }
+
+.wp-block-calendar{
+	width:90%;
+}
+
+
+/* h2 formatting start*/
+div.post-thumbnail a img{
+	padding-left: 10px;
+}
+
+button[type=search],
+input[type=search] {
+	margin: 10px;
+	margin-left: 0px;
+	margin-right: 20px;
+	box-sizing: border-box;
+  }
+.wp-widget-group__inner-blocks{
+	padding:10px;
+}
+.wp-block-search__button,  
+.wp-block-search__inside-wrapper button{
+	display:none;
+}
+/* h2 formatting end */
+
+
 .post-navigation,
 .info-box,
 article,
 div.widget-item {
 	margin-bottom: 20px;
-	padding: 10px;
+	padding: 0px;
 }
 
 .post-navigation,
@@ -147,17 +175,22 @@ section {
 	box-sizing: border-box;
 }
 
+div.widget-item h2,
 .content-column h2 {
-	padding-top: 20px;
+	padding:3px;
+	padding-left:20px;
 }
+/* .content-column h2 {
+	padding-top: 20px;
+} */
 
-.content-column h2,
+/* .content-column h2,
 .content-column h3,
 .content-column h4,
 .content-column h5,
-.content-column h6,
+.content-column h6, */
 .content-column p {
-	padding-bottom: 10px;
+	padding: 10px;
 }
 
 section.side-by-side {
@@ -361,7 +394,7 @@ footer div.footer-row:last-child {
 
 p.post-info {
 	color: #999999;
-	padding: 4px;
+	padding: 10px;
 	/* font-size: 85%; */
 }
 

@@ -20,12 +20,49 @@ function main_content( $wp_customize ) {
 		'transport' => 'refresh',
 	));
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_content_H1_H6_control', array(
-		'label' => __('H1 - H6 Color', 'qbytesworld_WordPress'),
+		'label' => __('H1, H3 - H6 Color', 'qbytesworld_WordPress'),
 		'section' => 'main_content',
 		'settings' => 'main_content_H1_H6',
         'description'=> __( 'Header colors', 'qbytesworld_WordPress' ),        
 	) ) );
 
+    /* H2 color */
+	$wp_customize->add_setting('main_content_H2', array(
+		'default' => '#aa0000',
+		'transport' => 'refresh',
+	));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_content_H2_control', array(
+		'label' => __('H2 Color', 'qbytesworld_WordPress'),
+		'section' => 'main_content',
+		'settings' => 'main_content_H2',
+        'description'=> __( 'H2 color', 'qbytesworld_WordPress' ),        
+	) ) );
+
+	/* H2 color */
+	$wp_customize->add_setting('main_content_H2_hover', array(
+		'default' => '#eeeeee',
+		'transport' => 'refresh',
+	));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_content_H2_hover_control', array(
+		'label' => __('H2 hover Color', 'qbytesworld_WordPress'),
+		'section' => 'main_content',
+		'settings' => 'main_content_H2_hover',
+		'description'=> __( 'H2 hover color', 'qbytesworld_WordPress' ),        
+	) ) );
+
+		
+    /* H2 backgroundcolor */
+	$wp_customize->add_setting('main_content_H2_background', array(
+		'default' => '#eeeeee',
+		'transport' => 'refresh',
+	));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'main_content_H2_background_control', array(
+		'label' => __('H2 backgroundcolor Color', 'qbytesworld_WordPress'),
+		'section' => 'main_content',
+		'settings' => 'main_content_H2_background',
+        'description'=> __( 'H2 backgroundcolor color', 'qbytesworld_WordPress' ),        
+	) ) );
+		
 
     /* Button hover color */
 	$wp_customize->add_setting('main_content_paragraph', array(
@@ -192,13 +229,17 @@ function main_content_css() { ?>
 
 	<style type="text/css">
 		article h1,
-		article h2,
 		article h3,
 		article h4,
 		article h5,
 		article h6{
 			color: <?php echo get_theme_mod('main_content_H1_H6'); ?>;
 		}
+		article h2{
+			color: <?php echo get_theme_mod('main_content_H2'); ?>;
+		}
+
+
 		p{
 			color: <?php echo get_theme_mod('main_content_paragraph'); ?>;
 		}		
@@ -224,12 +265,22 @@ function main_content_css() { ?>
 
 		/* Main Content column */
 		main section div.side-column .widget-item,		
-		main section div article {
-
-			
+		main section div article {			
 			border: <?php echo get_theme_mod('main_content_border_size'); ?>px solid <?php echo get_theme_mod('header_order_border_color'); ?>;
 			box-shadow: <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_content_dropshadow_offset'); ?>px <?php echo get_theme_mod('main_article_dropshadow_size'); ?>px  <?php echo get_theme_mod('main_article_dropshadow');?>;
 		}	
+				
+		article.post h2,
+		div.widget-item h2{
+			background-color: <?php echo get_theme_mod('main_content_H2_background'); ?>;;
+		}
+		article.post h2 a,
+		.widget-item h2{
+			color:  <?php echo get_theme_mod('main_content_H2'); ?>;
+		}
+		article.post h2 a:hover{
+			color: <?php echo get_theme_mod('main_content_H2_hover'); ?> !important;
+		}
 
 	</style>
 
