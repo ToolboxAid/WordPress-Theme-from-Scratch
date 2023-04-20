@@ -229,8 +229,7 @@ section.side-by-side {
 /* =========== */
 /* Zoom-n-rotate Container */
 .image-container-no-overflow {
-	width: 250px;
-	height: 140px;
+
 	overflow: hidden;
 	float: left;
 	margin-right: 10px;
@@ -809,64 +808,88 @@ body > main > section > div.side-column > div > div > ul > li
 
 /*
 
+
 <div class="image-container2">
 
-
-  <div class="image-wrapper2">
-    <a href="#">
-	<img src="https://toolboxaid.com/wp-content/uploads/2016/05/pexels-photo-6457537.jpeg">
-	 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-    </a>
-  </div>
-
-
-  <div class="image-wrapper2">
-    <a href="#">
-	<img src="https://toolboxaid.com/wp-content/uploads/2016/05/pexels-photo-6457537.jpeg">
-	 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-    </a>
-  </div>
+	<div class="image-wrapper2">
+		<a href="#">
+			<div class=" image-container-no-overflow">
+				<img class="image-hover-zoom-rotate" src="https://toolboxaid.com/wp-content/uploads/2016/05/pexels-photo-6457537.jpeg">
+			</div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+		</a>
+	</div>
 
 
-  <div class="image-wrapper2">
-    <a href="#">
-	<img src="https://toolboxaid.com/wp-content/uploads/2016/05/pexels-photo-6457537.jpeg">
-	 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-    </a>
-  </div>
+	<div class="image-wrapper2">
+		<a href="#">
+			<div class=" image-container-no-overflow">
+				<img class="image-hover-zoom-rotate" src="https://toolboxaid.com/wp-content/uploads/2016/05/pexels-photo-6457537.jpeg">
+			</div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+		</a>
+	</div>
 
 
-  <div class="image-wrapper2">
-    <a href="#">
-		<img src="https://via.placeholder.com/400x300">
-	 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-    </a>
-  </div>  
-  
-  <div class="image-wrapper2">
-    <a href="#">
-		<img src="https://via.placeholder.com/400x300">
-	 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-    </a>
-  </div>  
-  
-  
-  <div class="image-wrapper2">
-	<a href="#">
-		<img src="https://via.placeholder.com/400x300">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-	</a>
-  </div>
-  
-  
-  <div class="image-wrapper2">
-	<a href="#">
-		<img src="https://via.placeholder.com/400x300">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-	</a>
-  </div>
-  
-  
+
+	<div class="image-wrapper2">
+		<a href="#">
+			<div class=" image-container-no-overflow">
+				<img class="image-hover-zoom-rotate" src="https://toolboxaid.com/wp-content/uploads/2016/05/pexels-photo-6457537.jpeg">
+			</div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+		</a>
+	</div>
+
+	
+	<div class="image-wrapper2">
+		<a href="#">
+			<div class=" image-container-no-overflow">
+				<img class="image-hover-zoom-rotate" src="https://via.placeholder.com/400x300">
+			</div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+		</a>
+	</div>
+
+
+	<div class="image-wrapper2">
+		<a href="#">
+			<div class=" image-container-no-overflow">
+				<img class="image-hover-zoom-rotate" src="https://via.placeholder.com/400x300">
+			</div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+		</a>
+	</div>
+
+
+	<div class="image-wrapper2">
+		<a href="#">
+			<div class=" image-container-no-overflow">
+				<img class="image-hover-zoom-rotate" src="https://via.placeholder.com/400x300">
+			</div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+		</a>
+	</div>
+
+	<div class="image-wrapper2">
+		<a href="#">
+			<div class=" image-container-no-overflow">
+				<img class="image-hover-zoom-rotate" src="https://via.placeholder.com/400x300">
+			</div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+		</a>
+	</div>
+
+	<div class="image-wrapper2">
+		<a href="#">
+			<div class=" image-container-no-overflow">
+				<img class="image-hover-zoom-rotate" src="https://via.placeholder.com/400x300">
+			</div>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+		</a>
+	</div>
+
+	
 </div>
 
 */
