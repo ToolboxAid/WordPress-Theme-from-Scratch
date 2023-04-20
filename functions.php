@@ -24,6 +24,7 @@ require_once('ctl-header-breadcrumbs.php');
 
 require_once('ctl-main-content.php');
 require_once('ctl-main-pagination.php');
+require_once('ctl-main-code.php');
 
 require_once('ctl-footer-nav.php');
 require_once('ctl-footer-star.php');

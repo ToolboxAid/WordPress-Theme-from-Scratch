@@ -16,13 +16,7 @@
 			<?php if ( has_post_thumbnail() ) { ?>
 			<article class="post image-banner has-thumbnail">
 				<h2><?php the_title(); ?></h2>
-				<?php 
-					$image_id = get_post_thumbnail_id();
-					$image_url = wp_get_attachment_image_src($image_id, 'banner-image')[0];
-				?>
-				<div class=" post post-banner bg-image-fill" style="background-image: url('<?php echo $image_url; ?>')">		
-					<?php debug_location("______ - B");?>
-				</div><!-- /post-banner -->
+
 				
 			<?php } else { ?>
 			<article class="post image-banner">

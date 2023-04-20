@@ -211,15 +211,16 @@ div.widget-item h2 {
 .content-column h6,
 .content-column p  */
 
+#content-container *{
+	padding: 5px 0;
+}
 
 #content-container{
 	margin: 0 15px;
 	width: calc(100% - 30px);
 	font-size: 22px;
 }
-#content-container *{
-	padding: 5px 0;
-}
+
 #content-container p{
 	word-wrap: break-word;
 	/* white-space: pre-wrap; */
@@ -290,6 +291,7 @@ article.has-thumbnail{
 
 p.post-info {
 	color: #999999;
+	font-size: 18px;;
 }
 
 h2 {
@@ -302,9 +304,8 @@ h2 {
 }
 
 /* =============== */
-/* Code Block      */
+/* Pre Code Block  */
 /* pre.code block  */
-/* greenbar colors */
 /* =============== */
 .hide-me {
 	display: none;
@@ -313,58 +314,30 @@ h2 {
 pre.wp-modified-code {
 	white-space: nowrap;
 	overflow-x: auto;
-	background-color: #F9F6EE;
-	margin-bottom: 20px;
-}
-
-p.line-wrap {
-	padding: 0;
-	width: calc(100% - 2px);
-}
-
-span.line-number {
-	margin-right: 8px;
-	display: inline-block;
-	padding: 3px 10px;
-	color: #888888;
-	text-align: right;
-	border-right: 2px solid #aa0000;
-}
-
-span.line-content {
-	display: inline-block;
-}
-
-p.line-wrap:nth-child(odd) {
-	background-color: #ffdddd;
-	/* #d0f0d0; greenbar green */
-}
-
-p.line-wrap:nth-child(even) {
-	background-color: #ffeeee;
-	/* #d0f0d0; greenbar green */
-}
-
-.wp-modified-code a {
-	padding: 5px;
-	color: #eeeeee;
-	background-color: #aa0000;
-}
-
-.wp-modified-code {
+	margin-bottom: 10px;
+	padding: 0 !important;;
 	text-align: center;
 }
-
-.wp-modified-code a.code {
-	display: block;
-}
-
 .wp-modified-code code {
 	text-align: left;
 }
-
-.wp-modified-code {
-	border: 2px solid #aa0000;
+.wp-modified-code a.code {
+	display: block;
+}
+p.line-wrap {
+	padding: 0 !important;
+	width: calc(100% - 2px);
+}
+span.line-content {
+	display: inline-block;
+	font-size: 18px;
+	padding-left: 8px !important;
+}
+span.line-number {
+	padding: 5px 8px !important;
+	display: inline-block;
+	text-align: right;
+	font-size: 18px;
 }
 
 /* ============== */
@@ -650,9 +623,6 @@ header li.menu-item,
 	transform: scaleX(1);
   }
 
-
-
-
 /* pagination */
 nav.navigation.post-navigation{	
 	border-radius: 28px;
@@ -691,7 +661,6 @@ body > main > section > div.side-column > div > div > ul > li
 }
 /*     */
 
- 
   .image-container2 {
 	width: 90%;
 	margin: 0 auto;
