@@ -8,7 +8,9 @@
 		<article class="post page"> <?php
 			while (have_posts()) : the_post(); ?>		
 				<h2><?php the_title(); ?></h2>
-				<?php the_content(); ?>
+				<div id="content-container">
+					<?php the_content(); ?>
+				</div>
 			<?php endwhile;	?>
 		</article>				
 	</div>

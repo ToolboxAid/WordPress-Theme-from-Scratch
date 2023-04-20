@@ -29,7 +29,9 @@
 				<h2><?php the_title(); ?></h2>
 			<?php } ?>
 		<?php } ?>		
-		
+
+		<div id="content-container">
+
 		<p class="post-info">
 			<i class="fa fa-calendar" aria-hidden="true"></i>
 			<?php the_time(' F jS, Y '); ?>
@@ -57,34 +59,37 @@
 				echo trim($output, $separator);
 			}
 			?>		
-		</p><?php 
+		</p>
 		
-		if ( is_search() OR is_archive() ) { 
-debug_location("______ - __1");?>
-			<p>
-				<?php echo get_the_excerpt(); 
-				if (has_excerpt()){
-					echo "[....]";
-				}
-				?>
 
-				<br/><a href="<?php the_permalink(); ?>">Read more &raquo;</a>
-			</p><?php 
-		} else {
-			if (is_home()) { // The blog page (index.php)
-debug_location("______ - __2");?>
-					<p>
-						<?php echo get_the_excerpt(); 
-										if (has_excerpt()){
-											echo "[....]";
-										}
-										?>
-						<br/><a href="<?php the_permalink(); ?>">Read more &raquo;</a>
-					</p><?php 
+			<?php 
+			if ( is_search() OR is_archive() ) { 
+				debug_location("______ - __1");?>
+				<p>
+					<?php echo get_the_excerpt(); 
+					if (has_excerpt()){
+						echo "[....]";
+					}
+					?>
+
+					<a href="<?php the_permalink(); ?>">Read more &raquo;</a>
+				</p><?php 
 			} else {
-debug_location("______ - __3");
-				the_content();
-			}
-		} ?>
+				if (is_home()) { // The blog page (index.php)
+						debug_location("______ - __2");?>
+						<p>
+							<?php echo get_the_excerpt(); 
+								if (has_excerpt()){
+									echo "[....]";
+								}
+								?>
+							<a href="<?php the_permalink(); ?>">Read more &raquo;</a>
+						</p><?php 
+				} else {
+					debug_location("______ - __3");
+					the_content();
+				}
+			} ?>
+		</div>
 
 	</article>

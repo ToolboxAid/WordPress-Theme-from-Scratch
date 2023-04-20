@@ -5,7 +5,7 @@
 	debug_location("Search");?>
 
 	<article class="post" >
-		<h2>Search results for: <?php the_search_query(); ?></h2>
+		<h2 class="no-marg">Search results for: <?php the_search_query(); ?></h2>
 	</article><?php
 
 	if (have_posts()) :

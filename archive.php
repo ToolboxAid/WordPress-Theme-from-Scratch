@@ -7,10 +7,12 @@
 
 		if (have_posts()) : ?>
 			<article class="post">
-				<h2><?php
+				<h2  class="no-marg"><?php
 					if ( is_category() ) {
+						echo 'Category: ';
 						single_cat_title();
 					} elseif ( is_tag() ) {
+						echo 'Tag: ';
 						single_tag_title();
 					} elseif ( is_author() ) {
 						the_post();
