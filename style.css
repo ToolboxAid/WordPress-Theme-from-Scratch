@@ -165,6 +165,10 @@ section {
 	padding: 0;
 }
 
+.content-column {
+	width: calc(100% - (240px + 25px));
+	box-sizing: border-box;
+}
 article.post h2{
 	width: 100%;
 	box-sizing: border-box;
