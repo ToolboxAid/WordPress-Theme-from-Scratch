@@ -243,9 +243,45 @@ section.side-by-side {
 /* =========== */
 /*             */
 /* =========== */
+/*
+image-wrapper2
+	image-container-no-overflow
+		image-hover-zoom-rotate
+		
+		
+	<div "class="image-wrapper2">
+		<a href="/game-programming">
+			<div class=" image-container-no-overflow">
+				<img class="image-hover-zoom-rotate" src="/wp-content/uploads/2016/05/pexels-photo-1666759.jpeg">
+			</div>How to write your own games using JavaScript, C++, Java & C#.
+		</a>
+	</div>
+*/
+.image-wrapper2 {
+	width: 100%;
+	margin-bottom: 40px;
+	}	
+
+/*
+.image-wrapper2 {
+	width: calc(50% - 10px);
+	margin-bottom: 20px;
+  }
+  
+  .image-wrapper2 img {
+	max-width: 100%;
+	height: auto;
+  } 
+.image-wrapper2 {
+	width: 100%;
+	margin-bottom: 40px;
+	}	
+
+ */
+
 /* Zoom-n-rotate Container */
 .image-container-no-overflow {
-
+	width: 100%;
 	overflow: hidden;
 	float: left;
 	margin-right: 10px;
@@ -253,18 +289,36 @@ section.side-by-side {
 }
 
 .image-hover-zoom-rotate {
-	width: 100%;
-	height: 100%;
 	/* background-image: url(http://q-bytes-world-theme.local/wp-content/uploads/2022/06/WhatsApp-Image-2019-11-26-at-7.52.45-AM.jpeg); */
 	background-position: center center;
 	background-size: cover;
 	transition: 0.5s ease-in-out;
 	transform: scale(1.25);
 }
-
 .image-hover-zoom-rotate:hover {
 	transform: rotate(5deg) scale(1.4);
 }
+
+  /* 
+  .image-container2 {
+	flex-direction: column;
+	align-items: center;
+	}
+  .image-container2 {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+  }
+*/  
+
+
+
+
+
+
+
 
 .no-marg{
 	margin: 0;
@@ -664,24 +718,7 @@ body > main > section > div.side-column > div > div > ul > li
 }
 /*     */
 
-  .image-container2 {
-	width: 90%;
-	margin: 0 auto;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-  }
-  
-  .image-wrapper2 {
-	width: calc(50% - 10px);
-	margin-bottom: 20px;
-  }
-  
-  .image-wrapper2 img {
-	max-width: 100%;
-	height: auto;
-  }
-  
+
 
 /* ============ */
 /* Media tablet */
@@ -694,6 +731,9 @@ body > main > section > div.side-column > div > div > ul > li
 	}
 	.content-column {
 		width: calc(100%);
+
+		padding: 0;
+		margin: 0;
 	}
 
 	div.side-column {
@@ -701,21 +741,6 @@ body > main > section > div.side-column > div > div > ul > li
 		margin-left: 0px;
 		box-sizing: border-box;
 	}
-
-	div.content-column {
-		padding: 0;
-		margin: 0;
-	}
-
-	.image-container2 {
-		flex-direction: column;
-		align-items: center;
-	  }
-	  .image-wrapper2 {
-		width: 100%;
-		margin-bottom: 40px;
-	  }	
-
 }
 
 /* ============ */
@@ -791,8 +816,54 @@ body > main > section > div.side-column > div > div > ul > li
 		box-shadow: 0px 0px 0px #00000000 !important;
 	}
 
-}  
+}
+
+
+/** info, warning, error, question **/
+.fa{
+	padding-right:8px;
+	font-size:38px;
+}
+.tba-message{
+	border-style:solid;
+	border-width:2px;
+	border-radius:15px;
+	background-color:#ffffff;
+  	padding:10px !important;
+	margin:10px !important;
+	font-size: 20px;
+	width: calc(100% - (40px));
+}
+
+div.tba-question{
+		border-color:#028a0f;
+}
+i.fa-question-circle{
+		color:#028a0f;	
+}
+
+div.tba-info{
+		border-color:#0080ff;
+}
+i.fa-info-circle{
+		color:#0080ff;	
+}
+
+div.tba-warn{
+	border-color:#ed9700;
+}
+i.fa-exclamation-triangle{
+	color:#ed9700;
+}
+
+div.tba-error{
+		border-color:#ff0000;
+}
+i.fa-times-circle{
+		color:#ff0000;	
+}
   
+
 
 /*
 function remove_image_srcset( $sources ) {1px
@@ -895,3 +966,4 @@ add_filter( 'wp_calculate_image_sizes', '__return_false' );
 </div>
 
 */
+
