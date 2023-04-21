@@ -10,7 +10,7 @@
 		<article class="post page">
 
 			<?php
-			$the_slug = '404-page';
+			$the_slug = 'error-404';
 			$args = array(
 			'name'        => $the_slug,
 			'post_type'   => 'page',
@@ -24,13 +24,12 @@
 					// var_dump( $my_posts[0] );
 					// echo "ID: " . $my_posts[0]->ID . "<br>";
 					echo  "<h2>" . $my_posts[0]->post_title . "</h2>"; ?>
-					<div id="content-container"><?php
-
+			<div id="content-container"><?php
 					echo  $my_posts[0]->post_content;    
 				} else { ?>
 					<h2>404-default</h2>
-					<div id="content-container">	<?				
-			}?>
+			<div id="content-container">	<?php				
+				}?>
 
 				<br/>
 				<p>You <?php
@@ -62,7 +61,7 @@
 				<br/>
 				<?php include(TEMPLATEPATH . "/searchform.php"); ?>
 				</p>
-				</div>
+			</div>
 		</article>
 	</div>
 
