@@ -1,6 +1,9 @@
 <?php
 
-// Define a global boolean variable
+// Define a global variables
+global $version;
+$version = "1.0.0";
+
 global $debug_page;
 $debug_page = false;
 
@@ -12,6 +15,11 @@ function debug_location($location) {
     }
 }
 
+
+function get_version() {
+	global $version; // Use the global variable inside the function
+	echo $version;
+}
 ////////////////////////////////////////////////////////////////
 /* Seperate control files for Header, Body, & Footer sections */
 ////////////////////////////////////////////////////////////////

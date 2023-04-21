@@ -68,6 +68,12 @@
 					bloginfo('name'); ?>. All rights reserved.</p>
 				</div>
 			</div>
+			
+			<div class="footer-row  footer-row-version">
+				<div class="footer-col align-center version">
+					<p>Version: <?php get_version(); ?></p>
+				</div>
+			</div>			
 		</footer>
 
 		<!-- <div class="ball">
