@@ -2,7 +2,7 @@
 Theme Name: WordPress Theme From Scratch
 Author: Mr. Q
 Author URI: http://toolboxaid.com
-Version: 1.0.16
+Version: 1.0.17
 */
 
 /* Global styles */
@@ -197,23 +197,6 @@ div.widget-item h2 {
 	padding-left:15px;
 }
 
-/* div.widget-item h2 a,
-.content-column h2 a {
-	padding:3px;
-	padding-left:20px;
-
-} */
-/* .content-column h2 {
-	padding-top: 20px;
-} */
-
-/* .content-column h2,
-.content-column h3,
-.content-column h4,
-.content-column h5,
-.content-column h6,
-.content-column p  */
-
 #content-container *{
 	padding: 5px 0;
 }
@@ -381,6 +364,14 @@ span.line-number {
 	align-items: flex-start;
 }
 
+/* this needs to be a control */
+.footer-col h4{
+	color: #eeeeee;
+	background: #3600af;
+	width:90%;
+	margin:0;
+}
+
 .footer-col {
 	display: flex;
 	flex-direction: column;
@@ -439,12 +430,6 @@ footer div.footer-row:last-child {
 	padding: 10px;
 }
 
-/* .footer-col h4 {	font-size: 125%;} */
-
-
-/*************************************************************/
-
-/***********************************************/
 /* =========== */
 /* Top Of Page */
 /* =========== */
@@ -535,37 +520,14 @@ body main section div.content-column article.post ul.li-disc {
 }
 
 
-/* https://fontawesome.com/v4/cheatsheet/ */
-/* article.post ul {
-	list-style-type: none;
-	margin-left: 15px;
-	padding-left: 5px;
-}
 
 
-article.post ul li:before {
-	font-family: 'FontAwesome';
-	content: "\f0a6";
-	display: inline-block;
-	width: 1.5em;
-	font-size: 16px;
-}
 
-article.post ul li ul li:before {
-	font-family: 'FontAwesome';
-	content: "\f25b";
-	display: inline-block;
-	width: 1.5em;
-	font-size: 16px;
-}
 
-article.post ul li ul li ul li:before {
-	font-family: 'FontAwesome';
-	content: "\f259";
-	display: inline-block;
-	width: 1.5em;
-	font-size: 16px;
-} */
+/*
+   https://fontawesome.com/v4/cheatsheet/ 
+   https://www.fontawesomecheatsheet.com/font-awesome-cheatsheet-4x/
+*/
 
   /* Bounce To Top */
   /* div.menu-header-links-container ul.menu li.menu-item , */
