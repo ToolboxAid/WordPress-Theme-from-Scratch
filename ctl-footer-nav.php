@@ -39,17 +39,30 @@ function footer_nav( $wp_customize ) {
         'description'=> __( 'Color for background', 'qbytesworld_WordPress' ),        
 	) ) );
 
+
 	
+	/* Heading (h1-h6) color */
+	$wp_customize->add_setting('footer_nav_header_background_color', array(
+		'default' => '#00aaaa',
+		'transport' => 'refresh',
+	));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_nav_header_background_color_control', array(
+		'label' => __('Header background color', 'qbytesworld_WordPress'),
+		'section' => 'footer_nav',
+		'settings' => 'footer_nav_header_background_color',
+		'description'=> __( 'Header bacground color for Nav Item', 'qbytesworld_WordPress' ),        
+	) ) );
+
     /* Heading (h1-h6) color */
 	$wp_customize->add_setting('footer_nav_header_color', array(
 		'default' => '#00aaaa',
 		'transport' => 'refresh',
 	));
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'footer_nav_header_color_control', array(
-		'label' => __('Heading Color', 'qbytesworld_WordPress'),
+		'label' => __('Header Color', 'qbytesworld_WordPress'),
 		'section' => 'footer_nav',
 		'settings' => 'footer_nav_header_color',
-        'description'=> __( 'Color for Nav Item', 'qbytesworld_WordPress' ),        
+        'description'=> __( 'Header text color for Nav Item', 'qbytesworld_WordPress' ),        
 	) ) );
 
 
@@ -92,14 +105,18 @@ function footer_nav_css() { ?>
 			background-color: <?php echo get_theme_mod('footer_nav_background_color'); ?>;
 		}
 
-		footer h1, footer h2, footer h3, footer h4, footer h5, footer h6
-		{
+		.footer-col h4 {
+			background-color: <?php echo get_theme_mod('footer_nav_header_background_color'); ?>;		}
+
+		footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
             color: <?php echo get_theme_mod('footer_nav_header_color'); ?>;
 		}
-		div.footer-col ul li a{
+
+		div.footer-col ul li a {
             color: <?php echo get_theme_mod('footer_nav_color'); ?>;
 		}
-		div.footer-col ul li a:hover{
+
+		div.footer-col ul li a:hover {
             color: <?php echo get_theme_mod('footer_nav_color_hover'); ?>;
 		}		
 	</style>

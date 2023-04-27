@@ -2,7 +2,7 @@
 
 // Define a global variables
 global $version;
-$version = "1.0.0";
+$version = "1.0.11";
 
 global $debug_page;
 $debug_page = false;
@@ -188,7 +188,6 @@ function awesome_font_icon_shortcode( $atts ) {
     return $icon;
 }
 add_shortcode( 'iconAF', 'awesome_font_icon_shortcode' );
-
 
 
 

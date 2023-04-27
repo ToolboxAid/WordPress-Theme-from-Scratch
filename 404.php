@@ -24,11 +24,11 @@
 					// var_dump( $my_posts[0] );
 					// echo "ID: " . $my_posts[0]->ID . "<br>";
 					echo  "<h2>" . $my_posts[0]->post_title . "</h2>"; ?>
-			<div id="content-container"><?php
+			<div id="content-container align-center" style="width: 75%; margin:auto;"><?php
 					echo  $my_posts[0]->post_content;    
 				} else { ?>
 					<h2>404-default</h2>
-			<div id="content-container">	<?php				
+			<div id="content-container align-center" style="width: 75%;">	<?php				
 				}?>
 
 				<br/>
@@ -41,14 +41,14 @@
 				
 				if (!isset($_SERVER['HTTP_REFERER'])) {
 					#politely blames the user for all the problems they caused
-						echo "tried going to "; #starts assembling an output paragraph
+					echo "tried going to "; #starts assembling an output paragraph
 					$casemessage = "All is not lost!";
 				} elseif (isset($_SERVER['HTTP_REFERER'])) {
 					#this will help the user find what they want, and email me of a bad link
 					echo "clicked a link to"; #now the message says You clicked a link to...
 						#setup a message to be sent to me
-					$failuremess = "A user tried to go to $website"
-						.$_SERVER['REQUEST_URI']." and received a 404 (page not found) error. ";
+					$failuremess = "A user tried to go to $website<b><em>"
+						.$_SERVER['REQUEST_URI']."</em></b> and received a 404 (page not found) error. ";
 					$failuremess .= "It wasn't their fault, so try fixing it.  
 						They came from ".$_SERVER['HTTP_REFERER'];
 					mail($adminemail, "Bad Link To ".$_SERVER['REQUEST_URI'],
@@ -56,10 +56,14 @@
 					$casemessage = "An administrator has been emailed 
 						about this problem, too.";#set a friendly message
 				}
-				echo " '".$website.$_SERVER['REQUEST_URI']."' "; ?> 
+				echo " '<b><em>".$website.$_SERVER['REQUEST_URI']."'</em></b> "; ?> 
 					and it doesn't exist. <?php echo $casemessage; ?>  You can search for what you're looking for:
 				<br/>
-				<?php include(TEMPLATEPATH . "/searchform.php"); ?>
+				<div id="content-container align-center" style="width: 50%; margin:auto;">
+					<br/>
+					<?php include(TEMPLATEPATH . "/searchform.php"); ?>
+					<br/>
+				</div>
 				</p>
 			</div>
 		</article>
