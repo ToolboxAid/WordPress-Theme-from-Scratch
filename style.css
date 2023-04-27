@@ -908,9 +908,8 @@ form#form-contact p {
 
 div#g-recaptcha input,
 input[type=submit] {
-	color: white;
-	background-color: red;
-	border: 1px solid black;
+	background-color: #cccccc;
+	border: 1px solid #333333;
 	font-size: 18px;
 	padding:7px;
 	margin: 15px 0;

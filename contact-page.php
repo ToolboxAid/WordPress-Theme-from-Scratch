@@ -1,4 +1,16 @@
+
+<?php
+ 
+    session_start();
+    if (!isset($_SESSION["visits"]))
+        $_SESSION["visits"] = 0;
+   
+
+ 
+?>
 <?php get_header(); ?>
+
+
 
 <div class="content-column"><?php debug_location("Contact-Page"); ?>
 
@@ -11,6 +23,8 @@
         $agr_options = get_option("agr_options");
         $site_key = $agr_options["site_key"];
         $secret_key = $agr_options["secret_key"];
+
+        $data_token = md5( uniqid( rand(), true ) );
 
         // Process the form upon submission
         if (isset($_POST["contact_submit"])) {
@@ -36,67 +50,63 @@
 
             // If there are no errors, send the email
             if (empty($errors)) {
-                if (null !== get_bloginfo("name")){
-                $site_title = get_bloginfo("name");
-                }
 
-                $mail_options = get_option("wp_mail_smtp");
-                //var_dump($mail_options);
-                if (isset($mail_options["from_name"])) {
-                    $mail_from_name = $mail_options["from_name"];
+                // echo "Visits: ";
+                // echo $_SESSION["visits"];     
+
+                if ($_SESSION["visits"] > 1){?>
+                    <p class="contact-success align-center">Your message was already sent!</p><?php
                 } else {
-                    $mail_from_name = "";
+                    // Send the email
+                    $_SESSION["visits"] = 100;
+
+                    if (null !== get_bloginfo("name")){
+                        $site_title = get_bloginfo("name");
+                        }
+        
+                    $mail_options = get_option("wp_mail_smtp");
+                    if (isset($mail_options["from_name"])) {
+                        $mail_from_name = $mail_options["from_name"];
+                    } else {
+                        $mail_from_name = "";
+                    }
+                    
+                    if (isset($mail_options["from_email"])) {
+                        $mail_from_email = $mail_options["from_email"];
+                    } else {
+                        $mail_from_email = "not_set@mail-from-email.com";
+                    }
+    
+                    // Set the email headers
+                    $headers = [
+                        "From: " . $mail_from_name . " <" . $mail_from_email . ">",
+                        "Reply-To: " . $name . " <" . $email . ">",
+                    ];
+    
+                    $body = "Name: " . $name . "\n";
+                    $body .= "eMail: " . $email . "\n";
+                    $body .= "Message: " . $message;
+
+                    
+                    wp_mail(
+                        get_option("admin_email"),
+                        $site_title . " - Contact info",
+                        $body,
+                        $headers
+                    );?>
+                    <!-- // Show a success message -->
+                    <p class="contact-success align-center">Your message has been sent. Thank you!</p><?php
                 }
-                
-                if (isset($mail_options["from_email"])) {
-                    $mail_from_email = $mail_options["from_email"];
-                } else {
-                    $mail_from_email = "not_set@mail-from-email.com";
-                }
-
-                // Set the email headers
-                $headers = [
-                    "From: " . $mail_from_name . " <" . $mail_from_email . ">",
-                    "Reply-To: " . $name . " <" . $email . ">",
-                ];
-
-                $body = "Name: " . $name . "\n";
-                $body .= "eMail: " . $email . "\n";
-                $body .= "Message: " . $message;
-
-                // Send the email
-                wp_mail(
-                    get_option("admin_email"),
-                    $site_title . " - Contact info",
-                    $body,
-                    $headers
-                );
-
-                // Show a success message
-                echo '<p class="contact-success align-center">Your message has been sent. Thank you!</p>';
             } else {
+                $_SESSION["visits"] = 0;
+                echo '<p class="contact-success align-center">All fields required (Not sent).</p>';
 
                 // Show the form with the error messages
                 echo '<div class="contact-form align-center">';
-                echo '<ul class="contact-errors">';
-
-                foreach ($errors as $error) {
-                    echo "<li>" . $error . "</li>";
-                }
-
-                echo "</ul>";
-                #echo '<form id="form-contact" method="post">';
-                echo '<form id="form-contact" class="wpforms-validate wpforms-form wpforms-ajax-form" data-formid="86" method="post" enctype="multipart/form-data" action="/contact-me/" data-token="f4d7bfcfec331ed96947cc67a402adce">';
-
-                echo '<p><label for="contact_name">Name:</label></br><input type="text" id="contact_name" name="contact_name" value="' .
-                    esc_attr($name) .
-                    '"></p>';
-                echo '<p><label for="contact_email">Email:</label></br><input type="email" id="contact_email" name="contact_email" value="' .
-                    esc_attr($email) .
-                    '"></p>';
-                echo '<p><label for="contact_message">Message:</label></br><textarea id="contact_message" name="contact_message">' .
-                    esc_textarea($message) .
-                    "</textarea></p>";
+                echo '<form id="form-contact" class="wpforms-validate wpforms-form wpforms-ajax-form" data-formid="86" method="post" enctype="multipart/form-data" action="/contact-me/" data-token="' . $data_token .'">';
+                echo '<p><label for="contact_name">Name:</label></br><input type="text" id="contact_name" name="contact_name" value="' . esc_attr($name) . '"></p>';
+                echo '<p><label for="contact_email">Email:</label></br><input type="email" id="contact_email" name="contact_email" value="' . esc_attr($email) . '"></p>';
+                echo '<p><label for="contact_message">Message:</label></br><textarea id="contact_message" name="contact_message">' . esc_textarea($message) . "</textarea></p>";
                 ?>
                 <form action="?" method="POST">
                     <div class="g-recaptcha" data-sitekey="<?php echo $site_key; ?>"></div>
@@ -104,23 +114,22 @@
                 </form><?php
                 echo "</form>";
                 echo "</div>";
-
             }
         } else {
+            $_SESSION["visits"] = 0;
             if (have_posts()) {
                 the_content();
             }
-
             // Show the form
             echo '<div class="contact-form align-center">';
-            echo '<form id="form-contact" class="wpforms-validate wpforms-form wpforms-ajax-form" data-formid="86" method="post" enctype="multipart/form-data" action="/contact-me/" data-token="f4d7bfcfec331ed96947cc67a402adce">';
+            echo '<form id="form-contact" class="wpforms-validate wpforms-form wpforms-ajax-form" data-formid="86" method="post" enctype="multipart/form-data" action="/contact-me/" data-token="' . $data_token .'">';
             echo '<p><label for="contact_name">Name:</label></br><input type="text" id="contact_name" name="contact_name"></p>';
             echo '<p><label for="contact_email">Email:</label></br><input type="email" id="contact_email" name="contact_email"></p>';
             echo '<p><label for="contact_message">Message:</label></br><textarea id="contact_message" name="contact_message"></textarea></p>';
             ?>
             <form action="?" method="POST">
                 <div class="g-recaptcha" data-sitekey="<?php echo $site_key; ?>"></div>
-                <input type="submit" value="Send Message" name="contact_submit" >
+                <input type="submit" value="Send Message" name="contact_submit">
             </form><?php
             echo "</form>";
             echo "</div>";
@@ -143,7 +152,8 @@
               }
             };
           </script><?php
-        }
+
+        }   
         ?>
     </article>
 </div>
@@ -152,5 +162,4 @@
 get_sidebar();
 
 get_footer();
-
 ?>
