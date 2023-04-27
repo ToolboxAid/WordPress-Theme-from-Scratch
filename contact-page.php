@@ -14,6 +14,10 @@
 
 <div class="content-column"><?php debug_location("Contact-Page"); ?>
 
+<noscript>
+    <meta http-equiv="refresh" content="0;URL='/'" />  
+</noscript>
+
     <article class="post image-container has-thumbnail">
         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 

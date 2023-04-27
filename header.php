@@ -119,8 +119,8 @@
                 </style>
                 <div class="no-script-content ">
                     <p>Oh Me, Oh My: looks like somebody does not like having fun.</p>
-                    <p>Please enable JavaScript to view this page properly.</p>
-                    <p>Page not displays inproperly, missing parts and may adust without JavaScript.</p>
+                    <p>Please enable JavaScript to view this site properly.</p>
+                    <p>Pages not displays properly, missing parts and may adjust without JavaScript.</p>
                 </div>
             </noscript>
 
