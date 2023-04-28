@@ -171,9 +171,6 @@ function image_container_shortcode($atts) {
   add_shortcode('image_container', 'image_container_shortcode');
 // Usage: [image_container src="http://path-to-image" width="100" height="100"]
 
-
-
-
 /* ************************ */
 // Usage:  [icon47 name="fa-solid fa-coffee fa-3x"].
 // Define the shortcode function for awesome font
@@ -188,6 +185,20 @@ function awesome_font_icon_shortcode( $atts ) {
     return $icon;
 }
 add_shortcode( 'iconAF', 'awesome_font_icon_shortcode' );
+
+/* ************************ */
+/* To prevent an administrator from
+   creating posts and pages in WordPress,
+   you can use this code snippet. */
+function remove_admin_post_types() {
+    if ( current_user_can( 'administrator' ) ) {
+        remove_menu_page( 'edit.php' );                // removes Posts
+        remove_menu_page( 'edit.php?post_type=page' ); // removes Pages
+		remove_menu_page('edit-comments.php');         // remove "Comments" menu item
+		remove_menu_page( 'upload.php' ); 
+    }
+}
+add_action( 'admin_menu', 'remove_admin_post_types', 999 );
 
 
 

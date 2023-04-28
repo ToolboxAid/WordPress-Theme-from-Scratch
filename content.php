@@ -53,7 +53,7 @@
 				echo trim($output, $separator);
 			}
 			?>		
-		</p>
+			</p>
 		
 
 			<?php 

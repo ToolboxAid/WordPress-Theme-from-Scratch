@@ -21,6 +21,8 @@ debug_location("SPost");?>
 			<div class="info-box" style="background-color: white; border: 3px solid red; margin-bottom: 15px; width:92%;">
 				<p style="color: red; font-size: 30px; font-style: italic; padding:10px; padding-left:30px;"><i class="fa fa-exclamation-triangle"></i> POST: pre article special template 'warning'.</p></p>
 			</div><!-- /info-box --><?php
+		
+			get_template_part( 'content-comments' );		
 		endwhile;	
 
         // Previous/next post navigation.

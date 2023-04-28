@@ -17,10 +17,12 @@ if (have_posts()) :
 		get_template_part('content');
 	endwhile;	
 
+
+	get_template_part( 'content-comments' );
   
 
-        // Previous/next post navigation.
-		get_template_part( 'content-pagination-post' );         
+	// Previous/next post navigation.
+	get_template_part( 'content-pagination-post' );         
 else : 
 	get_template_part('content-sorry');
 endif; ?>
