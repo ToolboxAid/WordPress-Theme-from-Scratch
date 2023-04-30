@@ -11,15 +11,10 @@ debug_location("Single"); ?>
 
 <div class="content-column"><?php
 
-
 if (have_posts()) :
 	while (have_posts()) : the_post(); 
 		get_template_part('content');
 	endwhile;	
-
-
-	get_template_part( 'content-comments' );
-  
 
 	// Previous/next post navigation.
 	get_template_part( 'content-pagination-post' );         

@@ -2,10 +2,10 @@
 
 // Define a global variables
 global $version;
-$version = "1.0.12";
+$version = "1.0.13";
 
 global $debug_page;
-$debug_page = false;
+$debug_page = true;
 
 function debug_location($location) {
     global $debug_page; // Use the global variable inside the function
@@ -198,7 +198,7 @@ function remove_admin_post_types() {
 		remove_menu_page( 'upload.php' ); 
     }
 }
-add_action( 'admin_menu', 'remove_admin_post_types', 999 );
+//add_action( 'admin_menu', 'remove_admin_post_types', 999 );
 
 
 

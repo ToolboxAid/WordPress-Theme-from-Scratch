@@ -82,6 +82,7 @@
 				} else {
 					debug_location("______ - __3");
 					the_content();
+	get_template_part( 'content-comments' );
 				}
 			} ?>
 		</div>
