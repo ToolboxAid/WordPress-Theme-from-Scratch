@@ -202,5 +202,125 @@ function remove_admin_post_types() {
 
 
 
+
+
+
+
+
+
+/* be sure perma links are set to */
+/*    /%category%/%postname%/     */
+function create_exercise_post_type() {
+    register_post_type( 'exercise',
+        array(
+            'labels' => array(
+                'name' => __( 'Exercises' ),
+                'singular_name' => __( 'Exercise' )
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'supports' => array( 'title', 'editor', 'thumbnail' ),
+            'rewrite' => array('slug' => 'exercises'),
+        )
+    );
+}
+add_action( 'init', 'create_exercise_post_type' );
+
+function add_exercise_meta_boxes() {
+
+	add_meta_box(
+        'equipment_group',
+        'Equipment Group',
+        'equipment_group_callback',
+        'exercise',
+        'normal',
+        'default'
+    );	
+
+    add_meta_box(
+        'body_group',
+        'Body Group',
+        'body_group_callback',
+        'exercise',
+        'normal',
+        'default'
+    );
+
+    add_meta_box(
+        'muscle_group',
+        'Muscle Group',
+        'muscle_group_callback',
+        'exercise',
+        'normal',
+        'default'
+    );
+
+}
+add_action( 'add_meta_boxes', 'add_exercise_meta_boxes' );
+
+function equipment_group_callback( $post ) {
+    wp_nonce_field( basename( __FILE__ ), 'equipment_group_nonce' );
+    $equipment_group = get_post_meta( $post->ID, 'equipment_group', true );
+    $equipment_list = array( 'Barbell', 'Body Weight', 'Dumbbell', 'Exercise Ball', 'Flexibility', 'Kettlebell', 'Resistance Band',  'Suspention',  'Strength',  'Stretch', 'Warm-up', 'Yoga' );
+    echo '<p>Select Equipment Group:</p>';
+    foreach ($equipment_list as $option) {
+        $checked = ($option == $equipment_group) ? 'checked' : '';
+        echo '<input type="radio" name="equipment_group" value="' . esc_attr( $option ) . '" ' . $checked . '> ' . ucfirst($option) . '   <->   ';
+    }
+}
+
+function body_group_callback( $post ) {
+    wp_nonce_field( basename( __FILE__ ), 'body_group_nonce' );
+    $body_group = get_post_meta( $post->ID, 'body_group', true );
+    $equipment_list = array( 'Abs (core)', 'Arms', 'Back', 'Cardio', 'Chest', 'Legs', 'Sholders', 'Stretch', 'Warm-up' );
+    echo '<p>Select Body Group:</p>';
+    foreach ($equipment_list as $option) {
+        $checked = ($option == $body_group) ? 'checked' : '';
+        echo '<input type="radio" name="body_group" value="' . esc_attr( $option ) . '" ' . $checked . '> ' . ucfirst($option) . '   <->   ';
+    }
+}
+
+function muscle_group_callback( $post ) {
+    wp_nonce_field( basename( __FILE__ ), 'muscle_group_nonce' );
+    $muscle_group = get_post_meta( $post->ID, 'muscle_group', true );
+    $equipment_list = array( 'Abdominals', 'Biceps', 'Back Upper', 'Back Middle', 'Back Lower', 'Calves', 'Chest', 'Deltoid', 
+							'Forearm','Glutes', 'Hamstring', 'Heart', 'Lungs', 'Quadriceps', 'Side Abs', 'Triceps');
+    echo '<p>Select Muscle Group:</p>';
+    foreach ($equipment_list as $option) {
+        $checked = ($option == $muscle_group) ? 'checked' : '';
+        echo '<input type="radio" name="muscle_group" value="' . esc_attr( $option ) . '" ' . $checked . '> ' . ucfirst($option) . '   <->   ';
+    }
+}
+
+function save_exercise_meta( $post_id ) {
+
+	/******/
+	if ( ! isset( $_POST['equipment_group_nonce'] ) || ! wp_verify_nonce( $_POST['equipment_group_nonce'], basename( __FILE__ ) ) ) {
+        return $post_id;
+    }
+    $equipment_group = sanitize_text_field( $_POST['equipment_group'] );
+    update_post_meta( $post_id, 'equipment_group', $equipment_group );
+
+	/******/
+    if ( ! isset( $_POST['muscle_group_nonce'] ) || ! wp_verify_nonce( $_POST['muscle_group_nonce'], basename( __FILE__ ) ) ) {
+        return $post_id;
+    }
+    $muscle_group = sanitize_text_field( $_POST['muscle_group'] );
+    update_post_meta( $post_id, 'muscle_group', $muscle_group );
+
+	/******/
+    if ( ! isset( $_POST['body_group_nonce'] ) || ! wp_verify_nonce( $_POST['body_group_nonce'], basename( __FILE__ ) ) ) {
+        return $post_id;
+    }
+    $body_group = sanitize_text_field( $_POST['body_group'] );
+    update_post_meta( $post_id, 'body_group', $body_group );
+
+}
+add_action( 'save_post_exercise', 'save_exercise_meta' );
+
+
+
+
+
 // Nothing below here.  I must be last
 ?>
