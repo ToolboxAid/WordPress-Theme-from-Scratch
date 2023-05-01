@@ -51,10 +51,8 @@
 					$output .= '<a href="' . get_category_link($category->term_id) . '">' . $category->cat_name . '</a>'  . $separator;
 				}				
 				echo trim($output, $separator);
-			}
-			?>		
-			</p>
-		
+			} ?>		
+			</p>		
 
 			<?php 
 			if ( is_search() OR is_archive() ) { 
@@ -63,9 +61,7 @@
 					<?php echo get_the_excerpt(); 
 					if (has_excerpt()){
 						echo "[....]";
-					}
-					?>
-
+					} ?>
 					<a href="<?php the_permalink(); ?>">Read more &raquo;</a>
 				</p><?php 
 			} else {
@@ -82,7 +78,7 @@
 				} else {
 					debug_location("______ - __3");
 					the_content();
-	get_template_part( 'content-comments' );
+get_template_part( 'content-comments' );
 				}
 			} ?>
 		</div>

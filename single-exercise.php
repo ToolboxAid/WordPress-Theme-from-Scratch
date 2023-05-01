@@ -1,37 +1,49 @@
 
 
+<?php
+/*
+Template Name: SINGLE: Custom Post Template
+Template Post Type: post
+*/
 
+/* Page is used for posts of type page */
+get_header();
 
+debug_location("Single-exercise"); ?>
 
+<div class="content-column"><?php
 
+if (have_posts()) :
+	while (have_posts()) : the_post(); 
 
-        <?php while ( have_posts() ) : the_post(); ?>
+		get_template_part('content');
+        
+        $equipment = get_post_meta( get_the_ID(), 'equipment_group', true );
+        if ( $equipment ) {
+            echo '<p><strong>Equipment: </strong>' . esc_html( $equipment ) . '</p>';
+        }
 
-            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                <header class="entry-header">
-                    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-                </header><!-- .entry-header -->
+        $body = get_post_meta( get_the_ID(), 'body_group', true );
+        if ( $body ) {
+            echo '<p><strong>Body: </strong>' . esc_html( $body ) . '</p>';
+        }
 
-                <div class="entry-content">
-                    <?php the_content(); ?>
-                </div><?php
+        $muscle = get_post_meta( get_the_ID(), 'muscle_group', true );
+        if ( $muscle ) {
+            echo '<p><strong>Muscle: </strong>' . esc_html( $muscle ) . '</p>';
+        }        
+	endwhile;	
 
-                $equipment = get_post_meta( get_the_ID(), 'equipment_group', true );
-                if ( $equipment ) {
-                    echo '<p><strong>Equipment: </strong>' . esc_html( $equipment ) . '</p>';
-                }
+	// Previous/next post navigation.
+	get_template_part( 'content-pagination-post' );         
+else : 
+	get_template_part('content-sorry');
+endif; ?>
 
-                $body = get_post_meta( get_the_ID(), 'body_group', true );
-                if ( $body ) {
-                    echo '<p><strong>Body: </strong>' . esc_html( $body ) . '</p>';
-                }
+</div>
 
-                $muscle = get_post_meta( get_the_ID(), 'muscle_group', true );
-                if ( $muscle ) {
-                    echo '<p><strong>Muscle: </strong>' . esc_html( $muscle ) . '</p>';
-                }
-                
-                ?>
-            </article><!-- #post-## -->
+<?php
+get_sidebar();
 
-        <?php endwhile; // End of the loop. ?>
+get_footer();
+?>
