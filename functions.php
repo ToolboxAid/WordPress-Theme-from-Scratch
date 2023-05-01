@@ -2,10 +2,10 @@
 
 // Define a global variables
 global $version;
-$version = "1.0.14";
+$version = "1.0.15";
 
 global $debug_page;
-$debug_page = true;
+$debug_page = false;
 
 function debug_location($location) {
     global $debug_page; // Use the global variable inside the function
@@ -172,7 +172,7 @@ function image_container_shortcode($atts) {
 // Usage: [image_container src="http://path-to-image" width="100" height="100"]
 
 /* ************************ */
-// Usage:  [icon47 name="fa-solid fa-coffee fa-3x"].
+// Usage:  [iconAF name="fa-solid fa-coffee fa-3x"].
 // Define the shortcode function for awesome font
 function awesome_font_icon_shortcode( $atts ) {
     $atts = shortcode_atts( array(
@@ -186,6 +186,7 @@ function awesome_font_icon_shortcode( $atts ) {
 }
 add_shortcode( 'iconAF', 'awesome_font_icon_shortcode' );
 
+/* ******************************************************************************** */
 /* be sure perma links are set to */
 /*    /%category%/%postname%/     */
 function create_exercise_post_type() {
@@ -197,12 +198,34 @@ function create_exercise_post_type() {
             ),
             'public' => true,
             'has_archive' => true,
-            'supports' => array( 'title', 'editor', 'thumbnail' ),
+            'supports' => array( 'title', 'editor', 'thumbnail', 'revisions', 'author', 'comments' ),
             'rewrite' => array('slug' => 'exercises'),
+			'editor' => 'block',
+            'show_in_rest' => true,
+			// This is where we add taxonomies to our CPT
+			'taxonomies'          => array( 'category', 'post_tag' ),			
         )
     );
 }
 add_action( 'init', 'create_exercise_post_type' );
+
+
+function enable_gutenberg_for_exercise_post_type( $can_edit, $post_type ) {
+    if ( 'exercise' === $post_type ) {
+        $can_edit = true;
+    }
+    return $can_edit;
+}
+add_filter( 'use_block_editor_for_post_type', 'enable_gutenberg_for_exercise_post_type', 10, 2 );
+
+
+function add_custom_post_type_to_calendar( $post_types ) {
+    $post_types[] = 'exercise';
+    return $post_types;
+}
+add_filter( 'get_calendar_post_types', 'add_custom_post_type_to_calendar' );
+
+
 
 function add_exercise_meta_boxes() {
 
@@ -412,6 +435,7 @@ function add_custom_post_type_to_search( $query ) {
     return $query;
 }
 add_filter( 'pre_get_posts', 'add_custom_post_type_to_search' );
+/* ******************************************************************************** */
 
 
 /* ************************ */
@@ -426,7 +450,7 @@ function remove_admin_post_types() {
 		remove_menu_page( 'upload.php' ); 
 	}
 }
-add_action( 'admin_menu', 'remove_admin_post_types', 999 );
+//add_action( 'admin_menu', 'remove_admin_post_types', 999 );
 
 // Nothing below here.  I must be last
 ?>
