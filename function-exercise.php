@@ -1,5 +1,25 @@
 <?php
 
+// Allow Exercise Posts to show in search
+/* ***** */
+function add_custom_post_type_to_search( $query ) {
+    if ( $query->is_search ) {
+        $query->set( 'post_type', array( 'post', 'page', 'exercise' ) ); // add 'exercise' to the list of post types
+    }
+    return $query;
+}
+add_filter( 'pre_get_posts', 'add_custom_post_type_to_search' );
+
+/* ***** */
+function namespace_add_custom_types( $query ) {
+    if( (is_category() || is_tag()) && $query->is_archive() && empty( $query->query_vars['suppress_filters'] ) ) {
+      $query->set( 'post_type', array(
+       'post', 'exercise'
+          ));
+      }
+  }
+  add_action( 'pre_get_posts', 'namespace_add_custom_types' );
+
 /* ******************************************************************************** */
 /* be sure perma links are set to */
 /*    /%category%/%postname%/     */
@@ -23,7 +43,6 @@ function create_exercise_post_type() {
 }
 add_action( 'init', 'create_exercise_post_type' );
 
-
 function enable_gutenberg_for_exercise_post_type( $can_edit, $post_type ) {
     if ( 'exercise' === $post_type ) {
         $can_edit = true;
@@ -31,15 +50,6 @@ function enable_gutenberg_for_exercise_post_type( $can_edit, $post_type ) {
     return $can_edit;
 }
 add_filter( 'use_block_editor_for_post_type', 'enable_gutenberg_for_exercise_post_type', 10, 2 );
-
-
-function add_custom_post_type_to_calendar( $post_types ) {
-    $post_types[] = 'exercise';
-    return $post_types;
-}
-add_filter( 'get_calendar_post_types', 'add_custom_post_type_to_calendar' );
-
-
 
 function add_exercise_meta_boxes() {
 
@@ -176,7 +186,6 @@ function difficulty_group_callback( $post ) {
     }
 }
 
-
 function save_exercise_meta( $post_id ) {
 
 	/******/
@@ -241,14 +250,5 @@ function save_exercise_meta( $post_id ) {
 }
 add_action( 'save_post_exercise', 'save_exercise_meta' );
 
-// Allow Exercise Posts to show in search
-function add_custom_post_type_to_search( $query ) {
-    if ( $query->is_search ) {
-        $query->set( 'post_type', array( 'post', 'page', 'exercise' ) ); // add 'exercise' to the list of post types
-    }
-    return $query;
-}
-add_filter( 'pre_get_posts', 'add_custom_post_type_to_search' );
 /* ******************************************************************************** */
-
 ?>
