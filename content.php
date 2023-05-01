@@ -22,7 +22,7 @@
 			<article class="post image-banner">
 				<h2><?php the_title(); ?></h2>
 			<?php } ?>
-		<?php } ?>		
+		<?php } ?>
 
 		<div id="content-container">
 

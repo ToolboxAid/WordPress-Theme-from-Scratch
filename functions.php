@@ -255,6 +255,43 @@ function add_exercise_meta_boxes() {
         'default'
     );
 
+	add_meta_box(
+		'primary_muscle_group',
+		'Primary Muscle Group',
+		'primary_muscle_group_callback',
+		'exercise',
+		'normal',
+		'default'
+	);
+
+	add_meta_box(
+		'secondary_muscle_group',
+		'Secondary Muscle Group',
+		'secondary_muscle_group_callback',
+		'exercise',
+		'normal',
+		'default'
+	);
+
+	add_meta_box(
+		'tertiary_muscle_group',
+		'Tertiary Muscle Group',
+		'tertiary_muscle_group_callback',
+		'exercise',
+		'normal',
+		'default'
+	);
+
+	add_meta_box(
+        'difficulty_group',
+        'Difficulty Group',
+        'difficulty_group_callback',
+        'exercise',
+        'normal',
+        'default'
+    );	
+
+
 }
 add_action( 'add_meta_boxes', 'add_exercise_meta_boxes' );
 
@@ -292,6 +329,39 @@ function muscle_group_callback( $post ) {
     }
 }
 
+function primary_muscle_group_callback( $post ) {
+	wp_nonce_field( basename( __FILE__ ), 'primary_muscle_group_nonce' );
+	$primary_muscle_group = get_post_meta( $post->ID, 'primary_muscle_group', true );
+	echo '<p><label for="primary_muscle_group_field">Primary Muscle Group:</label></p>';
+	echo '<input type="text" id="primary_muscle_group_field" name="primary_muscle_group" value="' . esc_attr( $primary_muscle_group ) . '">';
+}
+
+function secondary_muscle_group_callback( $post ) {
+	wp_nonce_field( basename( __FILE__ ), 'secondary_muscle_group_nonce' );
+	$secondary_muscle_group = get_post_meta( $post->ID, 'secondary_muscle_group', true );
+	echo '<p><label for="secondary_muscle_group_field">Secondary Muscle Group:</label></p>';
+	echo '<input type="text" id="secondary_muscle_group_field" name="secondary_muscle_group" value="' . esc_attr( $secondary_muscle_group ) . '">';
+}
+
+function tertiary_muscle_group_callback( $post ) {
+	wp_nonce_field( basename( __FILE__ ), 'tertiary_muscle_group_nonce' );
+	$tertiary_muscle_group = get_post_meta( $post->ID, 'tertiary_muscle_group', true );
+	echo '<p><label for="tertiary_muscle_group_field">Tertiary Muscle Group:</label></p>';
+	echo '<input type="text" id="tertiary_muscle_group_field" name="tertiary_muscle_group" value="' . esc_attr( $tertiary_muscle_group ) . '">';
+}
+
+function difficulty_group_callback( $post ) {
+    wp_nonce_field( basename( __FILE__ ), 'difficulty_group_nonce' );
+    $difficulty_group = get_post_meta( $post->ID, 'difficulty_group', true );
+    $difficulty_list = array( 'Beginner', 'Intermediate', 'Advanced' );
+    echo '<p>Select Difficulty Group:</p>';
+    foreach ($difficulty_list as $option) {
+        $checked = in_array($option, (array)$difficulty_group) ? 'checked' : '';
+        echo '<input type="checkbox" name="difficulty_group[]" value="' . esc_attr( $option ) . '" ' . $checked . '> ' . ucfirst($option) . '   <->   ';
+    }
+}
+
+
 function save_exercise_meta( $post_id ) {
 
 	/******/
@@ -315,6 +385,44 @@ function save_exercise_meta( $post_id ) {
     $body_group = sanitize_text_field( $_POST['body_group'] );
     update_post_meta( $post_id, 'body_group', $body_group );
 
+	/*******/
+    // Update primary_muscle meta
+	// Check if nonce is set and valid
+	if ( ! isset( $_POST['primary_muscle_group_nonce'] ) || ! wp_verify_nonce( $_POST['primary_muscle_group_nonce'], basename( __FILE__ ) ) ) {
+		return $post_id;
+	}
+	if ( ! isset( $_POST['secondary_muscle_group_nonce'] ) || ! wp_verify_nonce( $_POST['secondary_muscle_group_nonce'], basename( __FILE__ ) ) ) {
+		return $post_id;
+	}
+	if ( ! isset( $_POST['tertiary_muscle_group_nonce'] ) || ! wp_verify_nonce( $_POST['tertiary_muscle_group_nonce'], basename( __FILE__ ) ) ) {
+		return $post_id;
+	}
+
+	// Sanitize and save primary_muscle_group field data
+	if ( isset( $_POST['primary_muscle_group'] ) ) {
+		$primary_muscle_group = sanitize_text_field( $_POST['primary_muscle_group'] );
+		update_post_meta( $post_id, 'primary_muscle_group', $primary_muscle_group );
+	}
+
+	// Sanitize and save secondary_muscle_group field data
+	if ( isset( $_POST['secondary_muscle_group'] ) ) {
+		$secondary_muscle_group = sanitize_text_field( $_POST['secondary_muscle_group'] );
+		update_post_meta( $post_id, 'secondary_muscle_group', $secondary_muscle_group );
+	}
+
+	// Sanitize and save tertiary_muscle_group field data
+	if ( isset( $_POST['tertiary_muscle_group'] ) ) {
+		$tertiary_muscle_group = sanitize_text_field( $_POST['tertiary_muscle_group'] );
+		update_post_meta( $post_id, 'tertiary_muscle_group', $tertiary_muscle_group );
+	}	
+
+	/******/
+	if ( ! isset( $_POST['difficulty_group_nonce'] ) || ! wp_verify_nonce( $_POST['difficulty_group_nonce'], basename( __FILE__ ) ) ) {
+		return $post_id;
+	}
+	$difficulty_group = (isset($_POST['difficulty_group']) && is_array($_POST['difficulty_group'])) ? array_map('sanitize_text_field', $_POST['difficulty_group']) : '';
+	update_post_meta( $post_id, 'difficulty_group', $difficulty_group );
+	
 }
 add_action( 'save_post_exercise', 'save_exercise_meta' );
 
