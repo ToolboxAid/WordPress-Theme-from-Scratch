@@ -2,7 +2,7 @@
 
 // Define a global variables
 global $version;
-$version = "1.0.13";
+$version = "1.0.14";
 
 global $debug_page;
 $debug_page = true;
@@ -185,28 +185,6 @@ function awesome_font_icon_shortcode( $atts ) {
     return $icon;
 }
 add_shortcode( 'iconAF', 'awesome_font_icon_shortcode' );
-
-/* ************************ */
-/* To prevent an administrator from
-   creating posts and pages in WordPress,
-   you can use this code snippet. */
-function remove_admin_post_types() {
-    if ( current_user_can( 'administrator' ) ) {
-        remove_menu_page( 'edit.php' );                // removes Posts
-        remove_menu_page( 'edit.php?post_type=page' ); // removes Pages
-		remove_menu_page('edit-comments.php');         // remove "Comments" menu item
-		remove_menu_page( 'upload.php' ); 
-    }
-}
-//add_action( 'admin_menu', 'remove_admin_post_types', 999 );
-
-
-
-
-
-
-
-
 
 /* be sure perma links are set to */
 /*    /%category%/%postname%/     */
@@ -426,9 +404,29 @@ function save_exercise_meta( $post_id ) {
 }
 add_action( 'save_post_exercise', 'save_exercise_meta' );
 
+// Allow Exercise Posts to show in search
+function add_custom_post_type_to_search( $query ) {
+    if ( $query->is_search ) {
+        $query->set( 'post_type', array( 'post', 'page', 'exercise' ) ); // add 'exercise' to the list of post types
+    }
+    return $query;
+}
+add_filter( 'pre_get_posts', 'add_custom_post_type_to_search' );
 
 
-
+/* ************************ */
+/* To prevent an administrator from
+   creating posts and pages in WordPress,
+   you can use this code snippet. */
+function remove_admin_post_types() {
+	if ( current_user_can( 'administrator' ) ) {
+		remove_menu_page( 'edit.php' );                // removes Posts
+		remove_menu_page( 'edit.php?post_type=page' ); // removes Pages
+		remove_menu_page('edit-comments.php');         // remove "Comments" menu item
+		remove_menu_page( 'upload.php' ); 
+	}
+}
+add_action( 'admin_menu', 'remove_admin_post_types', 999 );
 
 // Nothing below here.  I must be last
 ?>
