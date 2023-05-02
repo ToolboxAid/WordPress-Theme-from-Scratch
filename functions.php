@@ -2,10 +2,10 @@
 
 // Define a global variables
 global $version;
-$version = "1.0.16";
+$version = "1.0.17";
 
 global $debug_page;
-$debug_page = false;
+$debug_page = true;
 
 function debug_location($location) {
     global $debug_page; // Use the global variable inside the function

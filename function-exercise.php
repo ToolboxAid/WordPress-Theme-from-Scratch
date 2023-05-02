@@ -2,13 +2,13 @@
 
 // Allow Exercise Posts to show in search
 /* ***** */
-function add_custom_post_type_to_search( $query ) {
+function add_cpt_exercise_to_search( $query ) {
     if ( $query->is_search ) {
         $query->set( 'post_type', array( 'post', 'page', 'exercise' ) ); // add 'exercise' to the list of post types
     }
     return $query;
 }
-add_filter( 'pre_get_posts', 'add_custom_post_type_to_search' );
+add_filter( 'pre_get_posts', 'add_cpt_exercise_to_search' );
 
 /* ***** */
 function namespace_add_custom_types( $query ) {
@@ -19,6 +19,68 @@ function namespace_add_custom_types( $query ) {
       }
   }
   add_action( 'pre_get_posts', 'namespace_add_custom_types' );
+
+/* ***** */
+function add_cpt_exercise_to_archive_widget( $where ) {
+    global $wpdb;
+    $post_type = 'exercise'; // Replace with your CPT name
+    $where = str_replace( "post_type = 'post'", "post_type IN ('post', '$post_type')", $where );
+    return $where;
+}
+add_filter( 'getarchives_where', 'add_cpt_exercise_to_archive_widget' );
+
+function add_cpt_exercise_to_archive_page( $query ) {
+    // Don't modify the query if we're on the edit post list
+    if ( is_admin() && $query->is_main_query() && $query->get( 'post_type' ) === 'exercise' && $GLOBALS['current_screen'] instanceof WP_Posts_List_Table ) {
+        return;
+    }
+    
+    if ( ! is_admin() && isset( $_GET['post_type'] ) && $_GET['post_type'] === 'exercise' 
+        || $query->is_archive() && ! $query->is_post_type_archive( 'exercise' ) ) {
+        // do something
+        $post_type = 'exercise'; // Replace with your CPT name
+        $query->set( 'post_type', array( 'post', $post_type ) );
+    }
+}
+add_action( 'pre_get_posts', 'add_cpt_exercise_to_archive_page' );
+
+/*
+
+function add_cpt_exercise_to_calendar_widget( $post_types ) {
+    $post_types[] = 'exercise';
+    return $post_types;
+}
+add_filter( 'get_post_types', 'add_cpt_exercise_to_calendar_widget' );
+
+function add_custom_post_types_to_calendar( $post_types ) {
+    $post_types[] = 'exercise';
+    return $post_types;
+}
+add_filter( 'get_calendar_post_types', 'add_custom_post_types_to_calendar' );
+
+
+// function add_cpt_to_calendar_widget( $query ) {
+//     if ( $query->is_main_query() && is_calendar() ) {
+//         $post_type = 'exercise'; // Replace with your CPT name
+//         $query->set( 'post_type', array( 'post', $post_type ) );
+//     }
+// }
+// add_action( 'pre_get_posts', 'add_cpt_to_calendar_widget' );
+
+
+function add_cpt_to_calendar_widget( $join ) {
+    global $wpdb, $wp_query;
+    if ( $wp_query->is_main_query() ) {
+        $post_type = 'exercise'; // Replace with your CPT name
+        $join .= " LEFT JOIN $wpdb->posts AS p2 ON (p2.post_type = '$post_type' AND YEAR(p2.post_date) = YEAR($wpdb->posts.post_date) AND MONTH(p2.post_date) = MONTH($wpdb->posts.post_date))";
+        return $join;
+    }
+}
+add_filter( 'getarchives_join', 'add_cpt_to_calendar_widget' );
+
+
+ ******************************************************************************** */
+
 
 /* ******************************************************************************** */
 /* be sure perma links are set to */
