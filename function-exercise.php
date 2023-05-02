@@ -1,5 +1,46 @@
 <?php
 
+// Add a custom meta box to the post editing screen
+function my_custom_meta_box() {
+    add_meta_box( 'my_custom_meta_box', 'Custom Field', 'my_custom_meta_box_callback', 'post', 'normal', 'default' );
+}
+
+// Output the HTML for the custom meta box
+function my_custom_meta_box_callback( $post ) {
+    wp_nonce_field( basename( __FILE__ ), 'my_custom_meta_box_nonce' );
+    $value = get_post_meta( $post->ID, '_my_custom_field', true );
+    echo '<label for="my_custom_field">Custom Field 1</label>';
+    echo '<input type="text" id="my_custom_field" name="my_custom_field" value="' . esc_attr( $value ) . '" />';
+}
+
+// Save the custom field value when the post is saved
+function my_save_custom_field( $post_id ) {
+    if ( ! isset( $_POST['my_custom_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['my_custom_meta_box_nonce'], basename( __FILE__ ) ) ) {
+        return;
+    }
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+    if ( isset( $_POST['my_custom_field'] ) ) {
+        update_post_meta( $post_id, '_my_custom_field', sanitize_text_field( $_POST['my_custom_field'] ) );
+    }
+}
+
+// Hook everything up
+add_action( 'add_meta_boxes', 'my_custom_meta_box' );
+add_action( 'save_post', 'my_save_custom_field' );
+
+
+
+
+
+
+
+
+
 // Allow Exercise Posts to show in search
 /* ***** */
 function add_cpt_exercise_to_search( $query ) {
@@ -31,12 +72,13 @@ add_filter( 'getarchives_where', 'add_cpt_exercise_to_archive_widget' );
 
 function add_cpt_exercise_to_archive_page( $query ) {
     // Don't modify the query if we're on the edit post list
-    if ( is_admin() && $query->is_main_query() && $query->get( 'post_type' ) === 'exercise' && $GLOBALS['current_screen'] instanceof WP_Posts_List_Table ) {
+    if ( is_admin() && $query->is_main_query() && $query->get( 'post_type' ) === 'exercise'
+         && $GLOBALS['current_screen'] instanceof WP_Posts_List_Table ) {
         return;
     }
     
     if ( ! is_admin() && isset( $_GET['post_type'] ) && $_GET['post_type'] === 'exercise' 
-        || $query->is_archive() && ! $query->is_post_type_archive( 'exercise' ) ) {
+        || $query->is_archive() && ! $query->is_post_type_archive( 'exercise' )) {
         // do something
         $post_type = 'exercise'; // Replace with your CPT name
         $query->set( 'post_type', array( 'post', $post_type ) );
@@ -44,7 +86,55 @@ function add_cpt_exercise_to_archive_page( $query ) {
 }
 add_action( 'pre_get_posts', 'add_cpt_exercise_to_archive_page' );
 
+
+// function add_cpt_to_calendar_widget( $join ) {
+//     global $wpdb;
+//     $post_type = 'exercise'; // Replace with your CPT name
+
+//     // Add the custom post type to the SQL join statement
+//     $join .= " LEFT JOIN $wpdb->posts AS p2 ON (p2.post_type = '$post_type' AND YEAR(p2.post_date) = YEAR($wpdb->posts.post_date) AND MONTH(p2.post_date) = MONTH($wpdb->posts.post_date))";
+
+//     return $join;
+// }
+// add_filter( 'getarchives_join', 'add_cpt_to_calendar_widget' );
+
+// function add_cpt_to_calendar_widget_where( $where ) {
+//     global $wpdb;
+//     $post_type = 'exercise'; // Replace with your CPT name
+
+//     // Add the custom post type to the SQL WHERE statement
+//     $where = str_replace( "AND post_type = 'post'", "AND post_type IN ('post', '$post_type')", $where );
+
+//     return $where;
+// }
+// add_filter( 'getarchives_where', 'add_cpt_to_calendar_widget_where' );
+
 /*
+function add_cpt_to_calendar_widget($calendar_output) {
+    global $wpdb;
+    $post_type = 'exercise';
+    $start_tag = '<td ';
+    $end_tag = '</td>';
+    $pos = strpos($calendar_output, $start_tag);
+    while ($pos !== false) {
+        $pos = $pos + strlen($start_tag);
+        $insert_pos = $pos;
+        $pos = strpos($calendar_output, $end_tag, $pos);
+        $date_str = substr($calendar_output, $insert_pos, $pos - $insert_pos);
+        $date = strtotime($date_str);
+        $year = date('Y', $date);
+        $month = date('m', $date);
+        $day = date('d', $date);
+        $count = $wpdb->get_var($wpdb->prepare("SELECT COUNT(*) FROM $wpdb->posts WHERE post_type = %s AND YEAR(post_date) = %d AND MONTH(post_date) = %d AND DAY(post_date) = %d", $post_type, $year, $month, $day));
+        $insert_str = '<span class="post-count">' . $count . '</span>';
+        $calendar_output = substr_replace($calendar_output, $insert_str, $insert_pos, 0);
+        $pos = strpos($calendar_output, $start_tag, $pos);
+    }
+    return $calendar_output;
+}
+add_filter('get_calendar', 'add_cpt_to_calendar_widget');
+
+
 
 function add_cpt_exercise_to_calendar_widget( $post_types ) {
     $post_types[] = 'exercise';

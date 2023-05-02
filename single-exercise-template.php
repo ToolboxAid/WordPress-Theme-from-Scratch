@@ -2,7 +2,7 @@
 
 <?php
 /*
-Template Name: SINGLE: Custom Post Template
+Template Name: Single Exercise
 Template Post Type: post
 */
 
@@ -20,14 +20,9 @@ if (have_posts()) :
     <article class="post image-container has-thumbnail">
         <h2><?php the_title(); ?></h2>
 
-        <?php if ( has_post_thumbnail() ) { ?>
-            <div class="post-thumbnail">
-                <?php the_post_thumbnail('small-thumbnail'); ?>
-            </div><!-- /post-thumbnail --> 
-        <?php } ?>
+
 
         <div id="content-container">
-
             <p class="post-info">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
                 <?php the_time(' F jS, Y '); ?>
@@ -57,45 +52,56 @@ if (have_posts()) :
 
             </p><?php
 
-            the_content();
+            the_content(); ?>
+<div id="exercise_container" style="display: flex;">
+<div id="exercise_data" style="    flex: 1; width: 45%;">
+<?php
 
             $equipment = get_post_meta( get_the_ID(), 'equipment_group', true );
             if ( $equipment ) {
-                echo '<h3>Equipment: </h3><p>' . esc_html( $equipment ) . '</p>';
+                echo '<p><h3 style="display: inline;">Equipment: </h3>' . esc_html( $equipment ) . '</p>';
             }
 
             $body = get_post_meta( get_the_ID(), 'body_group', true );
             if ( $body ) {
-                echo '<h3>Body Group: </h3><p>' . esc_html( $body ) . '</p>';
+                echo '<p><h3 style="display: inline;">Body Group: </h3>' . esc_html( $body ) . '</p>';
             }
 
             $muscle = get_post_meta( get_the_ID(), 'muscle_group', true );
             if ( $muscle ) {
-                echo '<h3>Muscle Group: </h3><p>' . esc_html( $muscle ) . '</p>';
+                echo '<p><h3 style="display: inline;">Muscle Group: </h3>' . esc_html( $muscle ) . '</p>';
             } ?>
-            <div class="muscle-groups">
                 <h3>Muscles used:</h3>           
+                <div class="muscle-groups" style="padding-left:30px;">
                 <?php if ( $primary_muscle_group = get_post_meta( get_the_ID(), 'primary_muscle_group', true ) ) : ?>
-                <p><strong>Primary:</strong> <?php echo esc_html( $primary_muscle_group ); ?></p>
+                <p style="display: inline;"><strong>Primary:</strong> </p><?php echo esc_html( $primary_muscle_group ); ?><br>
                 <?php endif; ?>
+
                 <?php if ( $secondary_muscle_group = get_post_meta( get_the_ID(), 'secondary_muscle_group', true ) ) : ?>
-                <p><strong>Secondary:</strong> <?php echo esc_html( $secondary_muscle_group ); ?></p>
+                <p style="display: inline;"><strong>Secondary:</strong></p> <?php echo esc_html( $secondary_muscle_group ); ?><br>
                 <?php endif; ?>
+
                 <?php if ( $tertiary_muscle_group = get_post_meta( get_the_ID(), 'tertiary_muscle_group', true ) ) : ?>
-                <p><strong>Tertiary:</strong> <?php echo esc_html( $tertiary_muscle_group ); ?></p>
+                <p style="display: inline;"><strong>Tertiary:</strong></p> <?php echo esc_html( $tertiary_muscle_group ); ?><br>
                 <?php endif; ?>
             </div> 
-            <?php             
+            <?php   
+            
             $difficulty_group = get_post_meta( get_the_ID(), 'difficulty_group', true );
             if ( ! empty( $difficulty_group ) ) {
-                echo '<h3>Difficulty:</h3>';
-                echo '<ul>';
-                foreach ( $difficulty_group as $option ) {
-                    echo '<li><p>' . esc_html( $option ) . '</p></li>';
-                }
-                echo '</ul>';
-            }        
-
+                echo '<p><h3 style="display: inline;">Difficulty: </h3>';
+                echo implode( ', ', array_map( 'esc_html', $difficulty_group ) ) . '</p>';
+            }      ?>
+</div>
+<div id="exercise_image" style="margin-left: 20px; width: 45%;">
+    <?php if ( has_post_thumbnail() ) { ?>
+            <div class="post-thumbnail">
+                <?php the_post_thumbnail('medium'); ?>
+            </div><!-- /post-thumbnail --> 
+    <?php } ?>
+</div>
+        </div>
+<?php
         get_template_part( 'content-comments' );  ?>
         </div>
 
@@ -106,7 +112,8 @@ if (have_posts()) :
 	endwhile;	
 
 	// Previous/next post navigation.
-	get_template_part( 'content-pagination-post' );         
+	get_template_part( 'content-pagination-post' );  
+     
 else : 
 	get_template_part('content-sorry');
 endif; ?>

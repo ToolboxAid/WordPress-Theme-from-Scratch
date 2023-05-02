@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: SINGLE: Custom Post Template
+Template Name: Custom Post Template
 Template Post Type: post
 */
 

@@ -2,7 +2,7 @@
 
 // Define a global variables
 global $version;
-$version = "1.0.17";
+$version = "1.0.18";
 
 global $debug_page;
 $debug_page = true;
@@ -39,7 +39,7 @@ require_once('ctl-footer-star.php');
 require_once('ctl-footer-copyright.php');
 require_once('ctl-footer-top.php');
 
-require_once('function-exercise.php');
+//require_once('function-exercise.php');
 
 //////////////
 /* Resource */
@@ -57,6 +57,16 @@ function my_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'my_enqueue_scripts' );
 
 
+// function custom_exercise_pagination( $query ) {
+// 	if ( is_admin() || ! $query->is_main_query() ) {
+// 	  return;
+// 	}
+  
+// 	if ( is_category( 'exercise' ) ) {
+// 	  $query->set( 'posts_per_page', 3 );
+// 	}
+//   }
+//   add_action( 'pre_get_posts', 'custom_exercise_pagination' );
 /////////////////
 /* Theme setup */
 /////////////////

@@ -1,8 +1,5 @@
 <?php
-/*
-Template Name: SINGLE: Custom Post Template
-Template Post Type: post
-*/
+
 
 /* Page is used for posts of type page */
 get_header();
