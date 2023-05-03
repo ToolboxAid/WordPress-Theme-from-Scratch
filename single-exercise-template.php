@@ -49,64 +49,59 @@ if (have_posts()) :
                     }				
                     echo trim($output, $separator);
                 } ?>
-
             </p><?php
 
             the_content(); ?>
-<div id="exercise_container" style="display: flex;">
-<div id="exercise_data" style="    flex: 1; width: 45%;">
-<?php
+            <div id="exercise_container" style="display: flex;">
+                <div id="exercise_data" style="    flex: 1; width: 45%;">
+                <?php
 
-            $equipment = get_post_meta( get_the_ID(), 'equipment_group', true );
-            if ( $equipment ) {
-                echo '<p><h3 style="display: inline;">Equipment: </h3>' . esc_html( $equipment ) . '</p>';
-            }
+                    $equipment = get_post_meta( get_the_ID(), 'equipment_group', true );
+                    if ( $equipment ) {
+                        echo '<p><h3 style="display: inline;">Equipment: </h3>' . esc_html( $equipment ) . '</p>';
+                    }
 
-            $body = get_post_meta( get_the_ID(), 'body_group', true );
-            if ( $body ) {
-                echo '<p><h3 style="display: inline;">Body Group: </h3>' . esc_html( $body ) . '</p>';
-            }
+                    $body = get_post_meta( get_the_ID(), 'body_group', true );
+                    if ( $body ) {
+                        echo '<p><h3 style="display: inline;">Body Group: </h3>' . esc_html( $body ) . '</p>';
+                    }
 
-            $muscle = get_post_meta( get_the_ID(), 'muscle_group', true );
-            if ( $muscle ) {
-                echo '<p><h3 style="display: inline;">Muscle Group: </h3>' . esc_html( $muscle ) . '</p>';
-            } ?>
-                <h3>Muscles used:</h3>           
-                <div class="muscle-groups" style="padding-left:30px;">
-                <?php if ( $primary_muscle_group = get_post_meta( get_the_ID(), 'primary_muscle_group', true ) ) : ?>
-                <p style="display: inline;"><strong>Primary:</strong> </p><?php echo esc_html( $primary_muscle_group ); ?><br>
-                <?php endif; ?>
+                    $muscle_group = get_post_meta( get_the_ID(), 'muscle_group', true );
+                    if ( ! empty( $muscle_group ) ) {
+                        echo '<p><h3 style="display: inline;">Muscle Group(s): </h3>';
+                        echo implode( ', ', array_map( 'esc_html', $muscle_group ) ) . '</p>';
+                    } ?>
 
-                <?php if ( $secondary_muscle_group = get_post_meta( get_the_ID(), 'secondary_muscle_group', true ) ) : ?>
-                <p style="display: inline;"><strong>Secondary:</strong></p> <?php echo esc_html( $secondary_muscle_group ); ?><br>
-                <?php endif; ?>
+                    <h3>Muscles used:</h3>           
+                    <div class="muscle-groups" style="padding-left:30px;">
+                    <?php if ( $primary_muscle_group = get_post_meta( get_the_ID(), 'primary_muscle_group', true ) ) : ?>
+                    <p style="display: inline;"><strong>Primary:</strong> </p><?php echo esc_html( $primary_muscle_group ); ?><br>
+                    <?php endif; ?>
 
-                <?php if ( $tertiary_muscle_group = get_post_meta( get_the_ID(), 'tertiary_muscle_group', true ) ) : ?>
-                <p style="display: inline;"><strong>Tertiary:</strong></p> <?php echo esc_html( $tertiary_muscle_group ); ?><br>
-                <?php endif; ?>
-            </div> 
-            <?php   
-            
-            $difficulty_group = get_post_meta( get_the_ID(), 'difficulty_group', true );
-            if ( ! empty( $difficulty_group ) ) {
-                echo '<p><h3 style="display: inline;">Difficulty: </h3>';
-                echo implode( ', ', array_map( 'esc_html', $difficulty_group ) ) . '</p>';
-            }      ?>
-</div>
-<div id="exercise_image" style="margin-left: 20px; width: 45%;">
-    <?php if ( has_post_thumbnail() ) { ?>
-            <div class="post-thumbnail">
-                <?php the_post_thumbnail('medium'); ?>
-            </div><!-- /post-thumbnail --> 
-    <?php } ?>
-</div>
-        </div>
-<?php
+                    <?php if ( $secondary_muscle_group = get_post_meta( get_the_ID(), 'secondary_muscle_group', true ) ) : ?>
+                    <p style="display: inline;"><strong>Secondary:</strong></p> <?php echo esc_html( $secondary_muscle_group ); ?><br>
+                    <?php endif; ?>
+
+                    <?php if ( $tertiary_muscle_group = get_post_meta( get_the_ID(), 'tertiary_muscle_group', true ) ) : ?>
+                    <p style="display: inline;"><strong>Tertiary:</strong></p> <?php echo esc_html( $tertiary_muscle_group ); ?><br>
+                    <?php endif; ?>
+                </div> <?php               
+                $difficulty_group = get_post_meta( get_the_ID(), 'difficulty_group', true );
+                if ( ! empty( $difficulty_group ) ) {
+                    echo '<p><h3 style="display: inline;">Difficulty: </h3>';
+                    echo implode( ', ', array_map( 'esc_html', $difficulty_group ) ) . '</p>';
+                } ?>
+            </div>
+            <div id="exercise_image" style="margin-left: 20px; width: 45%;">
+                <?php if ( has_post_thumbnail() ) { ?>
+                    <div class="post-thumbnail">
+                        <?php the_post_thumbnail('medium'); ?>
+                    </div><!-- /post-thumbnail --> 
+                <?php } ?>
+            </div>
+        </div> <?php
         get_template_part( 'content-comments' );  ?>
-        </div>
-
 	</article>
-
 <?php
 
 	endwhile;	
