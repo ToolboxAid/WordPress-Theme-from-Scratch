@@ -19,9 +19,6 @@ if (have_posts()) :
     <!-- post-thumbnail -->
     <article class="post image-container has-thumbnail">
         <h2><?php the_title(); ?></h2>
-
-
-
         <div id="content-container">
             <p class="post-info">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -50,17 +47,19 @@ if (have_posts()) :
                     echo trim($output, $separator);
                 } ?>
             </p><?php
-
-            the_content(); ?>
-            <div id="exercise_container" style="display: flex;">
-                <div id="exercise_data" style="    flex: 1; width: 45%;">
-                <?php
-
+                    $workout_type = get_post_meta( get_the_ID(), 'workout_type', true );
+                    if ( $workout_type ) {
+                        echo '<p><h3 style="display: inline;">Type: </h3>' . esc_html( $workout_type ) . '</p>';
+                    }
                     $equipment = get_post_meta( get_the_ID(), 'equipment_group', true );
                     if ( $equipment ) {
                         echo '<p><h3 style="display: inline;">Equipment: </h3>' . esc_html( $equipment ) . '</p>';
                     }
 
+the_content(); ?>
+            <div id="exercise_container" style="display: flex;">
+                <div id="exercise_data" style="    flex: 1; width: 45%;">
+                <?php
                     $body = get_post_meta( get_the_ID(), 'body_group', true );
                     if ( $body ) {
                         echo '<p><h3 style="display: inline;">Body Group: </h3>' . esc_html( $body ) . '</p>';
@@ -93,12 +92,42 @@ if (have_posts()) :
                 } ?>
             </div>
             <div id="exercise_image" style="margin-left: 20px; width: 45%;">
-                <?php if ( has_post_thumbnail() ) { ?>
-                    <div class="post-thumbnail">
-                        <?php the_post_thumbnail('medium'); ?>
-                    </div><!-- /post-thumbnail --> 
-                <?php } ?>
-            </div>
+            <div class="image"></div>
+            </div> <?php
+
+            $image_name = get_post_meta( get_the_ID(), 'image_name', true );
+            $image_across = get_post_meta( get_the_ID(), 'image_across', true );
+            $image_down = get_post_meta( get_the_ID(), 'image_down', true );
+
+            $uploads_dir = wp_upload_dir();
+            $exercises_dir = $uploads_dir['basedir'] . '/tba/exercises';
+            $file_path = $exercises_dir . '/' . $image_name . '.properties';
+
+            if (file_exists($file_path)) {
+                $props = parse_ini_file($file_path);// get the values for the properties                        
+                $offsetX = intval($props['offsetX']);
+                $offsetY = intval($props['offsetY']);
+                $topLeftX  = intval($props['topLeftX']);
+                $topLeftY  = intval($props['topLeftY']);
+                $bottomRightX  = intval($props['bottomRightX']);
+                $bottomRightY  = intval($props['bottomRightY']);
+                $imagesX  = intval($props['imagesX']);
+                $imagesY  = intval($props['imagesY']);    
+                
+                $imageW = ( $bottomRightX - $topLeftX ) /  $imagesX;
+                $imageH = ( $bottomRightY - $topLeftY ) /  $imagesY;
+                $imageX = $offsetX + ($image_across * $imageW);// Across X
+                $imageY = $offsetY + ($image_down * $imageH);// Down Y
+
+                echo "<style>";
+                    echo ".image {";
+                    echo "background-image: url('/wp-content/uploads/tba/exercises/". $image_name . ".png');";
+                    echo "background-position: -" . $imageX . "px -" . $imageY . "px;";
+                    echo "width: " . $imageW . "px;";
+                    echo "height: " . $imageH . "px;";
+                echo "</style>";
+            } ?>
+
         </div> <?php
         get_template_part( 'content-comments' );  ?>
 	</article>

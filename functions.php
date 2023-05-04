@@ -2,7 +2,7 @@
 
 // Define a global variables
 global $version;
-$version = "1.0.19";
+$version = "1.0.20";
 
 global $debug_page;
 $debug_page = false;
