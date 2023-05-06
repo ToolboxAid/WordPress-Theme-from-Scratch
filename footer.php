@@ -71,7 +71,11 @@
 			
 			<div class="footer-row  footer-row-version">
 				<div class="footer-col align-center version">
-					<p>Version: <?php get_version(); ?></p>
+					<p>Version: <?php
+						$theme = wp_get_theme();
+						$version = $theme->get( 'Version' );
+						echo 'Theme version: ' . $version;					
+					?></p>
 				</div>
 			</div>			
 		</footer>

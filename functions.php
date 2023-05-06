@@ -1,9 +1,6 @@
 <?php
 
 // Define a global variables
-global $version;
-$version = "1.0.20";
-
 global $debug_page;
 $debug_page = false;
 
@@ -15,11 +12,6 @@ function debug_location($location) {
     }
 }
 
-
-function get_version() {
-	global $version; // Use the global variable inside the function
-	echo $version;
-}
 ////////////////////////////////////////////////////////////////
 /* Seperate control files for Header, Body, & Footer sections */
 ////////////////////////////////////////////////////////////////
@@ -212,6 +204,12 @@ function remove_admin_post_types() {
 	}
 }
 //add_action( 'admin_menu', 'remove_admin_post_types', 999 );
+
+function custom_upload_mimes( $mime_types ) {
+    $mime_types['properties'] = 'text/plain'; // Add the .properties extension and MIME type
+    return $mime_types;
+}
+add_filter( 'upload_mimes', 'custom_upload_mimes' );
 
 // Nothing below here.  I must be last
 ?>

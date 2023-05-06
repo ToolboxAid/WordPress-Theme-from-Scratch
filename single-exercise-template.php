@@ -50,8 +50,8 @@ if (have_posts()) :
             <div class="tba-message tba-warn">
                 <p>
                     <i class="fa fa-exclamation-triangle"></i>
-                    Caution and common sense should be used...as these are my experiences, and my unique situations.&nbsp; 
                     <i>Talk to your doctor.</i>&nbsp; 
+                    Caution and common sense should be used...as these are my experiences, and my unique situations.&nbsp; 
                     They may work for you or they may not.&nbsp; 
                     You may have different results.&nbsp; Please read our 
                     <a href="/legal_pages/disclaimer/">disclaimer</a>.
@@ -142,8 +142,8 @@ the_content(); ?>
         <div class="tba-message tba-warn">
                 <p>
                     <i class="fa fa-exclamation-triangle"></i>
+                    <i>Talk to your doctor.</i>&nbsp; 
                     Caution and common sense should be used...as these are my experiences, and my unique situations.&nbsp; 
-                    <i>Talk to your doctor.</i>&nbsp;  
                     They may work for you or they may not.&nbsp; 
                     You may have different results.&nbsp; Please read our 
                     <a href="/legal_pages/disclaimer/">disclaimer</a>.
