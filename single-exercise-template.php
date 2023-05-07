@@ -68,7 +68,7 @@ if (have_posts()) :
 
 the_content(); ?>
             <div id="exercise_container" style="display: flex;">
-                <div id="exercise_data" style="    flex: 1; width: 45%;">
+                <div id="exercise_data" style="    flex: 1; width: 65%;">
                 <?php
                     $body = get_post_meta( get_the_ID(), 'body_group', true );
                     if ( $body ) {
@@ -101,7 +101,7 @@ the_content(); ?>
                     echo implode( ', ', array_map( 'esc_html', $difficulty_group ) ) . '</p>';
                 } ?>
             </div>
-            <div id="exercise_image" style="margin-left: 20px; width: 45%;">
+            <div id="exercise_image" style="margin-left: 20px; width: 25%;">
             <div class="image"></div>
             </div> <?php
 
@@ -117,24 +117,33 @@ the_content(); ?>
                 $props = parse_ini_file($file_path);// get the values for the properties                        
                 $offsetX = intval($props['offsetX']);
                 $offsetY = intval($props['offsetY']);
-                $topLeftX  = intval($props['topLeftX']);
-                $topLeftY  = intval($props['topLeftY']);
+                $topLeftX  = 0; //intval($props['topLeftX']);
+                $topLeftY  = 0; // intval($props['topLeftY']);
                 $bottomRightX  = intval($props['bottomRightX']);
                 $bottomRightY  = intval($props['bottomRightY']);
                 $imagesX  = intval($props['imagesX']);
-                $imagesY  = intval($props['imagesY']);    
+                $imagesY  = intval($props['imagesY']); 
                 
-                $imageW = ( $bottomRightX - $topLeftX ) /  $imagesX;
-                $imageH = ( $bottomRightY - $topLeftY ) /  $imagesY;
+                $imageW = intval( ( ( $bottomRightX - $offsetX )  /  $imagesX) );
+                $imageH = intval( ( ( $bottomRightY - $offsetY )  /  $imagesY) );
                 $imageX = $offsetX + ($image_across * $imageW);// Across X
                 $imageY = $offsetY + ($image_down * $imageH);// Down Y
+
+                // echo "A: " . $image_across . "<br>";
+                // echo "D: " . $image_down . "<br>";
+                // echo "W: " . $imageW . "<br>";
+                // echo "H: " . $imageH . "<br>";                
+                // echo "X: " . $imageX . "<br>";
+                // echo "Y: " . $imageY . "<br>";                                
 
                 echo "<style>";
                     echo ".image {";
                     echo "background-image: url('/wp-content/uploads/tba/exercises/". $image_name . ".png');";
                     echo "background-position: -" . $imageX . "px -" . $imageY . "px;";
+                    //echo "background-position: -120px -5px;";
                     echo "width: " . $imageW . "px;";
                     echo "height: " . $imageH . "px;";
+                    echo "}";
                 echo "</style>";
             } ?>
 

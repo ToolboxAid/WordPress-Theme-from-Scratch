@@ -205,8 +205,20 @@ function remove_admin_post_types() {
 }
 //add_action( 'admin_menu', 'remove_admin_post_types', 999 );
 
+add_filter( 'upload_mimes', 'custom_upload_mimes' );
 function custom_upload_mimes( $mime_types ) {
-    $mime_types['properties'] = 'text/plain'; // Add the .properties extension and MIME type
+    // Add .properties file type
+    $mime_types['properties'] = 'text/plain';
+    
+    // Add .js file type
+    $mime_types['js'] = 'application/javascript';
+    
+    // Add .css file type
+    $mime_types['css'] = 'text/css';
+    
+    // Add .html file type
+    $mime_types['html'] = 'text/html';
+    
     return $mime_types;
 }
 add_filter( 'upload_mimes', 'custom_upload_mimes' );
