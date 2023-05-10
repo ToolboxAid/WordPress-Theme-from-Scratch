@@ -13,8 +13,7 @@ function footer_copyright( $wp_customize ) {
 
     /* ************************************************************ */
     /* ************************************************************ */
-    /* ************************************************************ */
-	
+    /* ************************************************************ */	
 	/* Establish Year */
     $wp_customize->add_setting( 'footer_copyright_established', array(
         'default'           => '1900',
@@ -27,6 +26,22 @@ function footer_copyright( $wp_customize ) {
         'description'=> __( 'The year to start the copyright', 'qbytesworld_WordPress' ),        
         'type'       => 'text',
     ) );
+
+    /* ************************************************************ */	
+	/* Theme Version */
+    $wp_customize->add_setting( 'footer_powered_by', array(
+        'default'           => 'Toolbox Aid',
+        'sanitize_callback' => 'sanitize_textarea_field',
+    ) );
+    $wp_customize->add_control( 'footer_powered_by', array(
+        'section'    => 'footer_copyright',
+        'settings'   => 'footer_powered_by',
+        'label'      => __( 'Powered by', 'qbytesworld_WordPress' ),
+        'description'=> __( 'Theme developer', 'qbytesworld_WordPress' ),        
+        'type'       => 'text',
+    ) );
+
+    /* ************************************************************ */	
     /* Text color */
 	$wp_customize->add_setting('footer_copyright_color', array(
 		'default' => '#00aaaa',

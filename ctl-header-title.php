@@ -73,7 +73,7 @@ function header_title( $wp_customize ) {
         'priority'   => 10,
         'input_attrs' => array(
         'min'    => '5',
-        'max'    => '40',
+        'max'    => '75',
         'step'   => '1',
         ),
      ) );

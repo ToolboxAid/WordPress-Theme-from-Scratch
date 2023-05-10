@@ -68,16 +68,25 @@
 					bloginfo('name'); ?>. All rights reserved.</p>
 				</div>
 			</div>
-			
+
+	<div class="footer-row  footer-row-version">
+		<div class="footer-col align-center version">
+			<p><?php
+				echo 'Powered by: ';					
+				echo get_theme_mod('footer_powered_by');
+			?></p>
+		</div>
+	</div>				
+
 			<div class="footer-row  footer-row-version">
 				<div class="footer-col align-center version">
-					<p>Version: <?php
+					<p><?php
 						$theme = wp_get_theme();
 						$version = $theme->get( 'Version' );
-						echo 'Theme version: ' . $version;					
+						echo 'Version: ' . $version;					
 					?></p>
 				</div>
-			</div>			
+			</div>	
 		</footer>
 
 		<!-- <div class="ball">

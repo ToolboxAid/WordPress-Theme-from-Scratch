@@ -219,6 +219,9 @@ function custom_upload_mimes( $mime_types ) {
     // Add .html file type
     $mime_types['html'] = 'text/html';
     
+    // Add .psd file type
+    $mime_types['psd'] = 'application/vnd.adobe.photoshop';
+    
     return $mime_types;
 }
 add_filter( 'upload_mimes', 'custom_upload_mimes' );
