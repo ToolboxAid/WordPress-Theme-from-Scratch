@@ -211,14 +211,18 @@ function custom_upload_mimes( $mime_types ) {
     $mime_types['properties'] = 'text/plain';
     
     // Add .js file type
-    $mime_types['js'] = 'application/javascript';
+    // Add .html file type
+    $mime_types['html'] = 'text/html';
+
+    // Add .js file type
+    $mime_types['js'] = 'text/javascript';
+	
+    // // Add .js file type
+    // $mime_types['js'] = 'application/javascript';
     
     // Add .css file type
     $mime_types['css'] = 'text/css';
-    
-    // Add .html file type
-    $mime_types['html'] = 'text/html';
-    
+
     // Add .psd file type
     $mime_types['psd'] = 'application/vnd.adobe.photoshop';
     
