@@ -101,7 +101,7 @@ the_content(); ?>
                     echo implode( ', ', array_map( 'esc_html', $difficulty_group ) ) . '</p>';
                 } ?>
             </div>
-            <div id="exercise_image" style="margin-left: 20px; width: 25%;">
+            <div id="exercise_image" style="margin-left: 20px; width: 35%;">
             <div class="image"></div>
             </div> <?php
 

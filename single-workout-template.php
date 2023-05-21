@@ -25,7 +25,7 @@ if (!defined('ABSPATH')) {
 
 // Get the path to wp-config.php file
 $wp_config_path = ABSPATH . 'wp-config.php';
-echo $wp_config_path;
+//echo $wp_config_path;
 
 // Include the wp-config.php file
 require_once($wp_config_path);
@@ -35,10 +35,36 @@ $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
 // Check if the connection was successful
 if (!$conn) {
-    die('Could not connect to the database: ' . mysqli_connect_error());
+    //die('Could not connect to the database: ' . mysqli_connect_error());
+    die('Could not connect to the database.');
 } else {
-    echo 'Connection successful, do something with $conn';
+    //echo 'Connection successful, do something with $conn';
 }
+
+
+/*   equipment_group */
+// Execute the SQL query to select distinct values from the 'equipment_group' custom field
+$query = "SELECT DISTINCT meta_value FROM wp_postmeta WHERE meta_key = 'equipment_group'  ORDER BY meta_value ASC"; // selects only equipment types in use
+$result = mysqli_query($conn, $query);
+
+// Check if the query returned any results
+if (mysqli_num_rows($result) > 0) {
+    // Loop through the results and create a checkbox for each value
+    echo "<ul>";
+    while ($row = mysqli_fetch_assoc($result)) {
+        // echo $row['meta_value'] . ', ';
+        if ($row['meta_value']  !== 'N/A' && $row['meta_value']  !== '*other*') {
+            echo '<li>';
+            echo '<input type="checkbox" name="equipment_group[]" value="' . $row['meta_value'] . '"> ' . $row['meta_value'] . '<br>';
+            echo '</li>';        
+        }
+    }
+    echo "</ul>";
+} else {
+    echo 'No values found for custom field.';
+}
+
+
 
 // Get the database table prefix
 global $table_prefix;
@@ -186,7 +212,7 @@ the_content(); ?>
                     echo implode( ', ', array_map( 'esc_html', $difficulty_group ) ) . '</p>';
                 } ?>
             </div>
-            <div id="exercise_image" style="margin-left: 20px; width: 25%;">
+            <div id="exercise_image" style="margin-left: 20px; width: 35%;">
             <div class="image"></div>
             </div> <?php
 
