@@ -203,28 +203,24 @@ function remove_admin_post_types() {
 		remove_menu_page( 'upload.php' ); 
 	}
 }
-//add_action( 'admin_menu', 'remove_admin_post_types', 999 );
+add_action( 'admin_menu', 'remove_admin_post_types', 999 );
 
 add_filter( 'upload_mimes', 'custom_upload_mimes' );
 function custom_upload_mimes( $mime_types ) {
     // Add .properties file type
     $mime_types['properties'] = 'text/plain';
     
-    // Add .js file type
     // Add .html file type
     $mime_types['html'] = 'text/html';
 
     // Add .js file type
     $mime_types['js'] = 'text/javascript';
-	
-    // // Add .js file type
-    // $mime_types['js'] = 'application/javascript';
     
     // Add .css file type
     $mime_types['css'] = 'text/css';
 
     // Add .psd file type
-    $mime_types['psd'] = 'application/vnd.adobe.photoshop';
+    //$mime_types['psd'] = 'application/vnd.adobe.photoshop';
     
     return $mime_types;
 }
